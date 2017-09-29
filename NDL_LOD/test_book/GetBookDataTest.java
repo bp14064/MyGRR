@@ -1,15 +1,26 @@
 package test_book;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
+import java.util.List;
 
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Node;
+import org.dom4j.io.SAXReader;
 /**
  * NDLのLODデータ取得API：SRUを使って、書誌データを取得するサンプル
  * ここでは、クエリはマニュアルからそのまま使い、Javaからリクエストを送って結果を受け取れるのかをやってみる
  * 動作確認（9/28）
+ *
+ * XML解析の追加（9/29）
+ * ライブラリとして、dom4jとjaxenを追加
+ * この２つのライブラリについては、ほかのものでまとめる（出来たら）
+ * 参考サイト：http://blog.codebook-10000.com/entry/20130710/1373465211
+ *
  * @author Shingo
  *
  */
@@ -27,14 +38,40 @@ public class GetBookDataTest {
 		      URLConnection con = url.openConnection();
 		      try (BufferedReader reader = new BufferedReader(
 		        new InputStreamReader(con.getInputStream(), "UTF-8"))) {
-		        while (reader.ready()) {
-		          System.out.println(reader.readLine());
-		        }
+		        /*
+		         * これで、readerが読み込んだものをすべて取れる
+		         * この後、XMLの解析を行うのだが、参考にしたサイトでは
+		         * XMLファイルから読み込んで使っている
+		         *
+		         * しかし、読み込むためのメソッドがread(java.io.InputStream in)となっているので、うえで
+		         * con.getInputSreamをそのまま使えばいいのでは
+		         */
+		    	/*String xml = "";
+		    	while (reader.ready()) {
+		          xml += reader.readLine();
+		          System.out.println(xml);
+		        }*/
+		    	  while (reader.ready()) {
+		    	    System.out.println(reader.readLine());
+		    	  }
+
+		     SAXReader readerS = new SAXReader();
+				try {
+					Document document = readerS.read("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\test_book\\samp.xml");
+					List nodes = document.selectNodes("/dcndl_simple:dc/dc:title"); //Xpathでは _と:があると使えない -と.に変えないと
+
+					for(Iterator i = nodes.iterator(); i.hasNext();) {
+						Node node = (Node) i.next();
+						System.out.println("title:" + node.getText());
+					}
+				} catch (DocumentException e) {
+					e.printStackTrace();
+				}
 		      }
-		    } catch (IOException e) {
+
+		}catch (Exception e) {
 		      e.printStackTrace();
 		    }
 
 	}
-
 }
