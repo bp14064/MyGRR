@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <version>1.2</version>
+  <numberOfRecords>3</numberOfRecords>
+  <nextRecordPosition>0</nextRecordPosition>
+  <extraResponseData>
+&lt;facets&gt;
+  &lt;lst name=&quot;REPOSITORY_NO&quot;&gt;
+    &lt;int name=&quot;R100000002&quot;&gt;3&lt;/int&gt;
+    &lt;int name=&quot;R100000001&quot;&gt;1&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;NDC&quot;&gt;
+    &lt;int name=&quot;9&quot;&gt;1&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;ISSUED_DATE&quot;&gt;
+    &lt;int name=&quot;2011&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;2012&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;2013&quot;&gt;1&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;LIBRARY&quot;&gt;
+    &lt;int name=&quot;国立国会図書館&quot;&gt;3&lt;/int&gt;
+    &lt;int name=&quot;さいたま市立中央図書館&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;千葉市中央図書館&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;大阪市立図書館&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;熊本県立図書館&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;静岡市立中央図書館&quot;&gt;1&lt;/int&gt;
+  &lt;/lst&gt;
+&lt;/facets&gt;
+  </extraResponseData>
+  <records>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>string</recordPacking>
+      <recordData>
+        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+          <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I000011223692-00</dc:identifier>
+          <dc:title>読んでおきたいベスト集!夏目漱石</dc:title>
+          <dcndl:titleTranscription>ヨンデオキタイ ベストシュウ ナツメ ソウセキ</dcndl:titleTranscription>
+          <dc:creator>夏目漱石 [著]</dc:creator>
+          <dc:creator>別冊宝島編集部 編</dc:creator>
+          <dc:creator>夏目, 漱石, 1867-1916</dc:creator>
+          <dc:creator>宝島社</dc:creator>
+          <dcndl:creatorTranscription>ナツメ, ソウセキ</dcndl:creatorTranscription>
+          <dcndl:partTitle>坊っちゃん</dcndl:partTitle>
+          <dcndl:partTitle>夢十夜</dcndl:partTitle>
+          <dcndl:partTitle>こころ</dcndl:partTitle>
+          <dcndl:partTitle>硝子戸の中</dcndl:partTitle>
+          <dcndl:seriesTitle>宝島社文庫</dcndl:seriesTitle>
+          <dcndl:seriesTitleTranscription>タカラジマシャ ブンコ</dcndl:seriesTitleTranscription>
+          <dc:publisher>宝島社</dc:publisher>
+          <dcndl:publicationPlace>東京</dcndl:publicationPlace>
+          <dcterms:issued xsi:type="dcterms:W3CDTF">2011</dcterms:issued>
+          <dcndl:price>686円</dcndl:price>
+          <dcterms:extent>606p ; 16cm</dcterms:extent>
+          <dc:identifier xsi:type="dcndl:ISBN">9784796685139</dc:identifier>
+          <dc:identifier xsi:type="dcndl:JPNO">21951794</dc:identifier>
+          <dc:subject xsi:type="dcndl:NDLC">KH426</dc:subject>
+          <dc:subject xsi:type="dcndl:NDC9">913.6</dc:subject>
+          <dcndl:materialType>図書</dcndl:materialType>
+          <dcterms:accessRights>S01P99U99</dcterms:accessRights>
+          <rdfs:seeAlso rdf:resource="http://id.ndl.go.jp/bib/000011223692"></rdfs:seeAlso>
+          <rdfs:seeAlso rdf:resource="http://web.oml.city.osaka.lg.jp/webopac_i_ja/0012327106"></rdfs:seeAlso>
+          <dcndl:publicationPlace xsi:type="dcterms:ISO3166">JP</dcndl:publicationPlace>
+          <dc:language xsi:type="ISO639-2">jpn</dc:language>
+        </dcndl_simple:dc>
+      </recordData>
+      <recordPosition>1</recordPosition>
+    </record>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>string</recordPacking>
+      <recordData>
+        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+          <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I024429124-00</dc:identifier>
+          <dc:title>Koprnenje</dc:title>
+          <dc:creator>Natsume Sōseki</dc:creator>
+          <dc:creator>iz japonščine prevedel Iztok Ilc</dc:creator>
+          <dc:creator>夏目, 漱石, 1867-1916</dc:creator>
+          <dcndl:creatorTranscription>ナツメ, ソウセキ</dcndl:creatorTranscription>
+          <dcndl:edition>Prvi natis</dcndl:edition>
+          <dcndl:seriesTitle>Zbirka Sanje roman</dcndl:seriesTitle>
+          <dcterms:alternative>こころ</dcterms:alternative>
+          <dc:publisher>Sanje</dc:publisher>
+          <dcndl:publicationPlace>Ljubljana, Slovenija</dcndl:publicationPlace>
+          <dcterms:issued xsi:type="dcterms:W3CDTF">2012</dcterms:issued>
+          <dcterms:extent>283 pages ; 21 cm</dcterms:extent>
+          <dc:identifier xsi:type="dcndl:ISBN">9789612740412</dc:identifier>
+          <dc:identifier xsi:type="dcndl:ISBN">9612740410</dc:identifier>
+          <dc:identifier xsi:type="dcndl:OCLCNO">821104302</dc:identifier>
+          <dc:subject xsi:type="dcndl:NDLC">KH884</dc:subject>
+          <dc:subject xsi:type="dcterms:UDC">821.51/.71</dc:subject>
+          <dcndl:materialType>図書</dcndl:materialType>
+          <dcterms:accessRights>S01P99U99</dcterms:accessRights>
+          <rdfs:seeAlso rdf:resource="http://id.ndl.go.jp/bib/024429124"></rdfs:seeAlso>
+          <dcterms:description>Translation of: Kokoro : Sensei no isho</dcterms:description>
+          <dcndl:publicationPlace xsi:type="dcterms:ISO3166">SI</dcndl:publicationPlace>
+          <dc:subject>Japonska--1912-1945--V leposlovju</dc:subject>
+          <dc:language xsi:type="ISO639-2">slv</dc:language>
+        </dcndl_simple:dc>
+      </recordData>
+      <recordPosition>2</recordPosition>
+    </record>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>string</recordPacking>
+      <recordData>
+        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+          <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I024682509-00</dc:identifier>
+          <dc:title>Anima e cuore</dc:title>
+          <dc:creator>Natsume Sōseki</dc:creator>
+          <dc:creator>traduzione di Antonio Vacca</dc:creator>
+          <dc:creator>夏目, 漱石, 1867-1916</dc:creator>
+          <dcterms:alternative>こころ</dcterms:alternative>
+          <dc:publisher>Youcanprint Self-Publishing</dc:publisher>
+          <dcndl:publicationPlace>Tricase, Italy</dcndl:publicationPlace>
+          <dcterms:issued xsi:type="dcterms:W3CDTF">2013</dcterms:issued>
+          <dcterms:extent>280 pages ; 22 cm</dcterms:extent>
+          <dc:identifier xsi:type="dcndl:ISBN">9788891108111</dc:identifier>
+          <dc:subject xsi:type="dcndl:NDLC">KH884</dc:subject>
+          <dcndl:materialType>図書</dcndl:materialType>
+          <dcterms:accessRights>S01P99U99</dcterms:accessRights>
+          <rdfs:seeAlso rdf:resource="http://id.ndl.go.jp/bib/024682509"></rdfs:seeAlso>
+          <dcndl:publicationPlace xsi:type="dcterms:ISO3166">IT</dcndl:publicationPlace>
+          <dc:language xsi:type="ISO639-2">ita</dc:language>
+        </dcndl_simple:dc>
+      </recordData>
+      <recordPosition>3</recordPosition>
+    </record>
+  </records>
+</searchRetrieveResponse>
