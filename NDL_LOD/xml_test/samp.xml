@@ -32,7 +32,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dcndl_simple:dc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/">
           <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I000011223692-00</dc:identifier>
           <dc:title>読んでおきたいベスト集!夏目漱石</dc:title>
           <dcndl:titleTranscription>ヨンデオキタイ ベストシュウ ナツメ ソウセキ</dcndl:titleTranscription>
@@ -70,7 +70,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dcndl_simple:dc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/">
           <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I024429124-00</dc:identifier>
           <dc:title>Koprnenje</dc:title>
           <dc:creator>Natsume Sōseki</dc:creator>
@@ -104,7 +104,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-        <dcndl_simple:dc xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dcndl_simple:dc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/">
           <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R100000002-I024682509-00</dc:identifier>
           <dc:title>Anima e cuore</dc:title>
           <dc:creator>Natsume Sōseki</dc:creator>

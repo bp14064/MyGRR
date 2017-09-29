@@ -4,13 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Iterator;
-import java.util.List;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Node;
-import org.dom4j.io.SAXReader;
 /**
  * NDLのLODデータ取得API：SRUを使って、書誌データを取得するサンプル
  * ここでは、クエリはマニュアルからそのまま使い、Javaからリクエストを送って結果を受け取れるのかをやってみる
@@ -54,20 +48,8 @@ public class GetBookDataTest {
 		    	  while (reader.ready()) {
 		    	    System.out.println(reader.readLine());
 		    	  }
-
-		     SAXReader readerS = new SAXReader();
-				try {
-					Document document = readerS.read("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\test_book\\samp.xml");
-					List nodes = document.selectNodes("/dcndl_simple:dc/dc:title"); //Xpathでは _と:があると使えない -と.に変えないと
-
-					for(Iterator i = nodes.iterator(); i.hasNext();) {
-						Node node = (Node) i.next();
-						System.out.println("title:" + node.getText());
-					}
-				} catch (DocumentException e) {
-					e.printStackTrace();
-				}
 		      }
+
 
 		}catch (Exception e) {
 		      e.printStackTrace();
