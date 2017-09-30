@@ -38,10 +38,16 @@ public class AnalayzeXML {
 						System.out.println(e5.nodeCount());
 						System.out.println(e5.node(11).getName());
 						System.out.println(e5.node(11).getStringValue());
-						/*for (Iterator j = e2.nodeIterator(); j.hasNext();) {
-					    	  Node element1 = (Node) j.next();
-					    	    System.out.println(element1.getName());
-						}*/
+
+
+						for(int i1=0;i1<e5.nodeCount();i1++) {
+							System.out.println("nodenum="+i1+" nodename="+e5.node(i1).getName());
+							System.out.println("value="+e5.node(i1).getStringValue());
+						}
+
+						Element ndlc = (Element)e5.node(51);
+						System.out.println(ndlc.getNodeTypeName()+","+ndlc.nodeCount());
+						System.out.println(ndlc.node(0).getStringValue());
 					}
 
 
@@ -49,6 +55,7 @@ public class AnalayzeXML {
 				    	  Node element1 = (Node) j.next();
 				    	    System.out.println(element1.getName());
 					}*/
+
 				 }
 
 
