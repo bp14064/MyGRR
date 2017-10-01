@@ -8,6 +8,7 @@ package main;
 public class NDLTester {
 
 	public static void main(String[] args) {
+		CreateRequest cr = new CreateRequest();
 		//クエリのシードを入力
 
 		//リクエスト作成部に
@@ -17,6 +18,12 @@ public class NDLTester {
 		//XMLファイルの作成
 
 		//XML解析部に
+
+		/*
+		 * クエリ作成（典拠データのテスト）
+		 */
+		System.out.println(cr.createRequest("インターネット", "non", "broad"));
+
 
 	}
 
