@@ -1,5 +1,7 @@
 package main;
 
+import exception.ArgsTypeException;
+
 /**
  * リクエスト作成クラス、結果送信受信クラス、XML解析クラスを動かすためのクラス
  * @author Shingo
@@ -22,7 +24,12 @@ public class NDLTester {
 		/*
 		 * クエリ作成（典拠データのテスト）
 		 */
-		System.out.println(cr.createRequest("インターネット", "non", "broad"));
+		try {
+			System.out.println(cr.createRequest("インターネット", "non", "broad"));
+		} catch (ArgsTypeException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 
 	}
