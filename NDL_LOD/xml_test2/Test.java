@@ -1,12 +1,12 @@
 package xml_test2;
 
 import java.io.File;
-import java.util.Iterator;
 import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
-import org.dom4j.Node;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 
@@ -18,12 +18,27 @@ import org.dom4j.io.SAXReader;
  */
 public class Test {
 	public static void main(String[] args) {
-		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
+		File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
+		org.dom4j.XPath xpath = DocumentHelper.createXPath("/searchRetrieveResponse/records/record/recordData/dc/title");
 
 		SAXReader reader = new SAXReader();
+		Document document = null;
+		try {
+			document = reader.read(file);
+		} catch (DocumentException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		List comics = xpath.selectNodes(document);
+		for(Object nodeObj: comics){
+		    Element comic = (Element)nodeObj;
+		    System.out.println(comic.attributeValue("title"));
+		}
+
+		/*SAXReader reader = new SAXReader();
 		try {
 			Document document = reader.read(file);
-			List nodes = document.selectNodes("/searchRetrieveResponse/records/record/recordData/dc/title");
+			List nodes = document.selectNodes("/dcndl_simple:dc/dc:title");
 
 			for(Iterator i = nodes.iterator(); i.hasNext();) {
 				System.out.println("1");
@@ -32,6 +47,6 @@ public class Test {
 			}
 		} catch (DocumentException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
