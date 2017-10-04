@@ -18,13 +18,14 @@ import org.dom4j.io.SAXReader;
  */
 public class Test {
 	public static void main(String[] args) {
-		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
+		File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
+
 
 		SAXReader reader = new SAXReader();
 		try {
 			Document document = reader.read(file);
-			List nodes = document.selectNodes("/searchRetrieveResponse/records/record/recordData/dc/title");
-
+			List nodes = document.selectNodes("//record");
+			System.out.println(nodes.size());
 			for(Iterator i = nodes.iterator(); i.hasNext();) {
 				System.out.println("1");
 				Node node = (Node) i.next();
