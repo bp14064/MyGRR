@@ -16,7 +16,7 @@ public class NDLTester {
 		XMLAnalyzer xa;
 		//クエリの作成に必要な情報を入力
 		 String querySeed = "人工知能";
-		 String queryType = "keyword";
+		 String queryType = "title";
 		 String getDataType = "non";
 		 String targetDataType = "book";
 		//リクエスト作成部に
@@ -27,6 +27,7 @@ public class NDLTester {
 			// TODO 自動生成された catch ブロック
 			e1.printStackTrace();
 		}
+		System.out.println(req);
 		//作成したリクエストを結果送信受信部に
 		 rt = new RequestTR(req);
 		//XML解析部に

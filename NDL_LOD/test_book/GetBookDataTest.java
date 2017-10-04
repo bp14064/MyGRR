@@ -26,7 +26,7 @@ public class GetBookDataTest {
 		 * クエリは、外部提供インタフェース仕様書 附録 3 から
 		 */
 		String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=title%3d%22%e3%81%93%e3%81%93%e3%82%8d%22%20AND%20creator%3d%22%e5%a4%8f%e7%9b%ae%e6%bc%b1%e7%9f%b3%22%20AND%20from%3d%222011%22%20AND%20until%3d%222013%22&recordSchema=dcndl_simple";
-
+		//tring request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=anywhere%3D%22%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%22&recordSchema=dcndl_simple";
 		try {
 		      URL url = new URL(request);
 		      URLConnection con = url.openConnection();

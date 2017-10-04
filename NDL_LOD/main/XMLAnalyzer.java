@@ -13,7 +13,7 @@ import org.dom4j.io.SAXReader;
 
 public class XMLAnalyzer {
 	private String result;
-	private final String tmpFilePath = "";//tmp.xmlのファイルパス
+	private final String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\main\\tmp.xml";//tmp.xmlのファイルパス
 	private File filetmp;
 	private int[] targetNodeNum =  null;
 	private int[] targetNodeNumTest = {11, 15, 21, 45, 47, 51, 53, 55};
@@ -45,8 +45,8 @@ public class XMLAnalyzer {
 		System.out.println(msg);
 
 		//一時保存用ファイルの削除
-		if(filetmp.delete())
-	    	System.out.println("xml file deleted");
+		//if(filetmp.delete())
+	    	//System.out.println("xml file deleted");
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class XMLAnalyzer {
 
 		SAXReader reader = new SAXReader();
 		try {
-			Document doc = reader.read(this.filetmp);
+			Document doc = reader.read(new File(this.tmpFilePath));
 			Element root = doc.getRootElement();
 
 			/*

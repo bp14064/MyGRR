@@ -33,6 +33,7 @@ public class CreateRequest {
 			query = this.URIEncode(query);
 			String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=";
 			request += query;
+			request += "&maximumRecords=2&recordSchema=dcndl_simple";
 			return request;
 		}
 		// auth

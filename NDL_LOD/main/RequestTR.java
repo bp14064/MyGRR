@@ -28,12 +28,13 @@ public class RequestTR {
 			try (BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"))) {
 				while (reader.ready()) {
 					// System.out.println(reader.readLine());
-					this.result += reader.readLine();
+					this.result += reader.readLine() + "\n";
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(this.result);
 
 		return this.result;
 	}

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <version>1.2</version>
+  <numberOfRecords>7134</numberOfRecords>
+  <nextRecordPosition>3</nextRecordPosition>
+  <extraResponseData>
+&lt;facets&gt;
+  &lt;lst name=&quot;REPOSITORY_NO&quot;&gt;
+    &lt;int name=&quot;R000000004&quot;&gt;3650&lt;/int&gt;
+    &lt;int name=&quot;R000000024&quot;&gt;2224&lt;/int&gt;
+    &lt;int name=&quot;R100000002&quot;&gt;516&lt;/int&gt;
+    &lt;int name=&quot;R100000001&quot;&gt;470&lt;/int&gt;
+    &lt;int name=&quot;R100000039&quot;&gt;186&lt;/int&gt;
+    &lt;int name=&quot;R000000025&quot;&gt;155&lt;/int&gt;
+    &lt;int name=&quot;R000000016&quot;&gt;143&lt;/int&gt;
+    &lt;int name=&quot;R100000074&quot;&gt;60&lt;/int&gt;
+    &lt;int name=&quot;R100000038&quot;&gt;56&lt;/int&gt;
+    &lt;int name=&quot;R100000040&quot;&gt;17&lt;/int&gt;
+    &lt;int name=&quot;R100000004&quot;&gt;13&lt;/int&gt;
+    &lt;int name=&quot;R000000006&quot;&gt;5&lt;/int&gt;
+    &lt;int name=&quot;R100000049&quot;&gt;2&lt;/int&gt;
+    &lt;int name=&quot;R100000085&quot;&gt;2&lt;/int&gt;
+    &lt;int name=&quot;R100000073&quot;&gt;1&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;NDC&quot;&gt;
+    &lt;int name=&quot;0&quot;&gt;427&lt;/int&gt;
+    &lt;int name=&quot;1&quot;&gt;12&lt;/int&gt;
+    &lt;int name=&quot;2&quot;&gt;6&lt;/int&gt;
+    &lt;int name=&quot;3&quot;&gt;36&lt;/int&gt;
+    &lt;int name=&quot;4&quot;&gt;33&lt;/int&gt;
+    &lt;int name=&quot;5&quot;&gt;47&lt;/int&gt;
+    &lt;int name=&quot;6&quot;&gt;15&lt;/int&gt;
+    &lt;int name=&quot;7&quot;&gt;12&lt;/int&gt;
+    &lt;int name=&quot;8&quot;&gt;4&lt;/int&gt;
+    &lt;int name=&quot;9&quot;&gt;16&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;ISSUED_DATE&quot;&gt;
+    &lt;int name=&quot;1900&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;1961&quot;&gt;1&lt;/int&gt;
+    &lt;int name=&quot;1968&quot;&gt;2&lt;/int&gt;
+    &lt;int name=&quot;1969&quot;&gt;7&lt;/int&gt;
+    &lt;int name=&quot;1970&quot;&gt;4&lt;/int&gt;
+    &lt;int name=&quot;1971&quot;&gt;8&lt;/int&gt;
+    &lt;int name=&quot;1972&quot;&gt;26&lt;/int&gt;
+    &lt;int name=&quot;1973&quot;&gt;13&lt;/int&gt;
+    &lt;int name=&quot;1974&quot;&gt;7&lt;/int&gt;
+    &lt;int name=&quot;1975&quot;&gt;5&lt;/int&gt;
+    &lt;int name=&quot;1976&quot;&gt;17&lt;/int&gt;
+    &lt;int name=&quot;1977&quot;&gt;4&lt;/int&gt;
+    &lt;int name=&quot;1978&quot;&gt;42&lt;/int&gt;
+    &lt;int name=&quot;1979&quot;&gt;16&lt;/int&gt;
+    &lt;int name=&quot;1980&quot;&gt;29&lt;/int&gt;
+    &lt;int name=&quot;1981&quot;&gt;21&lt;/int&gt;
+    &lt;int name=&quot;1982&quot;&gt;18&lt;/int&gt;
+    &lt;int name=&quot;1983&quot;&gt;40&lt;/int&gt;
+    &lt;int name=&quot;1984&quot;&gt;74&lt;/int&gt;
+    &lt;int name=&quot;1985&quot;&gt;86&lt;/int&gt;
+    &lt;int name=&quot;1986&quot;&gt;197&lt;/int&gt;
+    &lt;int name=&quot;1987&quot;&gt;203&lt;/int&gt;
+    &lt;int name=&quot;1988&quot;&gt;157&lt;/int&gt;
+    &lt;int name=&quot;1989&quot;&gt;88&lt;/int&gt;
+    &lt;int name=&quot;1990&quot;&gt;106&lt;/int&gt;
+    &lt;int name=&quot;1991&quot;&gt;77&lt;/int&gt;
+    &lt;int name=&quot;1992&quot;&gt;92&lt;/int&gt;
+    &lt;int name=&quot;1993&quot;&gt;94&lt;/int&gt;
+    &lt;int name=&quot;1994&quot;&gt;61&lt;/int&gt;
+    &lt;int name=&quot;1995&quot;&gt;44&lt;/int&gt;
+    &lt;int name=&quot;1996&quot;&gt;81&lt;/int&gt;
+    &lt;int name=&quot;1997&quot;&gt;67&lt;/int&gt;
+    &lt;int name=&quot;1998&quot;&gt;78&lt;/int&gt;
+    &lt;int name=&quot;1999&quot;&gt;84&lt;/int&gt;
+    &lt;int name=&quot;2000&quot;&gt;322&lt;/int&gt;
+    &lt;int name=&quot;2001&quot;&gt;189&lt;/int&gt;
+    &lt;int name=&quot;2002&quot;&gt;98&lt;/int&gt;
+    &lt;int name=&quot;2003&quot;&gt;194&lt;/int&gt;
+    &lt;int name=&quot;2004&quot;&gt;266&lt;/int&gt;
+    &lt;int name=&quot;2005&quot;&gt;138&lt;/int&gt;
+    &lt;int name=&quot;2006&quot;&gt;174&lt;/int&gt;
+    &lt;int name=&quot;2007&quot;&gt;299&lt;/int&gt;
+    &lt;int name=&quot;2008&quot;&gt;250&lt;/int&gt;
+    &lt;int name=&quot;2009&quot;&gt;253&lt;/int&gt;
+    &lt;int name=&quot;2010&quot;&gt;202&lt;/int&gt;
+    &lt;int name=&quot;2011&quot;&gt;240&lt;/int&gt;
+    &lt;int name=&quot;2012&quot;&gt;616&lt;/int&gt;
+    &lt;int name=&quot;2013&quot;&gt;292&lt;/int&gt;
+    &lt;int name=&quot;2014&quot;&gt;320&lt;/int&gt;
+    &lt;int name=&quot;2015&quot;&gt;370&lt;/int&gt;
+    &lt;int name=&quot;2016&quot;&gt;588&lt;/int&gt;
+    &lt;int name=&quot;2017&quot;&gt;534&lt;/int&gt;
+  &lt;/lst&gt;
+  &lt;lst name=&quot;LIBRARY&quot;&gt;
+    &lt;int name=&quot;国立国会図書館&quot;&gt;517&lt;/int&gt;
+    &lt;int name=&quot;大阪市立図書館&quot;&gt;254&lt;/int&gt;
+    &lt;int name=&quot;大阪府立中央図書館&quot;&gt;247&lt;/int&gt;
+    &lt;int name=&quot;愛知県図書館&quot;&gt;221&lt;/int&gt;
+    &lt;int name=&quot;香川県立図書館&quot;&gt;216&lt;/int&gt;
+    &lt;int name=&quot;滋賀県立図書館&quot;&gt;202&lt;/int&gt;
+    &lt;int name=&quot;東京都立中央図書館&quot;&gt;167&lt;/int&gt;
+    &lt;int name=&quot;岡山県立図書館&quot;&gt;153&lt;/int&gt;
+    &lt;int name=&quot;徳島県立図書館&quot;&gt;151&lt;/int&gt;
+    &lt;int name=&quot;鳥取県立図書館&quot;&gt;150&lt;/int&gt;
+    &lt;int name=&quot;横浜市中央図書館&quot;&gt;148&lt;/int&gt;
+    &lt;int name=&quot;岐阜県図書館&quot;&gt;139&lt;/int&gt;
+    &lt;int name=&quot;大分県立図書館&quot;&gt;131&lt;/int&gt;
+    &lt;int name=&quot;福岡市総合図書館&quot;&gt;126&lt;/int&gt;
+    &lt;int name=&quot;神奈川県立川崎図書館&quot;&gt;125&lt;/int&gt;
+    &lt;int name=&quot;広島県立図書館&quot;&gt;123&lt;/int&gt;
+    &lt;int name=&quot;新潟県立図書館&quot;&gt;123&lt;/int&gt;
+    &lt;int name=&quot;東京都立多摩図書館&quot;&gt;123&lt;/int&gt;
+    &lt;int name=&quot;福井県立図書館&quot;&gt;122&lt;/int&gt;
+    &lt;int name=&quot;名古屋市鶴舞中央図書館&quot;&gt;117&lt;/int&gt;
+    &lt;int name=&quot;福岡県立図書館&quot;&gt;116&lt;/int&gt;
+    &lt;int name=&quot;宮城県図書館&quot;&gt;113&lt;/int&gt;
+    &lt;int name=&quot;静岡県立中央図書館&quot;&gt;112&lt;/int&gt;
+    &lt;int name=&quot;埼玉県立熊谷図書館&quot;&gt;105&lt;/int&gt;
+    &lt;int name=&quot;千葉市中央図書館&quot;&gt;99&lt;/int&gt;
+    &lt;int name=&quot;札幌市中央図書館&quot;&gt;99&lt;/int&gt;
+    &lt;int name=&quot;石川県立図書館&quot;&gt;98&lt;/int&gt;
+    &lt;int name=&quot;和歌山県立図書館&quot;&gt;93&lt;/int&gt;
+    &lt;int name=&quot;長崎県立長崎図書館&quot;&gt;93&lt;/int&gt;
+    &lt;int name=&quot;高知県立図書館&quot;&gt;93&lt;/int&gt;
+    &lt;int name=&quot;広島市立中央図書館&quot;&gt;89&lt;/int&gt;
+    &lt;int name=&quot;千葉県立西部図書館&quot;&gt;86&lt;/int&gt;
+    &lt;int name=&quot;青森県立図書館&quot;&gt;86&lt;/int&gt;
+    &lt;int name=&quot;兵庫県立図書館&quot;&gt;84&lt;/int&gt;
+    &lt;int name=&quot;沖縄県立図書館&quot;&gt;82&lt;/int&gt;
+    &lt;int name=&quot;秋田県立図書館&quot;&gt;82&lt;/int&gt;
+    &lt;int name=&quot;佐賀県立図書館&quot;&gt;80&lt;/int&gt;
+    &lt;int name=&quot;静岡市立中央図書館&quot;&gt;80&lt;/int&gt;
+    &lt;int name=&quot;富山県立図書館&quot;&gt;79&lt;/int&gt;
+    &lt;int name=&quot;奈良県立図書情報館&quot;&gt;76&lt;/int&gt;
+    &lt;int name=&quot;宮崎県立図書館&quot;&gt;75&lt;/int&gt;
+    &lt;int name=&quot;千葉県立中央図書館&quot;&gt;73&lt;/int&gt;
+    &lt;int name=&quot;山口県立山口図書館&quot;&gt;73&lt;/int&gt;
+    &lt;int name=&quot;鹿児島県立図書館&quot;&gt;72&lt;/int&gt;
+    &lt;int name=&quot;島根県立図書館&quot;&gt;71&lt;/int&gt;
+    &lt;int name=&quot;愛媛県立図書館&quot;&gt;71&lt;/int&gt;
+    &lt;int name=&quot;山梨県立図書館&quot;&gt;70&lt;/int&gt;
+    &lt;int name=&quot;県立長野図書館&quot;&gt;69&lt;/int&gt;
+    &lt;int name=&quot;川崎市立中原図書館&quot;&gt;67&lt;/int&gt;
+    &lt;int name=&quot;福島県立図書館&quot;&gt;67&lt;/int&gt;
+    &lt;int name=&quot;三重県立図書館&quot;&gt;66&lt;/int&gt;
+    &lt;int name=&quot;北海道立図書館&quot;&gt;64&lt;/int&gt;
+    &lt;int name=&quot;熊本県立図書館&quot;&gt;61&lt;/int&gt;
+    &lt;int name=&quot;茨城県立図書館&quot;&gt;61&lt;/int&gt;
+    &lt;int name=&quot;山形県立図書館&quot;&gt;59&lt;/int&gt;
+    &lt;int name=&quot;栃木県立図書館&quot;&gt;58&lt;/int&gt;
+    &lt;int name=&quot;群馬県立図書館&quot;&gt;58&lt;/int&gt;
+    &lt;int name=&quot;京都府立図書館&quot;&gt;57&lt;/int&gt;
+    &lt;int name=&quot;サピエ図書館&quot;&gt;56&lt;/int&gt;
+    &lt;int name=&quot;千葉県立東部図書館&quot;&gt;49&lt;/int&gt;
+    &lt;int name=&quot;岩手県立図書館&quot;&gt;42&lt;/int&gt;
+    &lt;int name=&quot;神奈川県立図書館&quot;&gt;42&lt;/int&gt;
+    &lt;int name=&quot;埼玉県立久喜図書館&quot;&gt;36&lt;/int&gt;
+    &lt;int name=&quot;さいたま市立中央図書館&quot;&gt;29&lt;/int&gt;
+    &lt;int name=&quot;大阪府立中之島図書館&quot;&gt;27&lt;/int&gt;
+    &lt;int name=&quot;若狭図書学習センター&quot;&gt;16&lt;/int&gt;
+    &lt;int name=&quot;大阪府立中央図書館国際児童文学館&quot;&gt;3&lt;/int&gt;
+    &lt;int name=&quot;京都府立京都学・歴彩館&quot;&gt;2&lt;/int&gt;
+  &lt;/lst&gt;
+&lt;/facets&gt;
+  </extraResponseData>
+  <records>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>string</recordPacking>
+      <recordData>
+        <dcndl_simple:dc xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+          <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R000000004-I027787106-00</dc:identifier>
+          <dc:title>"あなただけの人工知能をつくる"Deep Learning画像認識システム</dc:title>
+          <dcndl:titleTranscription>"アナタ ダケ ノ ジンコウ チノウ オ ツクル"Deep Learning ガゾウ ニンシキ システム</dcndl:titleTranscription>
+          <dc:creator>長森 藤江</dc:creator>
+          <dc:creator>長森 藤江</dc:creator>
+          <dcterms:alternative>Make your own AI : Deep Learning Engine Maker for Image Recognition</dcterms:alternative>
+          <dcterms:issued xsi:type="dcterms:W3CDTF">2016-12</dcterms:issued>
+          <dcndl:materialType>記事・論文</dcndl:materialType>
+          <dcndl:publicationName>画像ラボ / 画像ラボ編集委員会 編</dcndl:publicationName>
+          <dcndl:publicationVolume>27</dcndl:publicationVolume>
+          <dcndl:number>12</dcndl:number>
+          <dcndl:issue>324</dcndl:issue>
+          <dcndl:pageRange>31-35</dcndl:pageRange>
+          <rdfs:seeAlso rdf:resource="http://id.ndl.go.jp/bib/027787106"></rdfs:seeAlso>
+          <dc:subject>画像認識エンジン</dc:subject>
+          <dc:subject>GPGPU</dc:subject>
+          <dc:subject>ハイパーパラメータ</dc:subject>
+          <dc:language xsi:type="ISO639-2">jpn</dc:language>
+        </dcndl_simple:dc>
+      </recordData>
+      <recordPosition>1</recordPosition>
+    </record>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>string</recordPacking>
+      <recordData>
+        <dcndl_simple:dc xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcndl_simple="http://ndl.go.jp/dcndl/dcndl_simple/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+          <dc:identifier xsi:type="dcterms:URI">http://iss.ndl.go.jp/books/R000000004-I027026794-00</dc:identifier>
+          <dc:title>"作品"も誌上公開! 人工知能はすでに「物語」を書きはじめている</dc:title>
+          <dcndl:titleTranscription>"サクヒン"モ シジョウ コウカイ! ジンコウ チノウ ワ スデニ 「 モノガタリ 」 オ カキ ハジメテ イル</dcndl:titleTranscription>
+          <dc:creator>Simon Parkin</dc:creator>
+          <dc:creator>Simon Parkin</dc:creator>
+          <dcndl:seriesTitle>脳を変える、未来も変える 「読書」の黄金期が来た!</dcndl:seriesTitle>
+          <dcndl:seriesTitleTranscription>ノウ オ カエル 、 ミライ モ カエル 「 ドクショ 」 ノ オウゴンキ ガ キタ!</dcndl:seriesTitleTranscription>
+          <dcterms:issued xsi:type="dcterms:W3CDTF">2016-02</dcterms:issued>
+          <dcndl:materialType>記事・論文</dcndl:materialType>
+          <dcndl:publicationName>Courrier Japon</dcndl:publicationName>
+          <dcndl:publicationVolume>12</dcndl:publicationVolume>
+          <dcndl:number>2</dcndl:number>
+          <dcndl:issue>135</dcndl:issue>
+          <dcndl:pageRange>94-99</dcndl:pageRange>
+          <rdfs:seeAlso rdf:resource="http://id.ndl.go.jp/bib/027026794"></rdfs:seeAlso>
+          <dc:language xsi:type="ISO639-2">jpn</dc:language>
+        </dcndl_simple:dc>
+      </recordData>
+      <recordPosition>2</recordPosition>
+    </record>
+  </records>
+</searchRetrieveResponse>
