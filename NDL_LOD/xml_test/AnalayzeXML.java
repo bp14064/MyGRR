@@ -11,7 +11,7 @@ import org.dom4j.io.SAXReader;
 public class AnalayzeXML {
 
 	public static void main(String[] args) {
-		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
+		File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\xml_test\\dcndl2.xml");
 
 		 SAXReader reader = new SAXReader();
 		    try {
