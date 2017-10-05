@@ -33,7 +33,7 @@ public class CreateRequest {
 			query = this.URIEncode(query);
 			String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=";
 			request += query;
-			request += "&maximumRecords=2&recordSchema=dcndl_simple";
+			request += "&maximumRecords=10&recordSchema=dcndl_simple&onlyBib=\"true\"";
 			return request;
 		}
 		// auth
@@ -62,27 +62,29 @@ public class CreateRequest {
 	 * @throws ArgsTypeException
 	 */
 	private String createQuery4Book(String querySeed, String queryType) throws ArgsTypeException {
-		String query = "";
+		String query = "dpid=\"iss-ndl-opac\" AND ";
 		if (queryType.matches("keyword")) {
 			// クエリ：anywhere="キーワード" キーワード検索
 			query += "anywhere=\"" + querySeed + "\"";
-			return query;
+
 		} else if (queryType.matches("title")) {
 			// クエリ：title="タイトル" タイトルに”タイトル”を含むものを検索
 			query += "title=\"" + querySeed + "\"";
-			return query;
+
 		} else if (queryType.matches("creator")) {
 			// クエリ：creator exact="著者名" 著者名の完全一致検索
 			query += "creator exact=\"" + querySeed + "\"";
-			return query;
+
 		} else if (queryType.matches("ndc")) {
 			// クエリ：ndc="NDC" NDCから検索 ※これは試してみないとうまくいくか分からない
 			// クエリはこれでいいのかと、NDCの場合文字列形式でいいのか
 			query += "ndc=\"" + querySeed + "\"";
-			return query;
+
 		} else {
 			throw new ArgsTypeException("queryTypeに指定されたものが適切ではありません。");
 		}
+		query += " AND mediatype=1";
+		return query;
 
 	}
 
