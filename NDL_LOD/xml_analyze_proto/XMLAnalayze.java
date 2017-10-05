@@ -36,7 +36,7 @@ public class XMLAnalayze {
 		      e.printStackTrace();
 		    }
 		 try {
-		 File filetmp = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_analyze_proto\\tmp.xml");
+		 File filetmp = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\xml_analyze_proto\\tmp.xml");
 
 
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filetmp));
@@ -69,7 +69,7 @@ public class XMLAnalayze {
 
 		//File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_test\\samp.xml");
 		 System.out.println("ok");
-		 File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\xml_analyze_proto\\tmp.xml");
+		 File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\xml_analyze_proto\\tmp.xml");
 
 		System.out.println("一時作成されたXMLファイルから以下の取得対象のものを抽出する");
 		System.out.println("取得対象：タイトル、著者名、出版社、ページ数、ISBN、NDLC（請求記号）、NDC9、資料種別");
@@ -102,6 +102,8 @@ public class XMLAnalayze {
 	    							  if(e3.node(i3).getName()!=null&&e3.node(i3).getName().matches("dc")) {
 	    								  Element e4 = (Element)e3.node(i3);
 	    								  for(int i4=0;i4<e4.nodeCount();i4++) {
+	    									  System.out.println(e4.node(i4).getName());
+
 	    									  if(eqaulTarget(i4)) {
 	    										  System.out.println("NodeNum="+i4+",Value="+e4.node(i4).getStringValue());
 	    									  }
