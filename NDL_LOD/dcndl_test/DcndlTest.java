@@ -1,6 +1,12 @@
 package dcndl_test;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.dom4j.Document;
@@ -11,7 +17,8 @@ import org.dom4j.io.SAXReader;
 public class DcndlTest {
 
 	private static final int[] targetNodeNum = {11, 15, 21, 45, 47, 51, 53, 55};
-
+	private final static String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
+	private final static String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
 
 	public static void main(String[] args) {
 		//String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=title%3d%22%e3%81%93%e3%81%93%e3%82%8d%22%20AND%20creator%3d%22%e5%a4%8f%e7%9b%ae%e6%bc%b1%e7%9f%b3%22%20AND%20from%3d%222011%22%20AND%20until%3d%222013%22&recordSchema=dcndl_simple";
@@ -43,7 +50,7 @@ public class DcndlTest {
 		}*/
 
 		//File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcdnl_test\\tmp.xml");
-		 File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml");
+		 File file = new File(xmlFilePath);
 
 		System.out.println("一時作成されたXMLファイルから以下の取得対象のものを抽出する");
 		System.out.println("取得対象：タイトル、著者名、出版社、ページ数、ISBN、NDLC（請求記号）、NDC9、資料種別");
@@ -65,9 +72,55 @@ public class DcndlTest {
 	      }
 
 	      //recordsをテキストファイルに一回保存
-	      File recordsFile = new File("");
-	      //ゴリ押しのテキスト処理
+	      try {
+	 		 File filetmp = new File(txtFilePath);
+	 		 FileWriter fw = new FileWriter(filetmp);
+	 	     BufferedWriter bw = new BufferedWriter(fw);
+	 	     bw.write(records);
+	 	     bw.close();
+	 	     fw.close();
+	 		} catch (IOException e1) {
+	 			// TODO 自動生成された catch ブロック
+	 			e1.printStackTrace();
+	 		}
 
+
+	      //ゴリ押しのテキスト処理
+	      File recordsFile = new File(txtFilePath);
+	      FileReader fr = null;
+		try {
+			fr = new FileReader(recordsFile);
+		} catch (FileNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	      BufferedReader br = new BufferedReader(fr);
+	      boolean ndlch = false;
+	      try {
+			String cmp = "";
+			  while((cmp = br.readLine()) != null){
+				  //System.out.println(cmp);
+				  //if(cmp.matches("^&lt;rdf:RDF"))
+				  if(cmp.contains("dcterms:title")) {
+					  System.out.println(cmp);
+				  }
+				  if(cmp.contains("<foaf:name>国立国会図書館")) {
+					  ndlch = true;
+				  }
+				  if(cmp.contains("dcndl:callNumber")) {
+					  if(ndlch == true) {
+					  System.out.println(cmp);
+					  ndlch = false;
+					  }
+				  }
+		        }
+			br.close();
+			fr.close();
+			recordsFile.delete();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 
 
