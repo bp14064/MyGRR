@@ -96,11 +96,23 @@ public class DcndlTest {
 		}
 	      BufferedReader br = new BufferedReader(fr);
 	      boolean ndlch = false;
+	      boolean chunkch = false;
+	      int chunknum = 1;
 	      try {
 			String cmp = "";
 			  while((cmp = br.readLine()) != null){
-				  //System.out.println(cmp);
-				  //if(cmp.matches("^&lt;rdf:RDF"))
+
+				  if(chunkch == false && cmp.contains("rdf:RDF xmlns:dcndl=")) {
+					  chunkch = true;
+					  System.out.println("データ番号：" + chunknum + "開始");
+				  }
+
+				  if(chunkch == true && cmp.contains("/rdf:RDF")) {
+					  chunkch = false;
+					  System.out.println("データ番号:" + chunknum + "終了");
+					  chunknum++;
+				  }
+
 				  if(cmp.contains("dcterms:title")) {
 					  System.out.println(cmp);
 				  }
@@ -118,7 +130,6 @@ public class DcndlTest {
 			fr.close();
 			recordsFile.delete();
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
