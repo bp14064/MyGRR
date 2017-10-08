@@ -95,36 +95,102 @@ public class DcndlTest {
 			e.printStackTrace();
 		}
 	      BufferedReader br = new BufferedReader(fr);
-	      boolean ndlch = false;
-	      boolean chunkch = false;
-	      int chunknum = 1;
+	      boolean ndlch = false; //国立国会図書館の請求記号だけ抜き出すためのフラグ
+	      boolean chunkch = false; //チャンク（複数のデータがあったときのそれぞれの塊）のためのフラグ
+	      boolean mainTitleCh = false; //メインタイトルとサブタイトルを識別するためのフラグ
+	      int chunknum = 1; //タイトル識別用
+	      boolean creatorch = false;
+	      int creatornum = 1;
+	      boolean publisherch = false;
 	      try {
 			String cmp = "";
 			  while((cmp = br.readLine()) != null){
 
-				  if(chunkch == false && cmp.contains("rdf:RDF xmlns:dcndl=")) {
+				  if(chunkch == false && cmp.contains("rdf:RDF xmlns:dcndl=")) {//データチャンクの開始処理
 					  chunkch = true;
 					  System.out.println("データ番号：" + chunknum + "開始");
 				  }
 
-				  if(chunkch == true && cmp.contains("/rdf:RDF")) {
+				  if(chunkch == true && cmp.contains("/rdf:RDF")) {//データチャンクの終了処理ク
 					  chunkch = false;
 					  System.out.println("データ番号:" + chunknum + "終了");
 					  chunknum++;
+					  //新しくフラグを作ったら、ここでリセットしないと
+					  mainTitleCh = false;
+					  creatorch = true;
 				  }
 
-				  if(cmp.contains("dcterms:title")) {
-					  System.out.println(cmp);
-				  }
-				  if(cmp.contains("<foaf:name>国立国会図書館")) {
-					  ndlch = true;
-				  }
-				  if(cmp.contains("dcndl:callNumber")) {
-					  if(ndlch == true) {
-					  System.out.println(cmp);
-					  ndlch = false;
+				  if(cmp.contains("dcterms:title")) {//タイトル
+					  if(mainTitleCh == false) {
+						  System.out.println("メインタイトル:" + formatData(cmp));
+						  mainTitleCh = true;
+					  }else{
+						  System.out.println("サブタイトル:" + formatData(cmp));
 					  }
 				  }
+
+				  if(cmp.contains("<foaf:name>国立国会図書館")) { //請求記号のチェック用
+					  ndlch = true;
+				  }
+
+				  if(cmp.contains("dcndl:callNumber")) {//請求記号
+					  //いまのフラグだけだと、もし国立国会図書館の請求記号がない場合（そんなことあるのか？）は対応できない
+					 if(ndlch == true) {
+					  System.out.println("請求記号：" + formatData(cmp));
+					  ndlch = false;
+					 }
+				  }
+
+				  if(cmp.contains("dc:creator")) {
+					  if(creatorch == false) {
+						  System.out.println("著作者番号 " + creatornum + ":" +formatData(cmp));
+						  creatornum++;
+					  }else {
+						  creatornum = 1;
+						  System.out.println("著作者番号 " + creatornum + ":" +formatData(cmp));
+						  creatornum++;
+						  creatorch = false;
+					  }
+				  }
+
+				  if(cmp.contains("dcterms:publisher") && !cmp.contains("/dcterms:publisher")) {
+					  publisherch = true;
+				  }
+
+				  if(publisherch == true && cmp.contains("foaf:name")) {
+					  System.out.println("出版社:" + formatData(cmp));
+					  publisherch = false;
+				  }
+
+				  if(cmp.contains("dcterms:extent")) {
+					  System.out.println("ページ数:" + formatData(cmp));
+				  }
+
+				  if(cmp.contains("dcterms:subject rdf:resource=") && cmp.contains("ndc")) {//NDCの抜き出し
+					  //ndc8,9,10に一応対応できるようにしておく
+					  int ndcnum = 0;
+					  if(cmp.contains("ndc9")) {
+						  ndcnum = 9;
+					  }else if(cmp.contains("ndc8")) {
+						  ndcnum = 8;
+					  }else if(cmp.contains("ndc10")) {
+						  ndcnum = 10;
+					  }
+
+					  cmp = cmp.trim();
+					  int end = cmp.lastIndexOf("/");
+					  cmp = cmp.substring(0, end);
+					  int start = cmp.lastIndexOf("/");
+					  end = cmp.lastIndexOf("\"");
+					  cmp = cmp.substring(start+1, end);
+
+					  System.out.println("NDC" + ndcnum + ":" + cmp);
+				  }
+
+				  if(cmp.contains("dcterms:identifier rdf:datatype=")&&cmp.contains("ISBN")) {//ISBNの抜き出し
+					  System.out.println("ISBN:"+formatData(cmp));
+				  }
+
 		        }
 			br.close();
 			fr.close();
@@ -141,7 +207,7 @@ public class DcndlTest {
 	    }
 
 	    //if(file.delete())
-	    	System.out.println("xml file deleted");
+	    	//System.out.println("xml file deleted");
 	}
 
 	static boolean eqaulTarget(int comp) {
@@ -158,9 +224,18 @@ public class DcndlTest {
 	        return true;
 	      }
 	    }
-
 	    return false;
 	  }
+
+	private static String formatData(String target) {
+		//まずは、不要な空白の除去
+		String result = target.trim();
+
+		int start = result.indexOf(">");
+		int end = result.indexOf("</");
+		result = result.substring(start+1, end);
+		return result;
+	}
 
 
 }
