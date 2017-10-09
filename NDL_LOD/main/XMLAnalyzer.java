@@ -15,7 +15,8 @@ public class XMLAnalyzer {
 	private String result;
 	// private final String tmpFilePath =
 	// "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\main\\tmp.xml";//tmp.xmlのファイルパス
-	private final String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\main\\tmp1.xml";
+	//private final String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\main\\tmp1.xml";
+	private final String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\main\\tmp1.xml";
 	private File filetmp;
 	private int[] targetNodeNum = null;
 	private int[] targetNodeNumTest = { 11, 15, 21, 45, 47, 51, 53, 55 };
