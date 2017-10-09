@@ -198,7 +198,7 @@ public class DcndlTest {
 		        }
 			br.close();
 			fr.close();
-			//recordsFile.delete();
+			recordsFile.delete();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -210,8 +210,8 @@ public class DcndlTest {
 	        e.printStackTrace();
 	    }
 
-	    if(file.delete())
-	    	System.out.println("xml file deleted");
+	    //if(file.delete())
+	    	//System.out.println("xml file deleted");
 	}
 
 	static boolean eqaulTarget(int comp) {
