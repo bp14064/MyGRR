@@ -29,10 +29,10 @@ public class NDLTester {
 		}
 		System.out.println(req);
 		//作成したリクエストを結果送信受信部に
-		// rt = new RequestTR(req);
+		   rt = new RequestTR(req);
 		//XML解析部に
-		// xa = new XMLAnalyzer(rt.requestProcess());
-		// xa.xmlAnalyze(targetDataType);
+		   xa = new XMLAnalyzer(rt.requestProcess());
+		   xa.xmlAnalyze(targetDataType);
 
 
 		/*
