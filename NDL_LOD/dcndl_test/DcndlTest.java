@@ -7,6 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Iterator;
 
 import org.dom4j.Document;
@@ -17,14 +20,15 @@ import org.dom4j.io.SAXReader;
 public class DcndlTest {
 
 	private static final int[] targetNodeNum = {11, 15, 21, 45, 47, 51, 53, 55};
-	private final static String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
+	private final static String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp1.xml";
 	private final static String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
 
 	public static void main(String[] args) {
 		//String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=title%3d%22%e3%81%93%e3%81%93%e3%82%8d%22%20AND%20creator%3d%22%e5%a4%8f%e7%9b%ae%e6%bc%b1%e7%9f%b3%22%20AND%20from%3d%222011%22%20AND%20until%3d%222013%22&recordSchema=dcndl_simple";
-		String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=dpid%3D%22iss-ndl-opac%22+AND+title%3D%22%E3%81%93%E3%81%93%E3%82%8D%22+AND+creator%3D%22%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3%22+AND+from%3D%222011%22+AND+until%3D%222013%22&recordSchema=dcndl&onlyBib";
+		//String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=dpid%3D%22iss-ndl-opac%22+AND+title%3D%22%E3%81%93%E3%81%93%E3%82%8D%22+AND+creator%3D%22%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3%22+AND+from%3D%222011%22+AND+until%3D%222013%22&recordSchema=dcndl&onlyBib";
+		String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=dpid%3D%22iss-ndl-opac%22+AND+title%3D%22%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%22+AND+mediatype%3D1&maximumRecords=10&recordSchema=dcndl&onlyBib=\"true\"";
 		String tmp="";
-		/*try {
+		try {
 		      URL url = new URL(request);
 		      URLConnection con = url.openConnection();
 		      try (BufferedReader reader = new BufferedReader(
@@ -38,7 +42,7 @@ public class DcndlTest {
 		      e.printStackTrace();
 		    }
 		 try {
-		 File filetmp = new File("C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml");
+		 File filetmp = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp1.xml");
 
 
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filetmp));
@@ -47,7 +51,7 @@ public class DcndlTest {
 		} catch (IOException e1) {
 			// TODO 自動生成された catch ブロック
 			e1.printStackTrace();
-		}*/
+		}
 
 		//File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\NDL_LOD\\dcdnl_test\\tmp.xml");
 		 File file = new File(xmlFilePath);
@@ -106,7 +110,7 @@ public class DcndlTest {
 			String cmp = "";
 			  while((cmp = br.readLine()) != null){
 
-				  if(chunkch == false && cmp.contains("rdf:RDF xmlns:dcndl=")) {//データチャンクの開始処理
+				  if(chunkch == false && cmp.contains("rdf:RDF xmlns")) {//データチャンクの開始処理
 					  chunkch = true;
 					  System.out.println("データ番号：" + chunknum + "開始");
 				  }
@@ -194,7 +198,7 @@ public class DcndlTest {
 		        }
 			br.close();
 			fr.close();
-			recordsFile.delete();
+			//recordsFile.delete();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -206,8 +210,8 @@ public class DcndlTest {
 	        e.printStackTrace();
 	    }
 
-	    //if(file.delete())
-	    	//System.out.println("xml file deleted");
+	    if(file.delete())
+	    	System.out.println("xml file deleted");
 	}
 
 	static boolean eqaulTarget(int comp) {
