@@ -130,6 +130,14 @@ public class CreateRequest {
 			String tmpC1 = tmp + "\"" + keyword + "\" ;";
 			String tmpC2 = " skos:relatedMatch ?uri2 . FILTER regex(?uri2, \"ndc\")";
 			query += tmpC1 + tmpC2;
+		}
+		// 代表分類からそれに属する件名を取得
+		else if(getDataType.matches("relatedMatch")) {
+			tmp = null;
+			tmp = " ?subj ";
+			String tmpRM1 = tmp + "skos:relatedMatch <http://id.ndl.go.jp/class/";
+			String tmpRM2 = keyword + "> ; rdfs:label ?label .";
+			query += tmpRM1 + tmpRM2;
 		} else {
 			throw new ArgsTypeException("getDataTypeに指定されたものが適切ではありません。");
 		}
