@@ -120,9 +120,15 @@ public class CreateRequest {
 			String tmpR1 = tmp + "\"" + keyword + "\" ;";
 			String tmpR2 = " skos:related ?related . ?related rdfs:label ?label .";
 			query += tmpR1 + tmpR2;
-		}else if(getDataType.matches("ndc")) {
+		}
+		// NDC分類 ndc　この場合は、headの部分が異なる
+		else if(getDataType.matches("ndc")) {
+			query = null;
+			query = "PREFIX skos:<http://www.w3.org/2004/02/skos/core#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> SELECT ?uri2 WHERE { ";
+			tmp = null;
+			tmp = " ?uri1 rdfs:label ";
 			String tmpC1 = tmp + "\"" + keyword + "\" ;";
-			String tmpC2 = " ?uri skos:relatedMatch ?relatedMatch . rdfs:uri ?uri .";
+			String tmpC2 = " skos:relatedMatch ?uri2 . FILTER regex(?uri2, \"ndc\")";
 			query += tmpC1 + tmpC2;
 		} else {
 			throw new ArgsTypeException("getDataTypeに指定されたものが適切ではありません。");
