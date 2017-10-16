@@ -41,7 +41,7 @@ public class CreateRequest {
 		if (queryType.equals("non")) {
 			String query = this.createQuery4Auth(querySeed, getDataType);
 			query = this.URIEncode(query);
-			System.out.println(query);
+			//System.out.println(query);
 			String request = "http://id.ndl.go.jp/auth/ndla?query=";
 			request += query;
 			request += "&output=xml";
@@ -134,7 +134,7 @@ public class CreateRequest {
 			throw new ArgsTypeException("getDataTypeに指定されたものが適切ではありません。");
 		}
 		query += tail;
-		System.out.println(query);
+		//System.out.println(query);
 		return query;
 	}
 

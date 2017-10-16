@@ -94,9 +94,9 @@ public class ResultAnalyzer {
 				e.printStackTrace();
 			}
 
-			for(String s:result) {
-				System.out.println(s);
-			}
+			//for(String s:result) {
+			//	System.out.println(s);
+			//}
 			return result;
 		} else {
 			throw new ArgsTypeException("引数エラー：NDCフラグがFALSE");
