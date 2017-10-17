@@ -81,7 +81,9 @@ public class CreateRequest {
 			// クエリはこれでいいのかと、NDCの場合文字列形式でいいのか
 			query += "ndc=\"" + querySeed + "\"";
 
-		} else {
+		} else if(queryType.matches("subject")) {//主題(件名)の検索
+			query += "subject=\"" + querySeed + "\"";
+	    } else {
 			throw new ArgsTypeException("queryTypeに指定されたものが適切ではありません。");
 		}
 		query += " AND mediatype=1";
