@@ -1,17 +1,233 @@
 <?xml version="1.0"?>
 <sparql xmlns="http://www.w3.org/2005/sparql-results#">
   <head>
-    <!-- query time: 0.017 sec -->
+    <!-- query time: 0.016 sec -->
     <variable name="subj"/>
     <variable name="label"/>
   </head>
   <results>
     <result>
       <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00560674</uri>
+      </binding>
+      <binding name="label">
+        <literal>ビール</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00560930</uri>
+      </binding>
+      <binding name="label">
+        <literal>ワイン</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00561059</uri>
+      </binding>
+      <binding name="label">
+        <literal>ブランデー</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00564149</uri>
+      </binding>
+      <binding name="label">
+        <literal>飲料</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00564768</uri>
+      </binding>
+      <binding name="label">
+        <literal>カクテル</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00565279</uri>
+      </binding>
+      <binding name="label">
+        <literal>果実酒</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
         <uri>http://id.ndl.go.jp/auth/ndlsh/00566222</uri>
       </binding>
       <binding name="label">
         <literal>コーヒー</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00566295</uri>
+      </binding>
+      <binding name="label">
+        <literal>ココア</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00566839</uri>
+      </binding>
+      <binding name="label">
+        <literal>紅茶</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00570044</uri>
+      </binding>
+      <binding name="label">
+        <literal>酒</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00570367</uri>
+      </binding>
+      <binding name="label">
+        <literal>清涼飲料</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00570446</uri>
+      </binding>
+      <binding name="label">
+        <literal>清酒</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00570972</uri>
+      </binding>
+      <binding name="label">
+        <literal>嗜好品</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00572323</uri>
+      </binding>
+      <binding name="label">
+        <literal>焼酎</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00573562</uri>
+      </binding>
+      <binding name="label">
+        <literal>茶</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00573974</uri>
+      </binding>
+      <binding name="label">
+        <literal>ウィスキー</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00574373</uri>
+      </binding>
+      <binding name="label">
+        <literal>洋酒</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00575038</uri>
+      </binding>
+      <binding name="label">
+        <literal>蒸留酒</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/00575908</uri>
+      </binding>
+      <binding name="label">
+        <literal>豆乳</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlna/01142684</uri>
+      </binding>
+      <binding name="label">
+        <literal>喫茶養生記</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01039880</uri>
+      </binding>
+      <binding name="label">
+        <literal>泡盛</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01039903</uri>
+      </binding>
+      <binding name="label">
+        <literal>リキュール</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01077834</uri>
+      </binding>
+      <binding name="label">
+        <literal>中国茶</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01113068</uri>
+      </binding>
+      <binding name="label">
+        <literal>スパークリングワイン</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01115379</uri>
+      </binding>
+      <binding name="label">
+        <literal>シャンパン</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01136988</uri>
+      </binding>
+      <binding name="label">
+        <literal>エスプレッソ</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01187593</uri>
+      </binding>
+      <binding name="label">
+        <literal>青汁</literal>
+      </binding>
+    </result>
+    <result>
+      <binding name="subj">
+        <uri>http://id.ndl.go.jp/auth/ndlsh/01211637</uri>
+      </binding>
+      <binding name="label">
+        <literal>発泡酒</literal>
       </binding>
     </result>
   </results>
