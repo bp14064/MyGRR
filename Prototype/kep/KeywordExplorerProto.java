@@ -53,9 +53,37 @@ public class KeywordExplorerProto {
 		}
 
 		System.out.println("\n最終的な結果");
-		for(String s : wordList2)
-			System.out.println(s);
+		ArrayList<ArrayList<String>> ndcLabel = kep.keyword2NDC(wordList2);
+		if(wordList2.size() == ndcLabel.size()) {
+			for(int i=0; i<wordList2.size(); i++) {
+				System.out.print(wordList2.get(i) + ",");
+				for(String ndc : ndcLabel.get(i)) {
+					System.out.print(ndc + ",");
+				}
+				System.out.println("");
+			}
+		}else {
+			System.out.println("error");
+		}
+	}
 
+	private ArrayList<ArrayList<String>> keyword2NDC(ArrayList<String> target){
+		CreateRequest cr = new CreateRequest(); // リクエスト作成
+		RequestTR rtr = new RequestTR(); // リクエスト送受信
+		ResultAnalyzer ra = new ResultAnalyzer(); // 結果解析
+		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+		String tmp;
+
+
+		for(int i=0; i<target.size(); i++) {
+			tmp = target.get(i);
+			try {
+				result.add(ra.AnalyzeResult(rtr.requestProcess(cr.createRequest(tmp, "non", "ndc")), true));
+			} catch (ArgsTypeException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	private ArrayList<ArrayList<String>> getSubjectData(String keyword) {
