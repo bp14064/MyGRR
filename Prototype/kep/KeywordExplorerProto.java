@@ -34,48 +34,47 @@ public class KeywordExplorerProto {
 
 		ArrayList<String> wordList = new ArrayList<String>();
 		wordList.addAll(kep.getDataList(res));
-		wordList.addAll(kep.getDataList(kep.getSubjectData(res),true));
+		wordList.addAll(kep.getDataList(kep.getSubjectData(res), true));
 
 		wordList = kep.removeSameWord(wordList, keyword);
 
 		System.out.println("----------------------------------------");
-		//取得した全ての語（キーワードを除く）の典拠データを取得
+		// 取得した全ての語（キーワードを除く）の典拠データを取得
 		ArrayList<ArrayList<String>> res2 = null;
 		ArrayList<String> wordList2 = new ArrayList<String>();
 		wordList2.addAll(wordList);
-		for(String next : wordList) {
+		for (String next : wordList) {
 			res2 = kep.getSubjectData(next);
-			//kep.checkSubjectDataResult(res2);
-			//kep.checkSubjectDataResult(res2, true);
+			// kep.checkSubjectDataResult(res2);
+			// kep.checkSubjectDataResult(res2, true);
 			wordList2.addAll(kep.getDataList(res2));
-			wordList2.addAll(kep.getDataList(kep.getSubjectData(res2),true));
+			wordList2.addAll(kep.getDataList(kep.getSubjectData(res2), true));
 			wordList2 = kep.removeSameWord(wordList2, keyword);
 		}
 
 		System.out.println("\n最終的な結果");
 		ArrayList<ArrayList<String>> ndcLabel = kep.keyword2NDC(wordList2);
-		if(wordList2.size() == ndcLabel.size()) {
-			for(int i=0; i<wordList2.size(); i++) {
+		if (wordList2.size() == ndcLabel.size()) {
+			for (int i = 0; i < wordList2.size(); i++) {
 				System.out.print(wordList2.get(i) + ",");
-				for(String ndc : ndcLabel.get(i)) {
+				for (String ndc : ndcLabel.get(i)) {
 					System.out.print(ndc + ",");
 				}
 				System.out.println("");
 			}
-		}else {
+		} else {
 			System.out.println("error");
 		}
 	}
 
-	private ArrayList<ArrayList<String>> keyword2NDC(ArrayList<String> target){
+	private ArrayList<ArrayList<String>> keyword2NDC(ArrayList<String> target) {
 		CreateRequest cr = new CreateRequest(); // リクエスト作成
 		RequestTR rtr = new RequestTR(); // リクエスト送受信
 		ResultAnalyzer ra = new ResultAnalyzer(); // 結果解析
 		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 		String tmp;
 
-
-		for(int i=0; i<target.size(); i++) {
+		for (int i = 0; i < target.size(); i++) {
 			tmp = target.get(i);
 			try {
 				result.add(ra.AnalyzeResult(rtr.requestProcess(cr.createRequest(tmp, "non", "ndc")), true));
@@ -192,22 +191,22 @@ public class KeywordExplorerProto {
 		return result;
 	}
 
-	private ArrayList<String> getDataList(ArrayList<ArrayList<String>> target){
-		int getDataNum = 3;//ここで入れたいのは上位語、下位語、関連語
-		ArrayList<String> result  = new ArrayList<String>();
+	private ArrayList<String> getDataList(ArrayList<ArrayList<String>> target) {
+		int getDataNum = 3;// ここで入れたいのは上位語、下位語、関連語
+		ArrayList<String> result = new ArrayList<String>();
 
-		for(int i=0; i<getDataNum; i++) {
+		for (int i = 0; i < getDataNum; i++) {
 			result.addAll(target.get(i));
 		}
 
 		return result;
 	}
 
-	private ArrayList<String> getDataList(ArrayList<ArrayList<String>> target, boolean NDC){
-		ArrayList<String> result  = new ArrayList<String>();
+	private ArrayList<String> getDataList(ArrayList<ArrayList<String>> target, boolean NDC) {
+		ArrayList<String> result = new ArrayList<String>();
 		ArrayList<String> tmp = null;
 
-		for(int i=0; i<target.size(); i++) {
+		for (int i = 0; i < target.size(); i++) {
 			tmp = target.get(i);
 			result.addAll(tmp);
 		}
@@ -215,15 +214,15 @@ public class KeywordExplorerProto {
 		return result;
 	}
 
-	private ArrayList<String> removeSameWord(ArrayList<String> target, String keyword){
+	private ArrayList<String> removeSameWord(ArrayList<String> target, String keyword) {
 		ArrayList<String> result = new ArrayList<String>();
 		result = (ArrayList<String>) target.stream().distinct().collect(Collectors.toList());
 
-		//キーワードと同じものを削除
+		// キーワードと同じものを削除
 		int removenum = 0;
-		for(int i=0; i<result.size(); i++) {
+		for (int i = 0; i < result.size(); i++) {
 			String tmp = result.get(i);
-			if(tmp.matches(keyword)) {
+			if (tmp.matches(keyword)) {
 				removenum = i;
 				break;
 			}
