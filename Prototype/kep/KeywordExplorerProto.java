@@ -54,17 +54,61 @@ public class KeywordExplorerProto {
 
 		System.out.println("\n最終的な結果");
 		ArrayList<ArrayList<String>> ndcLabel = kep.keyword2NDC(wordList2);
+		int num = 1;
 		if (wordList2.size() == ndcLabel.size()) {
 			for (int i = 0; i < wordList2.size(); i++) {
-				System.out.print(wordList2.get(i) + ",");
+				System.out.print("番号:"+ num +" "+wordList2.get(i) + ",");
 				for (String ndc : ndcLabel.get(i)) {
 					System.out.print(ndc + ",");
 				}
 				System.out.println("");
+				num++;
 			}
 		} else {
 			System.out.println("error");
 		}
+
+		System.out.println("--------------------------------------------\n--------------------------------------------");
+
+		CreateRequest cr = new CreateRequest();
+		RequestTR rt = new RequestTR();
+		ResultAnalyzer ra = new ResultAnalyzer();
+		String result = null;
+		/*int num = 0;
+		for(String target : wordList2) {
+			num++;
+			System.out.println("番号:" + num);
+			try {
+				result = cr.createRequest(target, "subject", "non");
+			} catch (ArgsTypeException e) {
+				e.printStackTrace();
+			}
+			System.out.println("DW1");
+			ra.showBookData(rt.requestProcess(result));
+			//if(num == 20)
+				//break;
+
+			System.out.println("");
+		}*/
+
+		Scanner scan1;
+		String keyword1;
+		for(;;) {
+			scan1 = new Scanner(System.in);
+			System.out.print("件名：");
+			keyword1 = scan1.nextLine();
+
+			if(keyword1.matches("exit"))
+				break;
+
+			try {
+				result = cr.createRequest(keyword1, "subject", "non");
+			} catch (ArgsTypeException e) {
+				e.printStackTrace();
+			}
+			ra.showBookData(rt.requestProcess(result));
+		}
+
 	}
 
 	private ArrayList<ArrayList<String>> keyword2NDC(ArrayList<String> target) {

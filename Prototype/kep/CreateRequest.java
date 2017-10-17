@@ -33,7 +33,7 @@ public class CreateRequest {
 			query = this.URIEncode(query);
 			String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=";
 			request += query;
-			request += "&maximumRecords=10&recordSchema=dcndl&onlyBib=\"true\"";
+			request += "&maximumRecords=1&numberOfRecords&recordSchema=dcndl&onlyBib=\"true\"";
 			//request += "&maximumRecords=10&recordSchema=dcndl_simple&onlyBib=\"true\"";
 			return request;
 		}
@@ -82,6 +82,8 @@ public class CreateRequest {
 			// クエリはこれでいいのかと、NDCの場合文字列形式でいいのか
 			query += "ndc=\"" + querySeed + "\"";
 
+		} else if(queryType.matches("subject")) {//主題(件名)の検索
+			query += "subject=\"" + querySeed + "\"";
 		} else {
 			throw new ArgsTypeException("queryTypeに指定されたものが適切ではありません。");
 		}
