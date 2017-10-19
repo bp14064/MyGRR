@@ -8,6 +8,7 @@ public class BookData {
 	private ArrayList<String> author;
 	private ArrayList<String> ndc;
 	private ArrayList<String> subject;
+	private String publisher;
 	private String page;
 	private String isbn;
 	private String callnum;
@@ -22,6 +23,7 @@ public class BookData {
 	 * 著者名 : author
 	 * NDC : ndc
 	 * 件名 : subject
+	 * 出版社 : publisher
 	 * ページ数 : page
 	 * ISBN : isbn
 	 * 請求記号（国立国会図書館）: callnum
@@ -30,6 +32,34 @@ public class BookData {
 	public BookData(ArrayList<ArrayList<String>> data) {
 		this.allData = data;
 		this.inputData2Member(data); //メンバーへの入力
+	}
+
+	public void checkBookData() {
+		System.out.println("-------------本情報------------");
+		int num = 1;
+		for(String s1: this.title) {
+			System.out.println(num + ":" + s1);
+			num++;
+		}
+		num=1;
+		for(String s2 : this.author) {
+			System.out.println(num + ":" + s2);
+			num++;
+		}
+		num=1;
+		for(String s3 : this.ndc) {
+			System.out.println(num + ":" + s3);
+			num++;
+		}
+		num=1;
+		for(String s4 : this.subject) {
+			System.out.println(num + ":" + s4);
+			num++;
+		}
+		System.out.println(this.publisher);
+		System.out.println(this.page);
+		System.out.println(this.isbn);
+		System.out.println(this.callnum);
 	}
 
 	/*-----------------問い合わせ-------------*/
@@ -79,6 +109,10 @@ public class BookData {
 		return callnum;
 	}
 
+	public String getPublisher() {
+		return publisher;
+	}
+
 	public ArrayList<ArrayList<String>> getAllData(){
 		return this.allData;
 	}
@@ -98,6 +132,8 @@ public class BookData {
 				this.ndc = this.ridHeadDataOfList(tmp);
 			} else if (tmp.get(0).matches("subject")) {
 				this.subject = this.ridHeadDataOfList(tmp);
+			}else if(tmp.get(0).matches("publisher")) {
+				this.publisher = tmp.get(1);
 			} else if (tmp.get(0).matches("page")) {
 				this.page = tmp.get(1);
 			} else if (tmp.get(0).matches("isbn")) {
