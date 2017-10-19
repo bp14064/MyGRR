@@ -24,8 +24,8 @@ public class ResultAnalyzer {
 	}
 
 	public ArrayList<String> AnalyzeResult(String data) {
-		//String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
-		String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+		String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+		//String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
 		ArrayList <String> result = new ArrayList<String>();
 		try {
 			// 一時保存用ファイルの作成
@@ -69,9 +69,10 @@ public class ResultAnalyzer {
 	}
 
 	public void showBookData(String data) {
-		String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
-		String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
-
+		//String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
+		//String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
+		String txtFilePath = "C:\\Users\\AILab08\\Shingo\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
+		String xmlFilePath = "C:\\Users\\AILab08\\Shingo\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
 		 try {
 			    File filetmp = new File(xmlFilePath);
 				BufferedWriter bw = new BufferedWriter(new FileWriter(filetmp));
@@ -242,8 +243,8 @@ public class ResultAnalyzer {
 
 	public ArrayList<String> AnalyzeResult(String data, boolean NDC) throws ArgsTypeException {
 		if (NDC) {
-			//String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
-			String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+			String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+			//String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
 			ArrayList<String> result = new ArrayList<String>();
 			try {
 				File filetmp = new File(tmpFilePath);
