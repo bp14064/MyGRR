@@ -12,7 +12,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import csv.CSVAnalyzer;
 import exception.ArgsTypeException;
+import kep2.SubjectData;
 
 public class KeywordExplorerProto {
 
@@ -60,10 +62,10 @@ public class KeywordExplorerProto {
 		}
 		// 典拠データを取得
 		ArrayList<ArrayList<String>> res = kep.getSubjectData(keyword);
-		kep.checkSubjectDataResult(res);
+		//kep.checkSubjectDataResult(res);
 
 		// NDCのものは、その代表分類に対応する件名を取得する
-		kep.checkSubjectDataResult(res, true);
+		//kep.checkSubjectDataResult(res, true);
 
 		ArrayList<String> wordList = new ArrayList<String>();
 		wordList.addAll(kep.getDataList(res));
@@ -71,7 +73,7 @@ public class KeywordExplorerProto {
 
 		wordList = kep.removeSameWord(wordList, keyword);
 
-		System.out.println("----------------------------------------");
+		//System.out.println("----------------------------------------");
 		// 取得した全ての語（キーワードを除く）の典拠データを取得
 		ArrayList<ArrayList<String>> res2 = null;
 		ArrayList<String> wordList2 = new ArrayList<String>();
@@ -130,6 +132,20 @@ public class KeywordExplorerProto {
 			e.printStackTrace();
 		}
 		//System.out.println("--------------------------------------------\n--------------------------------------------");
+		CSVAnalyzer ca = new CSVAnalyzer();
+		ArrayList<SubjectData> result = new ArrayList<SubjectData>();
+		try {
+			//ca.showCSVData(filepath);
+			result = ca.createSubjectData(filepath);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		for(SubjectData sd : result) {
+			sd.showSubjectData();
+		}
+
+
 	}
 
 	private ArrayList<ArrayList<String>> keyword2NDC(ArrayList<String> target) {

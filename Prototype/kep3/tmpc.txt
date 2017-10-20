@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <sparql xmlns="http://www.w3.org/2005/sparql-results#">
   <head>
-    <!-- query time: 0.0145 sec -->
+    <!-- query time: 0.0131 sec -->
   </head>
   <boolean>true</boolean>
 </sparql>
