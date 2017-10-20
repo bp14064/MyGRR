@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <sparql xmlns="http://www.w3.org/2005/sparql-results#">
   <head>
-    <!-- query time: 0.0239 sec -->
+    <!-- query time: 0.0237 sec -->
     <variable name="uri2"/>
   </head>
   <results>
     <result>
       <binding name="uri2">
-        <uri>http://id.ndl.go.jp/class/ndc10/007.63</uri>
+        <uri>http://id.ndl.go.jp/class/ndc10/361</uri>
       </binding>
     </result>
     <result>
       <binding name="uri2">
-        <uri>http://id.ndl.go.jp/class/ndc9/007.63</uri>
+        <uri>http://id.ndl.go.jp/class/ndc9/361</uri>
       </binding>
     </result>
   </results>

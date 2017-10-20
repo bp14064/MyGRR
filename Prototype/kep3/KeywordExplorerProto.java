@@ -142,7 +142,11 @@ public class KeywordExplorerProto {
 			e.printStackTrace();
 		}
 		for(SubjectData sd : result) {
-			sd.showSubjectData();
+			System.out.print(sd.getSubject() + " , ");
+			for(String s: sd.getNdc9()) {
+				System.out.print(s + " , ");
+			}
+			System.out.println("");
 		}
 
 
