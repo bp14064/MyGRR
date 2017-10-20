@@ -163,7 +163,7 @@ public class CreateRequest {
 
 	public String getCheckIsNormalSubject(String target) {
 		String query = "PREFIX skos:<http://www.w3.org/2004/02/skos/core#> PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> ASK WHERE { ";
-		query += "?uri1 rdfs:label" + "\"" + target + "\"" + "; skos:inScheme ?uri2. FILTER regex(?uri2, \"auth#topicalTerms\") }";
+		query += "?uri1 rdfs:label" + " \"" + target + "\"" + "; skos:inScheme ?uri2. FILTER regex(?uri2, \"auth#topicalTerms\") }";
 		String request = "http://id.ndl.go.jp/auth/ndla?query=";
 		request += this.URIEncode(query);
 		request += "&output=xml";

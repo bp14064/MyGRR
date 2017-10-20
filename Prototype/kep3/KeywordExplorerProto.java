@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -38,20 +39,25 @@ public class KeywordExplorerProto {
 		BufferedWriter bw = new BufferedWriter(osw);
 
 		// キーワードの入力
+		String keyword;
+		CreateRequest cr;
+		RequestTR rtr;
+		ResultAnalyzer ra;
+		boolean f;
+		for(;;) {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("キーワード：");
-		String keyword = scan.nextLine();
+		keyword = scan.nextLine();
 		System.out.println("入力キーワード > " + keyword);
-		System.out.println("");
 
 		// 一度ASKで取得できるかを見てみる
-		CreateRequest cr = new CreateRequest(); // リクエスト作成
-		RequestTR rtr = new RequestTR(); // リクエスト送受信
-		ResultAnalyzer ra = new ResultAnalyzer(); // 結果解析
-		if(!ra.checkTorF(rtr.requestProcess(cr.getCheckSubjectExist(keyword)))) {
-			System.exit(0);
+		cr = new CreateRequest(); // リクエスト作成
+		rtr = new RequestTR(); // リクエスト送受信
+		ra = new ResultAnalyzer(); // 結果解析
+		 if(f = ra.checkTorF(rtr.requestProcess(cr.getCheckSubjectExist(keyword)))) {
+			 break;
+		 }
 		}
-
 		// 典拠データを取得
 		ArrayList<ArrayList<String>> res = kep.getSubjectData(keyword);
 		kep.checkSubjectDataResult(res);
@@ -78,6 +84,17 @@ public class KeywordExplorerProto {
 			wordList2.addAll(kep.getDataList(kep.getSubjectData(res2), true));
 			wordList2 = kep.removeSameWord(wordList2, keyword);
 		}
+		//普通件名でないものを除く
+		Iterator<String> it = wordList2.iterator();
+        while(it.hasNext()){
+            String s = it.next();
+            if(!ra.checkTorF(rtr.requestProcess(cr.getCheckIsNormalSubject(s)))) {
+            	it.remove();
+            }
+        }
+        /*System.out.println(wordList2.size());
+        for(String s : wordList2)
+        	System.out.println(s);*/
 
 		//System.out.println("\n最終的な結果");
 		ArrayList<ArrayList<String>> ndcLabel = kep.keyword2NDC(wordList2);

@@ -450,10 +450,15 @@ public class ResultAnalyzer {
 		}
 		BufferedReader br = new BufferedReader(fr);
 		String cmp = "";
+
 		try {
 			while ((cmp = br.readLine()) != null) {
-				if (cmp.contains("ture")) {
+				//System.out.println(cmp);
+				if (cmp.contains("true")) {
 					return true;
+				}
+				if(cmp.contains("false")) {
+					return false;
 				}
 			}
 
