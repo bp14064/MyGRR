@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.dom4j.DocumentException;
 
+import data.BookData;
 import exception.ArgsTypeException;
 import get_data.CreateRequest;
 import get_data.RequestTR;
@@ -35,15 +36,19 @@ public class BookExplorer {
 		 * 流れとしては
 		 * 検索　→　一つ選択？　→BookDataの作成　→スタート本の決定
 		 */
-		 ArrayList<ArrayList<ArrayList<String>>> res = null;
+		 ArrayList<BookData> res = null;
 		 try {
 			String query = cr.createRequest(keyword, "keyword", "non", 10);
 			String result = rtr.requestProcess(query);
 			ra.createBookDataFile(result);
+			res = ra.createBookData();
 		} catch (ArgsTypeException | IOException | DocumentException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		 for(BookData bd : res) {
+			 bd.checkBookData();
+		 }
 
 		/* ArrayList<BookData> bdList = new ArrayList<BookData>();
 		 for(ArrayList<ArrayList<String>> r : res) {

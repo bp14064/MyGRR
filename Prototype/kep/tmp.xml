@@ -148,7 +148,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000000162679-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcterms:description&gt;雑誌記事索引採録あり&lt;/dcterms:description&gt;
@@ -194,10 +194,10 @@
     &lt;dcterms:language rdf:datatype=&quot;http://purl.org/dc/terms/ISO639-2&quot;&gt;jpn&lt;/dcterms:language&gt;
     &lt;dcterms:language rdf:datatype=&quot;http://purl.org/dc/terms/ISO639-2&quot;&gt;eng&lt;/dcterms:language&gt;
     &lt;dcterms:extent&gt;冊 ; 30cm&lt;/dcterms:extent&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;雑誌&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot; rdfs:label=&quot;雑誌&quot;/&gt;
     &lt;dcndl:volumeRange&gt;11回 (2000年11月13日)-&lt;/dcndl:volumeRange&gt;
     &lt;dcndl:publicationStatus&gt;不明&lt;/dcndl:publicationStatus&gt;
-    &lt;dcterms:replaces rdfs:label=&quot;継続前誌 : 合同研究会AIシンポジウム&quot; rdf:resource=&quot;http://iss.ndl.go.jp/books/R100000002-I000000086663-00&quot;/&gt;
+    &lt;dcterms:replaces rdf:resource=&quot;http://iss.ndl.go.jp/books/R100000002-I000000086663-00&quot; rdfs:label=&quot;継続前誌 : 合同研究会AIシンポジウム&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000000162679-00#material&quot;&gt;
@@ -223,7 +223,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000004086512-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -573,7 +573,7 @@
     &lt;dcterms:extent&gt;523p ; 22cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;9000円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000004086512-00#material&quot;&gt;
@@ -1148,7 +1148,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000007343782-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1200,7 +1200,7 @@
     &lt;dcterms:extent&gt;234p ; 22cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;3400円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000007343782-00#material&quot;&gt;
@@ -1380,7 +1380,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000002760715-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1425,7 +1425,7 @@
     &lt;dcterms:extent&gt;200p ; 19cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;1400円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000002760715-00#material&quot;&gt;
@@ -1671,7 +1671,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000007036509-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1751,7 +1751,7 @@
     &lt;/dcterms:subject&gt;
     &lt;dcterms:subject rdf:resource=&quot;http://id.ndl.go.jp/class/ndlc/Y151&quot;/&gt;
     &lt;dcterms:extent&gt;冊&lt;/dcterms:extent&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000007036509-00#material&quot;&gt;
@@ -1776,7 +1776,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I023454143-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1828,7 +1828,7 @@
     &lt;dcterms:extent&gt;282p ; 26cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;3000円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I023454143-00#material&quot;&gt;
@@ -1854,7 +1854,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000000411439-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1899,7 +1899,7 @@
     &lt;dcterms:subject rdf:resource=&quot;http://id.ndl.go.jp/class/ndlc/ZM13&quot;/&gt;
     &lt;dcterms:language rdf:datatype=&quot;http://purl.org/dc/terms/ISO639-2&quot;&gt;jpn&lt;/dcterms:language&gt;
     &lt;dcterms:extent&gt;冊 ; 30cm&lt;/dcterms:extent&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;雑誌&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot; rdfs:label=&quot;雑誌&quot;/&gt;
     &lt;dcndl:volumeRange&gt;1号 (1997年7月)-&lt;/dcndl:volumeRange&gt;
     &lt;dcndl:publicationPeriodicity&gt;年刊&lt;/dcndl:publicationPeriodicity&gt;
     &lt;dcndl:publicationStatus&gt;継続刊行中&lt;/dcndl:publicationStatus&gt;
@@ -1928,7 +1928,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000011259481-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -1990,7 +1990,7 @@
     &lt;dcterms:extent&gt;350p ; 19cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;1800円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000011259481-00#material&quot;&gt;
@@ -2663,7 +2663,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I000000082197-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -2726,7 +2726,7 @@
     &lt;dcterms:subject rdf:resource=&quot;http://id.ndl.go.jp/class/ndlc/ZM13&quot;/&gt;
     &lt;dcterms:language rdf:datatype=&quot;http://purl.org/dc/terms/ISO639-2&quot;&gt;jpn&lt;/dcterms:language&gt;
     &lt;dcterms:extent&gt;冊 ; 30cm&lt;/dcterms:extent&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;雑誌&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Journal&quot; rdfs:label=&quot;雑誌&quot;/&gt;
     &lt;dcndl:volumeRange&gt;[Vol.1,no.5]～v.7,no.4通巻no.36(1993年8月)&lt;/dcndl:volumeRange&gt;
     &lt;dcndl:volumeRange&gt;以後休刊&lt;/dcndl:volumeRange&gt;
     &lt;dcndl:publicationPeriodicity&gt;隔月刊&lt;/dcndl:publicationPeriodicity&gt;
@@ -2757,7 +2757,7 @@
       <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
       <recordPacking>string</recordPacking>
       <recordData>
-&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot;&gt;
+&lt;rdf:RDF xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:dcndl=&quot;http://ndl.go.jp/dcndl/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
   &lt;dcndl:BibAdminResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I027611535-00&quot;&gt;
     &lt;dcndl:catalogingStatus&gt;C7&lt;/dcndl:catalogingStatus&gt;
     &lt;dcndl:bibRecordCategory&gt;R100000002&lt;/dcndl:bibRecordCategory&gt;
@@ -2808,7 +2808,7 @@
     &lt;dcterms:extent&gt;275p ; 21cm&lt;/dcterms:extent&gt;
     &lt;dcndl:price&gt;2400円&lt;/dcndl:price&gt;
     &lt;dcterms:audience&gt;一般&lt;/dcterms:audience&gt;
-    &lt;dcndl:materialType rdfs:label=&quot;図書&quot; rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot;/&gt;
+    &lt;dcndl:materialType rdf:resource=&quot;http://ndl.go.jp/ndltype/Book&quot; rdfs:label=&quot;図書&quot;/&gt;
     &lt;dcterms:accessRights&gt;S01P99U99&lt;/dcterms:accessRights&gt;
   &lt;/dcndl:BibResource&gt;
   &lt;dcndl:BibResource rdf:about=&quot;http://iss.ndl.go.jp/books/R100000002-I027611535-00#material&quot;&gt;

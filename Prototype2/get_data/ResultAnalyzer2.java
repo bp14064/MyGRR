@@ -15,6 +15,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import data.BookData;
 import exception.ArgsTypeException;
 
 public class ResultAnalyzer2 {
@@ -122,187 +123,7 @@ public class ResultAnalyzer2 {
 	}
 
 	/**
-	 * 書誌データから必要な項目を抜き出して表示
-	 * これは、あくまでチェック用なので、createの方がうまくいっていれば、消してもよい
-	 * @param data
-	 * @return
-	 */
-	public boolean showBookData(String data) {
-		boolean res = false;
-		String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
-		String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
-		//String txtFilePath = "C:\\Users\\AILab08\\Shingo\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
-		//String xmlFilePath = "C:\\Users\\AILab08\\Shingo\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
-		try {
-			File filetmp = new File(xmlFilePath);
-			BufferedWriter bw = new BufferedWriter(new FileWriter(filetmp));
-			bw.write(data);
-			bw.close();
-		} catch (IOException e1) {
-			// TODO 自動生成された catch ブロック
-			e1.printStackTrace();
-		}
-		File file = new File(xmlFilePath);
-		//System.out.println("一時作成されたXMLファイルから以下の取得対象のものを抽出する");
-		//System.out.println("取得対象：タイトル、著者名、出版社、ページ数、ISBN、NDLC（請求記号）、NDC9、資料種別");
-
-		SAXReader reader = new SAXReader();
-		String records = "";
-		try {
-			Document doc = reader.read(file);
-			Element root = doc.getRootElement();
-			Element element = null;
-			for (Iterator i = root.elementIterator(); i.hasNext();) {
-				element = (Element) i.next();
-				//System.out.println(element.getName()+" "+element.getNodeTypeName()+" "+element.nodeCount());
-				//System.out.println("テキストを取り出す:" + element.getStringValue());
-				if (element.getName().matches("records")) {
-					records = element.getStringValue();
-					break;
-				}
-			}
-
-			//recordsをテキストファイルに一回保存
-			try {
-				File filetmp = new File(txtFilePath);
-				FileWriter fw = new FileWriter(filetmp);
-				BufferedWriter bw = new BufferedWriter(fw);
-				bw.write(records);
-				bw.close();
-				fw.close();
-			} catch (IOException e1) {
-				// TODO 自動生成された catch ブロック
-				e1.printStackTrace();
-			}
-
-			//ゴリ押しのテキスト処理
-			File recordsFile = new File(txtFilePath);
-			FileReader fr = null;
-			try {
-				fr = new FileReader(recordsFile);
-			} catch (FileNotFoundException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
-			BufferedReader br = new BufferedReader(fr);
-			boolean ndlch = false; //国立国会図書館の請求記号だけ抜き出すためのフラグ
-			boolean chunkch = false; //チャンク（複数のデータがあったときのそれぞれの塊）のためのフラグ
-			boolean mainTitleCh = false; //メインタイトルとサブタイトルを識別するためのフラグ
-			int chunknum = 1; //タイトル識別用
-			boolean creatorch = false;
-			int creatornum = 1;
-			boolean publisherch = false;
-			try {
-				String cmp = "";
-				while ((cmp = br.readLine()) != null) {
-					if (chunkch == false && cmp.contains("rdf:RDF xmlns")) {//データチャンクの開始処理
-						chunkch = true;
-						System.out.println("データ番号：" + chunknum + "開始");
-					}
-
-					if (chunkch == true && cmp.contains("/rdf:RDF")) {//データチャンクの終了処理ク
-						chunkch = false;
-						System.out.println("データ番号:" + chunknum + "終了");
-						chunknum++;
-						//新しくフラグを作ったら、ここでリセットしないと
-						mainTitleCh = false;
-						creatorch = true;
-					}
-
-					if (cmp.contains("dcterms:title")) {//タイトル
-						if (mainTitleCh == false) {
-							System.out.println("メインタイトル:" + formatData(cmp));
-							mainTitleCh = true;
-						} else {
-							System.out.println("サブタイトル:" + formatData(cmp));
-						}
-					}
-
-					if (cmp.contains("<foaf:name>国立国会図書館")) { //請求記号のチェック用
-						ndlch = true;
-					}
-
-					if (cmp.contains("dcndl:callNumber")) {//請求記号
-						//いまのフラグだけだと、もし国立国会図書館の請求記号がない場合（そんなことあるのか？）は対応できない
-						if (ndlch == true) {
-							System.out.println("請求記号：" + formatData(cmp));
-							ndlch = false;
-						}
-					}
-
-					if (cmp.contains("dc:creator")) {
-						if (creatorch == false) {
-							System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
-							creatornum++;
-						} else {
-							creatornum = 1;
-							System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
-							creatornum++;
-							creatorch = false;
-						}
-					}
-
-					if (cmp.contains("dcterms:publisher") && !cmp.contains("/dcterms:publisher")) {
-						publisherch = true;
-					}
-
-					if (publisherch == true && cmp.contains("foaf:name")) {
-						System.out.println("出版社:" + formatData(cmp));
-						publisherch = false;
-					}
-
-					if (cmp.contains("dcterms:extent")) {
-						System.out.println("ページ数:" + formatData(cmp));
-					}
-
-					if (cmp.contains("dcterms:subject rdf:resource=") && cmp.contains("ndc")) {//NDCの抜き出し
-						//ndc8,9,10に一応対応できるようにしておく
-						int ndcnum = 0;
-						if (cmp.contains("ndc9")) {
-							ndcnum = 9;
-						} else if (cmp.contains("ndc8")) {
-							ndcnum = 8;
-						} else if (cmp.contains("ndc10")) {
-							ndcnum = 10;
-						}
-
-						cmp = cmp.trim();
-						int end = cmp.lastIndexOf("/");
-						cmp = cmp.substring(0, end);
-						int start = cmp.lastIndexOf("/");
-						end = cmp.lastIndexOf("\"");
-						cmp = cmp.substring(start + 1, end);
-
-						System.out.println("NDC" + ndcnum + ":" + cmp);
-					}
-
-					if (cmp.contains("dcterms:identifier rdf:datatype=") && cmp.contains("ISBN")) {//ISBNの抜き出し
-						System.out.println("ISBN:" + formatData(cmp));
-					}
-
-				}
-				br.close();
-				fr.close();
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-			recordsFile.delete();
-
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
-
-		if (file.delete())
-			System.out.println("xml file deleted");
-		return res;
-	}
-
-	/**
-	 * 書誌データから必要な項目を抜き出し、それらの結果をまとめたリストを返す
-	 * しかし、いまの状態だと、複数の本のデータをつくることができない
-	 * このため、次のコミットで書き換えを行う
+	 * 書誌データから必要な項目を抜き出し、それらの結果をまとめ、テキストファイルに書き出す
 	 * @param data
 	 * @return
 	 * @throws IOException
@@ -375,7 +196,7 @@ public class ResultAnalyzer2 {
 			if (chunkch == false && cmp.contains("rdf:RDF xmlns")) {//データチャンクの開始処理
 				chunkch = true;
 				System.out.println("データ番号：" + chunknum + "開始");
-				bw2.write("データ番号：" + chunknum + "開始");
+				bw2.write("データ番号：" + chunknum + "開始\n");
 			}
 
 			if (chunkch == true && cmp.contains("/rdf:RDF")) {//データチャンクの終了処理
@@ -421,7 +242,7 @@ public class ResultAnalyzer2 {
 			if(cmp.contains("rdf:value") && series) {
 				System.out.println("シリーズ名：" + formatData(cmp));
 				bw2.write("シリーズ名:" + formatData(cmp));
-				series = false;
+				//series = false;
 			}
 
 			if (cmp.contains("<foaf:name>国立国会図書館")) { //請求記号のチェック用
@@ -483,7 +304,7 @@ public class ResultAnalyzer2 {
 
 			if (cmp.contains("dcterms:identifier rdf:datatype=") && cmp.contains("ISBN")) {//ISBNの抜き出し
 				System.out.println("ISBN:" + formatData(cmp));
-				bw2.write("ISBN:" + formatData(cmp));
+				bw2.write("ISBN:" + formatData(cmp) + "\n");
 			}
 
 			//件名の取得
@@ -491,8 +312,8 @@ public class ResultAnalyzer2 {
 				subjectch = true;
 			}
 			if(cmp.contains("rdf:value")&&subjectch) {
-				System.out.println("件名:" + cmp);
-				bw2.write(cmp);
+				System.out.println("件名:" + formatData(cmp));
+				bw2.write(formatData(cmp));
 				subjectch = false;
 			}
 
@@ -504,6 +325,77 @@ public class ResultAnalyzer2 {
 		filetmp.delete();
 		recordsFile.delete();
 		//file.delete();
+	}
+
+	public ArrayList<BookData> createBookData() throws IOException {
+		ArrayList<BookData> result = new ArrayList<BookData>();
+
+		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String mainTitle = null;
+		String isbn = null;
+		String pages = null;
+		String callNum = null;
+		ArrayList<String> ndc = new ArrayList<String>();
+		ArrayList<String> creator = new ArrayList<String>();
+		ArrayList<String> series = new ArrayList<String>();
+		ArrayList<String> subtitle = new ArrayList<String>();
+		ArrayList<String> publisher = new ArrayList<String>();
+		ArrayList<String> subject = new ArrayList<String>();
+
+		String tmp;
+		while((tmp = br.readLine()) != null) {
+			//System.out.println(tmp);
+			if(tmp.contains("メインタイトル:")) {
+				mainTitle = formatData4BD(tmp);
+			}
+			if(tmp.contains("ISBN:")) {
+				isbn = formatData4BD(tmp);
+			}
+			if(tmp.contains("部分タイトル:")) {
+				subtitle.add(formatData4BD(tmp));
+			}
+			if(tmp.contains("ページ数:")) {
+				pages = formatData4BD(tmp);
+			}
+			if(tmp.contains("請求記号:")) {
+				callNum = formatData4BD(tmp);
+			}
+			if(tmp.contains("出版社:")) {
+				publisher.add(formatData4BD(tmp));
+			}
+			if(tmp.contains("件名:")) {
+				subject.add(formatData4BD(tmp));
+			}
+			if(tmp.contains("シリーズ名")) {
+				series.add(formatData4BD(tmp));
+			}
+			if(tmp.contains("著作者番号")) {
+				creator.add(formatData4BD(tmp));
+			}
+			if(tmp.contains("NDC")) {
+				ndc.add(tmp);
+			}
+			if(tmp.contains("データ番号")&&tmp.contains("終了")) {
+				result.add(new BookData(mainTitle,series, creator, subtitle, publisher, pages, isbn, ndc, callNum, subject));
+				mainTitle = null;
+				isbn = null;
+				pages = null;
+				callNum = null;
+				subtitle = new ArrayList<String>();
+				creator = new ArrayList<String>();
+				series = new ArrayList<String>();
+				ndc = new ArrayList<String>();
+				publisher = new ArrayList<String>();
+				subject = new ArrayList<String>();
+			}
+		}
+		System.out.println("OK>?" + result.size());
+		br.close();
+		fr.close();
+		file.delete();
+		return result;
 	}
 
 
@@ -554,6 +446,13 @@ public class ResultAnalyzer2 {
 		int start = result.indexOf(">");
 		int end = result.indexOf("</");
 		result = result.substring(start + 1, end);
+		return result;
+	}
+
+	private String formatData4BD(String target) {
+		String result = null;
+		result = target.substring(target.indexOf(":")+1);
+		//System.out.println(result);
 		return result;
 	}
 
