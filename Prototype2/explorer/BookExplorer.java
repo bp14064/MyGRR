@@ -1,5 +1,14 @@
 package explorer;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import data.BookData;
+import exception.ArgsTypeException;
+import get_data.CreateRequest;
+import get_data.RequestTR;
+import get_data.ResultAnalyzer;
+
 public class BookExplorer {
 
 	public BookExplorer() {
@@ -7,8 +16,41 @@ public class BookExplorer {
 	}
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+		CreateRequest cr = new CreateRequest(); // リクエスト作成
+		RequestTR rtr = new RequestTR(); // リクエスト送受信
+		ResultAnalyzer ra = new ResultAnalyzer(); // 結果解析
 
+		//とりあえず、最初に初期クエリを入力
+		Scanner scan = new Scanner(System.in);
+		System.out.print("キーワード：");
+		String keyword = scan.nextLine();
+		System.out.println("入力キーワード > " + keyword);
+
+		/*
+		 * クエリから簡易検索、スタート本を決める（とりあえず、一冊で書籍のものを取得する）
+		 * 検索では１０冊ぐらい取得して、その中から図書で一般（雑誌などではなく、また児童書でもない）ものから一冊選ぶ
+		 *
+		 * 流れとしては
+		 * 検索　→　一つ選択？　→BookDataの作成　→スタート本の決定
+		 */
+		 ArrayList<ArrayList<String>> bookData = null;
+		 try {
+			String query = cr.createRequest(keyword, "keyword", "non", 1);
+			String result = rtr.requestProcess(query);
+			bookData = ra.createBookData(result);
+		} catch (ArgsTypeException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		 BookData bd = new BookData(bookData);
+		 bd.checkBookData();
+		/*
+		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
+		 */
+
+		/*
+		 * 得られたデータの表示(とりあえず、CUIでやる)
+		 */
 	}
 
 }
