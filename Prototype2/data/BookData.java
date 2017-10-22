@@ -8,7 +8,7 @@ public class BookData {
 	private ArrayList<String> author;
 	private ArrayList<String> ndc;
 	private ArrayList<String> subject;
-	private String publisher;
+	private ArrayList<String> publisher;
 	private String page;
 	private String isbn;
 	private String callnum;
@@ -56,7 +56,11 @@ public class BookData {
 			System.out.println(num + ":" + s4);
 			num++;
 		}
-		System.out.println(this.publisher);
+	    num=1;
+		for(String s5 : this.publisher) {
+			System.out.println(num + ":" + s5);
+			num++;
+		}
 		System.out.println(this.page);
 		System.out.println(this.isbn);
 		System.out.println(this.callnum);
@@ -109,7 +113,7 @@ public class BookData {
 		return callnum;
 	}
 
-	public String getPublisher() {
+	public ArrayList<String> getPublisher() {
 		return publisher;
 	}
 
@@ -124,21 +128,21 @@ public class BookData {
 		// リストの中から取り出したリストの先頭要素を見る
 		for (int i = 0; i < data.size(); i++) {
 			tmp = data.get(i);
-			if (tmp.get(0).matches("title")) {
+			if (tmp.get(0).matches("title") && tmp.size() != 1) {
 				this.title = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("author")) {
+			} else if (tmp.get(0).matches("author") && tmp.size() != 1) {
 				this.author = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("ndc")) {
+			} else if (tmp.get(0).matches("ndc") && tmp.size() != 1) {
 				this.ndc = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("subject")) {
+			} else if (tmp.get(0).matches("subject") && tmp.size() != 1) {
 				this.subject = this.ridHeadDataOfList(tmp);
-			}else if(tmp.get(0).matches("publisher")) {
-				this.publisher = tmp.get(1);
-			} else if (tmp.get(0).matches("page")) {
+			}else if(tmp.get(0).matches("publisher") && tmp.size() != 1) {
+				this.publisher = this.ridHeadDataOfList(tmp);
+			} else if (tmp.get(0).matches("page") && tmp.size() != 1) {
 				this.page = tmp.get(1);
-			} else if (tmp.get(0).matches("isbn")) {
+			} else if (tmp.get(0).matches("isbn") && tmp.size() != 1) {
 				this.isbn = tmp.get(1);
-			} else if (tmp.get(0).matches("callnum")) {
+			} else if (tmp.get(0).matches("callnum") && tmp.size() != 1) {
 				this.callnum = tmp.get(1);
 			} else {
 				System.out.println("error");

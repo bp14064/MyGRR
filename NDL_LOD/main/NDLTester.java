@@ -15,7 +15,7 @@ public class NDLTester {
 		RequestTR rt;
 		XMLAnalyzer xa;
 		//クエリの作成に必要な情報を入力
-		 String querySeed = "人工知能";
+		 String querySeed = "オントロジーの普及と応用";
 		 String queryType = "title";
 		 String getDataType = "non";
 		 String targetDataType = "book";
