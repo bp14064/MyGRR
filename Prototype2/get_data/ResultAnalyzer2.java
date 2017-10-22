@@ -17,9 +17,9 @@ import org.dom4j.io.SAXReader;
 
 import exception.ArgsTypeException;
 
-public class ResultAnalyzer {
+public class ResultAnalyzer2 {
 
-	public ResultAnalyzer() {
+	public ResultAnalyzer2() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
@@ -308,7 +308,7 @@ public class ResultAnalyzer {
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public ArrayList<ArrayList<ArrayList<String>>> createBookData(String data) throws IOException, DocumentException {
+	public void createBookDataFile(String data) throws IOException, DocumentException {
 		//String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
 		//String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
 		String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
@@ -350,97 +350,78 @@ public class ResultAnalyzer {
 
 			boolean ndlch = false; //国立国会図書館の請求記号だけ抜き出すためのフラグ
 			boolean chunkch = false; //チャンク（複数のデータがあったときのそれぞれの塊）のためのフラグ
-			boolean mainTitleCh = false; //メインタイトルとサブタイトルを識別するためのフラグ
+			//boolean mainTitleCh = false; //メインタイトルとサブタイトルを識別するためのフラグ
 			int chunknum = 1; //タイトル識別用
 			boolean creatorch = false;
 			int creatornum = 1;
 			boolean publisherch = false;
+			boolean maintitle = false;
 			boolean subjectch = false;
-			ArrayList<ArrayList<ArrayList<String>>> result = new ArrayList<ArrayList<ArrayList<String>>>();//上位リスト
-			ArrayList<ArrayList<String>> bookData = new ArrayList<ArrayList<String>>();//中位リスト
-			//下位リスト
-			ArrayList<String> title = new ArrayList<String>();
-			title.add("title");
-			ArrayList<String> author = new ArrayList<String>();
-			author.add("author");
-			ArrayList<String> ndc = new ArrayList<String>();
-			ndc.add("ndc");
-			ArrayList<String> subject = new ArrayList<String>();
-			subject.add("subject");
-			ArrayList<String> publisher = new ArrayList<String>();
-			publisher.add("publisher");
-			ArrayList<String> page = new ArrayList<String>();
-			page.add("page");
-			ArrayList<String> isbn = new ArrayList<String>();
-			isbn.add("isbn");
-			ArrayList<String> callnum = new ArrayList<String>();
-			callnum.add("callnum");
-
+			boolean series = false;
+			boolean subtitle = false;
+			File bookDataFile = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
+			FileWriter fw2 = new FileWriter(bookDataFile);
+			BufferedWriter bw2 = new BufferedWriter(fw2);
+			int subtitlenum = 1;
+			int publishernum = 1;
+			int subtitlecreatornum = 1;
 		/*
-		 * ここから、データの抜き出しとBookDataの作成に必要なデータの作成を行う
-		 * 返したいのは、次のようなデータ構造のリスト（リストのリストのリスト）
-		 *  上位リスト：全ての本のデータをまとめたリスト（要素一つがある一つの本のデータ）
-		 *   →　＜一つの本のデータ＞ ＜一つの本のデータ＞　・・・
-		 *  中位リスト：一つの本のそれぞれの項目データをまとめたリスト
-		 *   →　＜タイトル＞＜著者名＞　・・・
-		 *  下位リスト：それぞれの項目データが入っているリスト、先頭は項目名を表すデータ
-		 *   →　＜項目名＞＜データ＞＜データ＞　・・・
+		 * テキストファイルに保存
 		 */
 		String cmp = "";
 		while ((cmp = br.readLine()) != null) {
+			//System.out.println(cmp);
 
 			if (chunkch == false && cmp.contains("rdf:RDF xmlns")) {//データチャンクの開始処理
 				chunkch = true;
 				System.out.println("データ番号：" + chunknum + "開始");
+				bw2.write("データ番号：" + chunknum + "開始");
 			}
 
 			if (chunkch == true && cmp.contains("/rdf:RDF")) {//データチャンクの終了処理
 				chunkch = false;
 				System.out.println("データ番号:" + chunknum + "終了");
+			    bw2.write("データ番号:" + chunknum + "終了\n");
 				chunknum++;
 				//新しくフラグを作ったら、ここでリセットしないと
-				mainTitleCh = false;
-				creatorch = true;
-
-				//ここで、中位リストへの追加と、上位リストへの追加を行う
-				bookData.add(title);
-				bookData.add(author);
-				bookData.add(ndc);
-				bookData.add(subject);
-				bookData.add(publisher);
-				bookData.add(page);
-				bookData.add(isbn);
-				bookData.add(callnum);
-				result.add(bookData);
-				//また、下位、中位リストのクリアもしないと
-				/*title.clear();
-				author.clear();
-				ndc.clear();
-				subject.clear();
-				publisher.clear();
-				page.clear();
-				isbn.clear();
-				callnum.clear();
-				bookData.clear();
-				title.add("title");
-				author.add("author");
-				ndc.add("ndc");
-				subject.add("subject");
-				publisher.add("publisher");
-				page.add("page");
-				isbn.add("isbn");
-				callnum.add("callnum");*/
+				subtitlenum=1;
+				subtitlecreatornum=1;
+				creatornum=1;
+				series = false;
+				subtitle = false;
+				creatorch = false;
+				maintitle = false;
+				subjectch = false;
 			}
 
-			if (cmp.contains("dcterms:title")) {//タイトル
-				if (mainTitleCh == false) {
+			if (cmp.contains("dcterms:title") && !maintitle) {//タイトル
 					System.out.println("メインタイトル:" + formatData(cmp));
-					title.add(formatData(cmp));
-					mainTitleCh = true;
-				} else {
-					System.out.println("サブタイトル:" + formatData(cmp));
-					title.add(formatData(cmp));
-				}
+					bw2.write("メインタイトル:" +formatData(cmp) + "\n");
+					maintitle = true;
+			}
+
+			if(cmp.contains("dcndl:partInformation") && subtitle==false) {//部分タイトル
+				subtitle = true;
+			}
+
+			if(cmp.contains("dcterms:title")&&subtitle) {
+				System.out.println("部分タイトル:" +subtitlenum+":"+ formatData(cmp));
+				subtitlenum++;
+			}
+			if(cmp.contains("dc:creator")&&subtitle) {
+				System.out.println("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp));
+				subtitlecreatornum++;
+			}
+			if(cmp.contains("/dcndl:partInformation")) {
+				subtitle = false;
+			}
+			if(cmp.contains("seriesTitle")) { //シリーズ名
+				series = true;
+			}
+			if(cmp.contains("rdf:value") && series) {
+				System.out.println("シリーズ名：" + formatData(cmp));
+				bw2.write("シリーズ名:" + formatData(cmp));
+				series = false;
 			}
 
 			if (cmp.contains("<foaf:name>国立国会図書館")) { //請求記号のチェック用
@@ -451,24 +432,18 @@ public class ResultAnalyzer {
 				//いまのフラグだけだと、もし国立国会図書館の請求記号がない場合（そんなことあるのか？　→　可能性はる）は対応できない
 				if (ndlch == true) {
 					System.out.println("請求記号：" + formatData(cmp));
-					callnum.add(formatData(cmp));
+					bw2.write("請求記号：" + formatData(cmp) + "\n");
 					ndlch = false;
 				}
 			}
 
-			//これはわける必要性あるのか？
-			if (cmp.contains("dc:creator")) {
-				if (creatorch == false) {
+			if(cmp.contains("/dcterms:creator")) {
+				creatorch = true;
+			}
+			if (cmp.contains("dc:creator") &&  creatorch) {
 					System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
-					author.add(formatData(cmp));
+					bw2.write("著作者番号 " + creatornum + ":" + formatData(cmp) + "\n");
 					creatornum++;
-				} else {
-					creatornum = 1;
-					System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
-					creatornum++;
-					creatorch = false;
-					author.add(formatData(cmp));
-				}
 			}
 
 			if (cmp.contains("dcterms:publisher") && !cmp.contains("/dcterms:publisher")) {
@@ -476,14 +451,14 @@ public class ResultAnalyzer {
 			}
 
 			if (publisherch == true && cmp.contains("foaf:name")) {
-				System.out.println("出版社:" + cmp);
-				publisher.add(cmp);
+				System.out.println("出版社:" +publishernum+":"+ formatData(cmp));
+				bw2.write("出版社:" + formatData(cmp) + "\n");
 				publisherch = false;
 			}
 
 			if (cmp.contains("dcterms:extent")) {
 				System.out.println("ページ数:" + formatData(cmp));
-				page.add(formatData(cmp));
+				bw2.write("ページ数:" + formatData(cmp) + "\n");
 			}
 
 			if (cmp.contains("dcterms:subject rdf:resource=") && cmp.contains("ndc")) {//NDCの抜き出し
@@ -503,12 +478,12 @@ public class ResultAnalyzer {
 				end = cmp.lastIndexOf("\"");
 				cmp = cmp.substring(start + 1, end);
 				System.out.println("NDC" + ndcnum + ":" + cmp);
-				ndc.add(cmp);//版情報は入れなくて良いのか?
+				bw2.write("NDC" + ndcnum + ":" + cmp);
 			}
 
 			if (cmp.contains("dcterms:identifier rdf:datatype=") && cmp.contains("ISBN")) {//ISBNの抜き出し
 				System.out.println("ISBN:" + formatData(cmp));
-				isbn.add(formatData(cmp));
+				bw2.write("ISBN:" + formatData(cmp));
 			}
 
 			//件名の取得
@@ -516,21 +491,21 @@ public class ResultAnalyzer {
 				subjectch = true;
 			}
 			if(cmp.contains("rdf:value")&&subjectch) {
-				System.out.println(cmp);
-				subject.add(formatData(cmp));
+				System.out.println("件名:" + cmp);
+				bw2.write(cmp);
 				subjectch = false;
 			}
 
 		}//end of while
-		System.out.println("データ数:" + result.size());
-		System.out.println(result.get(0).size());
 	    br.close();
 		fr.close();
+		bw2.close();
+		fw2.close();
+		filetmp.delete();
 		recordsFile.delete();
-		file.delete();
-
-		return result;
+		//file.delete();
 	}
+
 
 	public boolean checkTorF(String data) {
 		//String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";

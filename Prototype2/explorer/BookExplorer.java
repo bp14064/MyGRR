@@ -1,13 +1,15 @@
 package explorer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import data.BookData;
+import org.dom4j.DocumentException;
+
 import exception.ArgsTypeException;
 import get_data.CreateRequest;
 import get_data.RequestTR;
-import get_data.ResultAnalyzer;
+import get_data.ResultAnalyzer2;
 
 public class BookExplorer {
 
@@ -18,7 +20,7 @@ public class BookExplorer {
 	public static void main(String[] args) {
 		CreateRequest cr = new CreateRequest(); // リクエスト作成
 		RequestTR rtr = new RequestTR(); // リクエスト送受信
-		ResultAnalyzer ra = new ResultAnalyzer(); // 結果解析
+		ResultAnalyzer2 ra = new ResultAnalyzer2(); // 結果解析
 
 		//とりあえず、最初に初期クエリを入力
 		Scanner scan = new Scanner(System.in);
@@ -33,17 +35,25 @@ public class BookExplorer {
 		 * 流れとしては
 		 * 検索　→　一つ選択？　→BookDataの作成　→スタート本の決定
 		 */
-		 ArrayList<ArrayList<String>> bookData = null;
+		 ArrayList<ArrayList<ArrayList<String>>> res = null;
 		 try {
-			String query = cr.createRequest(keyword, "keyword", "non", 1);
+			String query = cr.createRequest(keyword, "keyword", "non", 10);
 			String result = rtr.requestProcess(query);
-			bookData = ra.createBookData(result);
-		} catch (ArgsTypeException e) {
+			ra.createBookDataFile(result);
+		} catch (ArgsTypeException | IOException | DocumentException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		 BookData bd = new BookData(bookData);
-		 bd.checkBookData();
+
+		/* ArrayList<BookData> bdList = new ArrayList<BookData>();
+		 for(ArrayList<ArrayList<String>> r : res) {
+			 bdList.add(new BookData(r));
+		 }
+		 System.out.println(bdList.size());
+		 System.out.println(bdList.get(0).getTitle());
+		 /*for(BookData bd : bdList) {
+			 bd.checkBookData();
+		 }*/
 		/*
 		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
 		 */
