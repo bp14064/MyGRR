@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="NDL_LOD"/>
 	<classpathentry kind="src" path="Prototype"/>
+	<classpathentry kind="src" path="Prototype2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/dom4j-2.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jaxen-1.1.4.jar"/>
