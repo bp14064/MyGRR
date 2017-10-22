@@ -4,66 +4,51 @@ import java.util.ArrayList;
 
 public class BookData {
 	private ArrayList<ArrayList<String>> allData;//これは今後の様子を見て要らないようなら消す
-	private ArrayList<String> title;
+	private String  mainTitle;
 	private ArrayList<String> author;
 	private ArrayList<String> ndc;
+	private ArrayList<String> series;
 	private ArrayList<String> subject;
 	private ArrayList<String> publisher;
+	private ArrayList<String> subtitle;
 	private String page;
 	private String isbn;
 	private String callnum;
 
-	/**
-	 * BookDataを作成するときに入れるデータ構造は以下の通り
-	 * ArrayList <データを表す名前*1> <データ> ・・・
-	 * ArrayList<ArrayList<String>> <タイトル> <著者名> ・・・
-	 *
-	 * *1 データを表す名前
-	 * タイトル（サブタイトル含む）: title
-	 * 著者名 : author
-	 * NDC : ndc
-	 * 件名 : subject
-	 * 出版社 : publisher
-	 * ページ数 : page
-	 * ISBN : isbn
-	 * 請求記号（国立国会図書館）: callnum
-	 * @param data
-	 */
-	public BookData(ArrayList<ArrayList<String>> data) {
-		this.allData = data;
-		this.inputData2Member(data); //メンバーへの入力
+
+	public BookData(String mainTitle, ArrayList<String> series, ArrayList<String> creator, ArrayList<String> subtitle,
+		ArrayList<String> publisher, String pages, String isbn, ArrayList<String> ndc, String callNum, ArrayList<String> subject) {
+		this.mainTitle = mainTitle;
+		this.author = creator;
+		this.series = series;
+		this.subject = subject;
+		this.publisher = publisher;
+		this.ndc = ndc;
+		this.page = pages;
+		this.isbn = isbn;
+		this.callnum = callNum;
+		this.subtitle = subtitle;
 	}
 
 	public void checkBookData() {
 		System.out.println("-------------本情報------------");
-		int num = 1;
-		for(String s1: this.title) {
-			System.out.println(num + ":" + s1);
-			num++;
-		}
-		num=1;
-		for(String s2 : this.author) {
-			System.out.println(num + ":" + s2);
-			num++;
-		}
-		num=1;
-		for(String s3 : this.ndc) {
-			System.out.println(num + ":" + s3);
-			num++;
-		}
-		num=1;
-		for(String s4 : this.subject) {
-			System.out.println(num + ":" + s4);
-			num++;
-		}
-	    num=1;
-		for(String s5 : this.publisher) {
-			System.out.println(num + ":" + s5);
-			num++;
-		}
-		System.out.println(this.page);
-		System.out.println(this.isbn);
-		System.out.println(this.callnum);
+		System.out.println("メインタイトル："+this.mainTitle);
+		for(String s : this.series)
+			System.out.println("シリーズ名:"+s);
+		for(String s1 : this.author)
+			System.out.println("著作者名"+s1);
+		for(String s2 : this.subtitle)
+			System.out.println("サブタイトル:"+s2);
+		for(String s3 : this.publisher)
+			System.out.println("出版社:"+s3);
+		for(String s4 : this.ndc)
+			System.out.println("分類:"+s4);
+		for(String s5 : this.subject)
+			System.out.println("件名:"+s5);
+		System.out.println("ISBN："+this.isbn);
+		System.out.println("請求記号:"+this.callnum);
+		System.out.println("ページ数:"+this.page);
+
 	}
 
 	/*-----------------問い合わせ-------------*/
@@ -85,8 +70,12 @@ public class BookData {
 	/*-----------------問い合わせ-------------*/
 
 	/*------------------getter----------------*/
-	public ArrayList<String> getTitle() {
-		return title;
+	public ArrayList<ArrayList<String>> getAllData(){
+		return this.allData;
+	}
+
+	public String getMainTitle() {
+		return mainTitle;
 	}
 
 	public ArrayList<String> getAuthor() {
@@ -97,8 +86,16 @@ public class BookData {
 		return ndc;
 	}
 
+	public ArrayList<String> getSeries() {
+		return series;
+	}
+
 	public ArrayList<String> getSubject() {
 		return subject;
+	}
+
+	public ArrayList<String> getPublisher() {
+		return publisher;
 	}
 
 	public String getPage() {
@@ -112,50 +109,8 @@ public class BookData {
 	public String getCallnum() {
 		return callnum;
 	}
-
-	public ArrayList<String> getPublisher() {
-		return publisher;
-	}
-
-	public ArrayList<ArrayList<String>> getAllData(){
-		return this.allData;
+	public ArrayList<String> getSubtitle() {
+		return subtitle;
 	}
 	/*------------------getter----------------*/
-
-	/*---------------------コンストラクタ用-------------------------*/
-	private void inputData2Member(ArrayList<ArrayList<String>> data) {
-		ArrayList<String> tmp = null;
-		// リストの中から取り出したリストの先頭要素を見る
-		for (int i = 0; i < data.size(); i++) {
-			tmp = data.get(i);
-			if (tmp.get(0).matches("title") && tmp.size() != 1) {
-				this.title = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("author") && tmp.size() != 1) {
-				this.author = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("ndc") && tmp.size() != 1) {
-				this.ndc = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("subject") && tmp.size() != 1) {
-				this.subject = this.ridHeadDataOfList(tmp);
-			}else if(tmp.get(0).matches("publisher") && tmp.size() != 1) {
-				this.publisher = this.ridHeadDataOfList(tmp);
-			} else if (tmp.get(0).matches("page") && tmp.size() != 1) {
-				this.page = tmp.get(1);
-			} else if (tmp.get(0).matches("isbn") && tmp.size() != 1) {
-				this.isbn = tmp.get(1);
-			} else if (tmp.get(0).matches("callnum") && tmp.size() != 1) {
-				this.callnum = tmp.get(1);
-			} else {
-				System.out.println("error");
-			}
-		}
-	}
-
-	private ArrayList<String> ridHeadDataOfList(ArrayList<String> target) {
-		if (target.size() != 1)
-			target.remove(0);
-		else
-			System.out.println("error");
-		return target;
-	}
-	/*---------------------コンストラクタ用-------------------------*/
 }
