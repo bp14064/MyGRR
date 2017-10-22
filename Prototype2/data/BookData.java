@@ -13,7 +13,7 @@ public class BookData {
 	private ArrayList<String> subtitle;
 	private String page;
 	private String isbn;
-	private String callnum;
+	private String callNum;
 
 
 	public BookData(String mainTitle, ArrayList<String> series, ArrayList<String> creator, ArrayList<String> subtitle,
@@ -26,7 +26,7 @@ public class BookData {
 		this.ndc = ndc;
 		this.page = pages;
 		this.isbn = isbn;
-		this.callnum = callNum;
+		this.callNum = callNum;
 		this.subtitle = subtitle;
 	}
 
@@ -46,7 +46,7 @@ public class BookData {
 		for(String s5 : this.subject)
 			System.out.println("件名:"+s5);
 		System.out.println("ISBN："+this.isbn);
-		System.out.println("請求記号:"+this.callnum);
+		System.out.println("請求記号:"+this.callNum);
 		System.out.println("ページ数:"+this.page);
 
 	}
@@ -107,7 +107,7 @@ public class BookData {
 	}
 
 	public String getCallnum() {
-		return callnum;
+		return callNum;
 	}
 	public ArrayList<String> getSubtitle() {
 		return subtitle;

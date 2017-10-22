@@ -227,10 +227,12 @@ public class ResultAnalyzer2 {
 
 			if(cmp.contains("dcterms:title")&&subtitle) {
 				System.out.println("部分タイトル:" +subtitlenum+":"+ formatData(cmp));
+				bw2.write("部分タイトル:" +subtitlenum+":"+ formatData(cmp)+"\n");
 				subtitlenum++;
 			}
 			if(cmp.contains("dc:creator")&&subtitle) {
 				System.out.println("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp));
+				bw2.write("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp) + "\n");
 				subtitlecreatornum++;
 			}
 			if(cmp.contains("/dcndl:partInformation")) {
@@ -241,7 +243,7 @@ public class ResultAnalyzer2 {
 			}
 			if(cmp.contains("rdf:value") && series) {
 				System.out.println("シリーズ名：" + formatData(cmp));
-				bw2.write("シリーズ名:" + formatData(cmp));
+				bw2.write("シリーズ名:" + formatData(cmp) + "\n");
 				//series = false;
 			}
 
@@ -299,7 +301,7 @@ public class ResultAnalyzer2 {
 				end = cmp.lastIndexOf("\"");
 				cmp = cmp.substring(start + 1, end);
 				System.out.println("NDC" + ndcnum + ":" + cmp);
-				bw2.write("NDC" + ndcnum + ":" + cmp);
+				bw2.write("NDC" + ndcnum + ":" + cmp + "\n");
 			}
 
 			if (cmp.contains("dcterms:identifier rdf:datatype=") && cmp.contains("ISBN")) {//ISBNの抜き出し
@@ -313,7 +315,7 @@ public class ResultAnalyzer2 {
 			}
 			if(cmp.contains("rdf:value")&&subjectch) {
 				System.out.println("件名:" + formatData(cmp));
-				bw2.write(formatData(cmp));
+				bw2.write(formatData(cmp) + "\n");
 				subjectch = false;
 			}
 
@@ -378,11 +380,12 @@ public class ResultAnalyzer2 {
 				ndc.add(tmp);
 			}
 			if(tmp.contains("データ番号")&&tmp.contains("終了")) {
-				result.add(new BookData(mainTitle,series, creator, subtitle, publisher, pages, isbn, ndc, callNum, subject));
-				mainTitle = null;
-				isbn = null;
-				pages = null;
-				callNum = null;
+				BookData tmp1 = new BookData(mainTitle,series, creator, subtitle, publisher, pages, isbn, ndc, callNum, subject);
+				result.add(tmp1);
+				mainTitle = "";
+				isbn = "";
+				pages = "";
+				callNum = "";
 				subtitle = new ArrayList<String>();
 				creator = new ArrayList<String>();
 				series = new ArrayList<String>();
@@ -394,7 +397,7 @@ public class ResultAnalyzer2 {
 		System.out.println("OK>?" + result.size());
 		br.close();
 		fr.close();
-		file.delete();
+		//file.delete();
 		return result;
 	}
 
