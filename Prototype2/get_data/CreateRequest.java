@@ -54,6 +54,35 @@ public class CreateRequest {
 		throw new ArgsTypeException("引数エラー：使い方を確認");
 	}
 
+	public String createRequest(String querySeed, String queryType, String getDataType, int getDataNum) throws ArgsTypeException {
+		// queryTypeがNullなら典拠データ、getDataTypeがNullなら書誌データ
+		// book
+		if (getDataType.equals("non")) {
+			String query = this.createQuery4Book(querySeed, queryType);
+			query = this.URIEncode(query);
+			String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=";
+			request += query;
+			request += "&maximumRecords=" + getDataNum + "&numberOfRecords&recordSchema=dcndl&onlyBib=\"true\"";
+			//request += "&maximumRecords=10&recordSchema=dcndl_simple&onlyBib=\"true\"";
+			return request;
+		}
+		// auth
+		if (queryType.equals("non")) {
+			String query = this.createQuery4Auth(querySeed, getDataType);
+			query = this.URIEncode(query);
+			//System.out.println(query);
+			String request = "http://id.ndl.go.jp/auth/ndla?query=";
+			request += query;
+			request += "&output=xml";
+			return request;
+		}
+
+		if (getDataType.equals("non") && queryType.equals("non")) {
+			throw new ArgsTypeException("getDataType,queryTypeの両方が指定されていません。");
+		}
+		throw new ArgsTypeException("引数エラー：使い方を確認");
+	}
+
 	/**
 	 * 入力されたもの（何かはqueryTypeで判定）に対して、CQLクエリを作成する。
 	 *
