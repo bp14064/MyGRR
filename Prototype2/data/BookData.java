@@ -14,11 +14,12 @@ public class BookData {
 	private ArrayList<String> page;
 	private ArrayList<String> isbn;
 	private ArrayList<String> callNum;
+	private ArrayList<String> materialIdentifer;
 
 
 	public BookData(ArrayList<String> mt, ArrayList<String> series, ArrayList<String> author, ArrayList<String> st,
 			ArrayList<String> pub, ArrayList<String> pages, ArrayList<String> ndc, ArrayList<String> sub,
-			ArrayList<String> isbn, ArrayList<String> cn) {
+			ArrayList<String> isbn, ArrayList<String> cn, ArrayList<String> mi) {
 		this.mainTitle = mt;
 		this.series = series;
 		this.author = author;
@@ -29,6 +30,7 @@ public class BookData {
 		this.subject = sub;
 		this.isbn = isbn;
 		this.callNum = cn;
+		this.materialIdentifer = mi;
 	}
 
 	public void checkBookData() {
@@ -71,6 +73,34 @@ public class BookData {
 				return true;
 		}
 		return false;
+	}
+
+	public boolean isNormalBookData() {
+		boolean isbn=false;
+		boolean audience=true;
+		boolean materialType=false;
+
+		if(!this.isbn.isEmpty()) {
+			isbn = true;
+		}
+		for(String s : this.materialIdentifer) {
+			//System.out.println(s);
+			if(s.contains("対象利用者")) {
+				if(s.contains("児童")) {
+					audience = false;
+				}
+			}
+			if(s.contains("資料種別")) {
+				if(s.contains("図書")) {
+					materialType = true;
+				}
+			}
+		}
+
+		if(isbn&&audience&&materialType)
+			return true;
+		else
+			return false;
 	}
 	/*-----------------問い合わせ-------------*/
 
@@ -117,5 +147,10 @@ public class BookData {
 	public ArrayList<String> getSubtitle() {
 		return subtitle;
 	}
+
+	public ArrayList<String> getMaterialIdentifer() {
+		return materialIdentifer;
+	}
+
 	/*------------------getter----------------*/
 }
