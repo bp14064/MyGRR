@@ -15,11 +15,12 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import data.BookData;
 import exception.ArgsTypeException;
 
-public class ResultAnalyzer2 {
+public class ResultAnalyzer3 {
 
-	public ResultAnalyzer2() {
+	public ResultAnalyzer3() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
@@ -123,6 +124,7 @@ public class ResultAnalyzer2 {
 
 	/**
 	 * 書誌データから必要な項目を抜き出し、それらの結果をまとめ、テキストファイルに書き出す
+	 * ここで、返り値として何個データがあるのか（chunkNum）を返したい
 	 * @param data
 	 * @return
 	 * @throws IOException
@@ -194,13 +196,13 @@ public class ResultAnalyzer2 {
 
 			if (chunkch == false && cmp.contains("rdf:RDF xmlns")) {//データチャンクの開始処理
 				chunkch = true;
-				System.out.println("データ番号：" + chunknum + "開始");
+				//System.out.println("データ番号：" + chunknum + "開始");
 				bw2.write("データ番号：" + chunknum + "開始\n");
 			}
 
 			if (chunkch == true && cmp.contains("/rdf:RDF")) {//データチャンクの終了処理
 				chunkch = false;
-				System.out.println("データ番号:" + chunknum + "終了");
+				//System.out.println("データ番号:" + chunknum + "終了");
 			    bw2.write("データ番号:" + chunknum + "終了\n");
 				chunknum++;
 				//新しくフラグを作ったら、ここでリセットしないと
@@ -215,7 +217,7 @@ public class ResultAnalyzer2 {
 			}
 
 			if (cmp.contains("dcterms:title") && !maintitle) {//タイトル
-					System.out.println("メインタイトル:" + formatData(cmp));
+					//System.out.println("メインタイトル:" + formatData(cmp));
 					bw2.write("メインタイトル:" +formatData(cmp) + "\n");
 					maintitle = true;
 			}
@@ -225,12 +227,12 @@ public class ResultAnalyzer2 {
 			}
 
 			if(cmp.contains("dcterms:title")&&subtitle) {
-				System.out.println("部分タイトル:" +subtitlenum+":"+ formatData(cmp));
+				//System.out.println("部分タイトル:" +subtitlenum+":"+ formatData(cmp));
 				bw2.write("部分タイトル:" +subtitlenum+":"+ formatData(cmp)+"\n");
 				subtitlenum++;
 			}
 			if(cmp.contains("dc:creator")&&subtitle) {
-				System.out.println("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp));
+				//System.out.println("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp));
 				bw2.write("部分タイトル:" +subtitlecreatornum +":著者名:"+formatData(cmp) + "\n");
 				subtitlecreatornum++;
 			}
@@ -241,7 +243,7 @@ public class ResultAnalyzer2 {
 				series = true;
 			}
 			if(cmp.contains("rdf:value") && series) {
-				System.out.println("シリーズ名：" + formatData(cmp));
+				//System.out.println("シリーズ名：" + formatData(cmp));
 				bw2.write("シリーズ名:" + formatData(cmp) + "\n");
 				//series = false;
 			}
@@ -253,7 +255,7 @@ public class ResultAnalyzer2 {
 			if (cmp.contains("dcndl:callNumber")) {//請求記号
 				//いまのフラグだけだと、もし国立国会図書館の請求記号がない場合（そんなことあるのか？　→　可能性はる）は対応できない
 				if (ndlch == true) {
-					System.out.println("請求記号：" + formatData(cmp));
+					//System.out.println("請求記号：" + formatData(cmp));
 					bw2.write("請求記号：" + formatData(cmp) + "\n");
 					ndlch = false;
 				}
@@ -263,7 +265,7 @@ public class ResultAnalyzer2 {
 				creatorch = true;
 			}
 			if (cmp.contains("dc:creator") &&  creatorch) {
-					System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
+					//System.out.println("著作者番号 " + creatornum + ":" + formatData(cmp));
 					bw2.write("著作者番号 " + creatornum + ":" + formatData(cmp) + "\n");
 					creatornum++;
 			}
@@ -273,13 +275,13 @@ public class ResultAnalyzer2 {
 			}
 
 			if (publisherch == true && cmp.contains("foaf:name")) {
-				System.out.println("出版社:" +publishernum+":"+ formatData(cmp));
+				//System.out.println("出版社:" +publishernum+":"+ formatData(cmp));
 				bw2.write("出版社:" + formatData(cmp) + "\n");
 				publisherch = false;
 			}
 
 			if (cmp.contains("dcterms:extent")) {
-				System.out.println("ページ数:" + formatData(cmp));
+				//System.out.println("ページ数:" + formatData(cmp));
 				bw2.write("ページ数:" + formatData(cmp) + "\n");
 			}
 
@@ -299,12 +301,12 @@ public class ResultAnalyzer2 {
 				int start = cmp.lastIndexOf("/");
 				end = cmp.lastIndexOf("\"");
 				cmp = cmp.substring(start + 1, end);
-				System.out.println("NDC" + ndcnum + ":" + cmp);
+				//System.out.println("NDC" + ndcnum + ":" + cmp);
 				bw2.write("NDC" + ndcnum + ":" + cmp + "\n");
 			}
 
 			if (cmp.contains("dcterms:identifier rdf:datatype=") && cmp.contains("ISBN")) {//ISBNの抜き出し
-				System.out.println("ISBN:" + formatData(cmp));
+				//System.out.println("ISBN:" + formatData(cmp));
 				bw2.write("ISBN:" + formatData(cmp) + "\n");
 			}
 
@@ -313,8 +315,8 @@ public class ResultAnalyzer2 {
 				subjectch = true;
 			}
 			if(cmp.contains("rdf:value")&&subjectch) {
-				System.out.println("件名:" + formatData(cmp));
-				bw2.write(formatData(cmp) + "\n");
+				//System.out.println("件名:" + formatData(cmp));
+				bw2.write("件名:" + formatData(cmp) + "\n");
 				subjectch = false;
 			}
 
@@ -325,12 +327,16 @@ public class ResultAnalyzer2 {
 		fw2.close();
 		filetmp.delete();
 		recordsFile.delete();
-		//file.delete();
+		file.delete();
 	}
 
-	public ArrayList<ArrayList<String>> createBookData() throws IOException {
-		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
-
+	/**
+	 * chunkNumで指定された番号のデータからだけ、各データの抽出を行い、BookDataの作成を行う
+	 * @param chunkNum
+	 * @return chunkNumで指定された番号のデータから作成したBookData
+	 * @throws IOException
+	 */
+	public BookData createBookData(int chunkNum) throws IOException {
 		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
@@ -344,110 +350,56 @@ public class ResultAnalyzer2 {
 		ArrayList<String> subtitle = new ArrayList<String>();
 		ArrayList<String> publisher = new ArrayList<String>();
 		ArrayList<String> subject = new ArrayList<String>();
-		//データ識別のため、各リストの先頭にデータ名を格納
-		mainTitle.add("mainTitle");
-		isbn.add("isbn");
-		pages.add("pages");
-		callNum.add("callNum");
-		ndc.add("ndc");
-		author.add("author");
-		series.add("series");
-		subtitle.add("subtitle");
-		publisher.add("publisher");
-		subject.add("subject");
-		//チャンク識別用のフラグ及び番号変数
-		boolean chunk = false;
-		Integer chunkNum = 1;
+		ArrayList<String> tmpL = new ArrayList<String>();
 
 		String tmp;
+		boolean get = false;
 		while((tmp = br.readLine()) != null) {
-            if(tmp.contains("データ番号")&&tmp.contains("開始")&&!chunk) {
-            	mainTitle.add("chunkstart:"+chunkNum.toString());
-        		isbn.add("chunkstart:"+chunkNum.toString());
-        		pages.add("chunkstart:"+chunkNum.toString());
-        		callNum.add("chunkstart:"+chunkNum.toString());
-        		ndc.add("chunkstart:"+chunkNum.toString());
-        		author.add("chunkstart:"+chunkNum.toString());
-        		series.add("chunkstart:"+chunkNum.toString());
-        		subtitle.add("chunkstart:"+chunkNum.toString());
-        		publisher.add("chunkstart:"+chunkNum.toString());
-        		subject.add("chunkstart:"+chunkNum.toString());
-				chunk = true;
+            if(tmp.contains("データ番号")&&tmp.contains("開始")&&(get==false)) {
+            	if(tmp.contains(Integer.toString(chunkNum))) {
+            		get=true;
+            	}
 			}
-			if(tmp.contains("メインタイトル:")) {
+			if(tmp.startsWith("メインタイトル")&&get) {
 				mainTitle.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("ISBN:")) {
+			if(tmp.startsWith("ISBN")&&get) {
 				isbn.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("部分タイトル:")) {
+			if(tmp.startsWith("部分タイトル")&&get) {
 				subtitle.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("ページ数:")) {
+			if(tmp.startsWith("ページ数")&&get) {
 				pages.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("請求記号:")) {
+			if(tmp.startsWith("請求記号")&&get) {
 				callNum.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("出版社:")) {
+			if(tmp.startsWith("出版社")&&get) {
 				publisher.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("件名:")) {
+			if(tmp.startsWith("件名")&&get) {
 				subject.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("シリーズ名")) {
+			if(tmp.startsWith("シリーズ名")&&get) {
 				series.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("著作者番号")) {
+			if(tmp.startsWith("著作者番号")&&get) {
 				author.add(formatData4BD(tmp));
 			}
-			if(tmp.contains("NDC")) {
+			if(tmp.startsWith("NDC")&&get) {
 				ndc.add(tmp);
 			}
-			if(tmp.contains("データ番号")&&tmp.contains("終了")&&chunk) {
-				chunkNum++;
-
-				mainTitle.add("chunkend:"+chunkNum.toString());
-        		isbn.add("chunkend:"+chunkNum.toString());
-        		pages.add("chunkend:"+chunkNum.toString());
-        		callNum.add("chunkend:"+chunkNum.toString());
-        		ndc.add("chunkend:"+chunkNum.toString());
-        		author.add("chunkend:"+chunkNum.toString());
-        		series.add("chunkend:"+chunkNum.toString());
-        		subtitle.add("chunkend:"+chunkNum.toString());
-        		publisher.add("chunkend:"+chunkNum.toString());
-        		subject.add("chunkend:"+chunkNum.toString());
-
-        		chunk=false;
+			if(tmp.startsWith("データ番号")&&tmp.contains("終了")&&get) {
+				if(tmp.contains(Integer.toString(chunkNum))) {
+					get=false;
+	        		break;
+            	}
 			}
 		}
-		/*
-		 * 順番
-		 * mainTitle
-		 * series
-		 * author
-		 * subtitle
-		 * publisher
-		 * pages
-		 * ndc
-		 * subject
-		 * isbn
-		 * callNum
-		 */
-		result.add(mainTitle);
-		result.add(series);
-		result.add(author);
-		result.add(subtitle);
-		result.add(publisher);
-		result.add(pages);
-		result.add(ndc);
-		result.add(subject);
-		result.add(isbn);
-		result.add(callNum);
 		br.close();
 		fr.close();
-		file.delete();
-		return result;
+		return new BookData(mainTitle, series, author, subtitle, publisher, pages, ndc, subject, isbn, callNum);
 	}
 
 

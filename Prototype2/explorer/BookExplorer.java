@@ -10,7 +10,7 @@ import data.BookData;
 import exception.ArgsTypeException;
 import get_data.CreateRequest;
 import get_data.RequestTR;
-import get_data.ResultAnalyzer2;
+import get_data.ResultAnalyzer3;
 
 public class BookExplorer {
 
@@ -21,7 +21,7 @@ public class BookExplorer {
 	public static void main(String[] args) {
 		CreateRequest cr = new CreateRequest(); // リクエスト作成
 		RequestTR rtr = new RequestTR(); // リクエスト送受信
-		ResultAnalyzer2 ra = new ResultAnalyzer2(); // 結果解析
+		ResultAnalyzer3 ra = new ResultAnalyzer3(); // 結果解析
 		BookExplorer be = new BookExplorer();
 
 		//とりあえず、最初に初期クエリを入力
@@ -37,30 +37,24 @@ public class BookExplorer {
 		 * 流れとしては
 		 * 検索　→　一つ選択？　→BookDataの作成　→スタート本の決定
 		 */
-		 ArrayList<ArrayList<String>> resultData = null;
+		 ArrayList<BookData> resultData = new ArrayList<BookData>();
+		 int getDataNum = 10;
+		 int chunkNum = getDataNum+1;
 		 try {
-			String query = cr.createRequest(keyword, "keyword", "non", 10);
+			String query = cr.createRequest(keyword, "keyword", "non", getDataNum);
 			String result = rtr.requestProcess(query);
 			ra.createBookDataFile(result);
-			resultData = ra.createBookData();
+			for(int i=1;i<chunkNum;i++) {
+			resultData.add(ra.createBookData(i));
+			}
 		} catch (ArgsTypeException | IOException | DocumentException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
-		int chunkNum = 1;
-		ArrayList<BookData> bd = new ArrayList<BookData>();
-		for(;;) {
-			if(chunkNum == 11) {
-				break;
-			}
-			bd.add(be.getBookData(resultData, chunkNum));
-			chunkNum++;
-		}
-
-		for(BookData s : bd) {
-			s.checkBookData();
-		}
+		 for(BookData bd : resultData) {
+			 bd.checkBookData();
+		 }
 
 		/*
 		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
