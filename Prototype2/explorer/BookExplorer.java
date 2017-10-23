@@ -45,7 +45,7 @@ public class BookExplorer {
 			String query = cr.createRequest(keyword, "keyword", "non", getDataNum);
 			String result = rtr.requestProcess(query);
 			test = ra.createBookDataFile(result);
-			System.out.println("TEST:"+test);
+			//System.out.println("TEST:"+test);
 			for(int i=1;i<chunkNum;i++) {
 			resultData.add(ra.createBookData(i));
 			}
@@ -55,7 +55,8 @@ public class BookExplorer {
 		}
 
 		 for(BookData bd : resultData) {
-			 bd.checkBookData();
+			 if(bd.isNormalBookData())
+				 bd.checkBookData();
 		 }
 
 		/*
@@ -65,65 +66,5 @@ public class BookExplorer {
 		/*
 		 * 得られたデータの表示(とりあえず、CUIでやる)
 		 */
-	}
-
-	private BookData getBookData(ArrayList<ArrayList<String>> target, int chunkNum) {
-		String tmp;
-		ArrayList<String> mt=null;
-		ArrayList<String> isbn=null;
-		ArrayList<String> pages=null;
-		ArrayList<String> cn=null;
-		ArrayList<String> ndc=null;
-		ArrayList<String> author=null;
-		ArrayList<String> series=null;
-		ArrayList<String> st=null;
-		ArrayList<String> pub=null;
-		ArrayList<String> sub=null;
-		for(ArrayList<String> rd : target) {
-			tmp = rd.get(0);
-			if(tmp.matches("mainTitle")) {
-				mt = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("isbn")) {
-				isbn = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("pages")) {
-				pages = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("callNum")) {
-				cn = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("ndc")) {
-				ndc = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("author")) {
-				author = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("series")) {
-				series = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("subtitle")) {
-				st = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("publisher")) {
-				pub = this.getChunkData(rd, chunkNum);
-			}else if(tmp.matches("subject")) {
-				sub = this.getChunkData(rd, chunkNum);
-			}
-		}
-		return new BookData(mt, series, author, st, pub, pages, ndc, sub, isbn, cn);
-	}
-
-	private ArrayList<String> getChunkData(ArrayList<String> target, int chunkNum){
-		ArrayList<String> result = new ArrayList<String>();
-		Integer i = new Integer(chunkNum);
-		boolean get = false;
-		for(String tmp : target) {
-			if(get) {
-				result.add(tmp);
-			}
-
-			if(tmp.contains("chunkstart:" + i.toString())) {
-				get = true;
-			}
-
-			if(tmp.contains("chunkend:" + i.toString())) {
-				get = false;
-				break;
-			}
-		}
-		return result;
 	}
 }

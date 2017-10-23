@@ -321,13 +321,21 @@ public class ResultAnalyzer3 {
 				subjectch = false;
 			}
 
+			//マテリアルタイプの区別のための情報の取得
+			if(cmp.contains("dcterms:audience")) {
+				bw2.write("対象利用者:" + formatData(cmp) + "\n");
+			}
+			if(cmp.contains("dcndl:materialType") && cmp.contains("ndltype/Book")) {
+				//これは別メソッドが必要
+				bw2.write("資料種別:"+"図書"+"\n");
+			}
 		}//end of while
 	    br.close();
 		fr.close();
 		bw2.close();
 		fw2.close();
-		filetmp.delete();
-		recordsFile.delete();
+		//filetmp.delete();
+		//recordsFile.delete();
 		file.delete();
 		return chunknum-1;//最後の終了時に一度プラスされているため
 	}
@@ -352,6 +360,7 @@ public class ResultAnalyzer3 {
 		ArrayList<String> subtitle = new ArrayList<String>();
 		ArrayList<String> publisher = new ArrayList<String>();
 		ArrayList<String> subject = new ArrayList<String>();
+		ArrayList<String> materialIdentifer = new ArrayList<String>();
 		ArrayList<String> tmpL = new ArrayList<String>();
 
 		String tmp;
@@ -392,6 +401,12 @@ public class ResultAnalyzer3 {
 			if(tmp.startsWith("NDC")&&get) {
 				ndc.add(tmp);
 			}
+			if(tmp.startsWith("対象利用者")&&get) {
+				materialIdentifer.add(tmp);
+			}
+			if(tmp.startsWith("資料種別")&&get) {
+				materialIdentifer.add(tmp);
+			}
 			if(tmp.startsWith("データ番号")&&tmp.contains("終了")&&get) {
 				if(tmp.contains(Integer.toString(chunkNum))) {
 					get=false;
@@ -401,7 +416,7 @@ public class ResultAnalyzer3 {
 		}
 		br.close();
 		fr.close();
-		return new BookData(mainTitle, series, author, subtitle, publisher, pages, ndc, subject, isbn, callNum);
+		return new BookData(mainTitle, series, author, subtitle, publisher, pages, ndc, subject, isbn, callNum, materialIdentifer);
 	}
 
 
@@ -459,6 +474,13 @@ public class ResultAnalyzer3 {
 		String result = null;
 		result = target.substring(target.indexOf(":")+1);
 		//System.out.println(result);
+		return result;
+	}
+	private String formatData4MaterialType(String target) {
+		String result = null;
+		int start = target.indexOf("rdf:label") + 10;
+		int end = target.indexOf("\"");
+		result = target.substring(start, end);
 		return result;
 	}
 
