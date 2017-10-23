@@ -1,8 +1,10 @@
 package explorer;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Iterator;
 
 import org.dom4j.DocumentException;
 
@@ -22,12 +24,10 @@ public class BookExplorer {
 		CreateRequest cr = new CreateRequest(); // リクエスト作成
 		RequestTR rtr = new RequestTR(); // リクエスト送受信
 		ResultAnalyzer3 ra = new ResultAnalyzer3(); // 結果解析
-		BookExplorer be = new BookExplorer();
+		GetData gd = new GetData();
 
 		//とりあえず、最初に初期クエリを入力
-		Scanner scan = new Scanner(System.in);
-		System.out.print("キーワード：");
-		String keyword = scan.nextLine();
+		String keyword = input();
 		System.out.println("入力キーワード > " + keyword);
 
 		/*
@@ -69,13 +69,53 @@ public class BookExplorer {
 		/*
 		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
 		 */
-		 scan.close();
-		 Scanner scan2 = new Scanner(System.in);
-		 System.out.print("選択：");
-		 String select = scan2.nextLine();
+		 String select = input();
+		 int sn = Integer.parseInt(select);
+
+		 BookData target = normalBookData.get(sn);
+		 target.checkBookData();
+		 System.out.println("以下は取得できたキーワード");
+		 ArrayList<String> sub = target.getSubject();
+		 String key = null;
+		 for(String tmp : sub) {
+			 key = tmp;
+		 }
+		 //典拠データの取得
+		 ArrayList<ArrayList<String>> result =gd.getSubjectData(key);
+		 ArrayList<String> wordList = new ArrayList<String>();
+		 wordList.addAll(gd.getDataList(result));
+		 wordList.addAll(gd.getDataList(gd.getSubjectData(result), true));
+
+		//普通件名でないものを除く
+			Iterator<String> it = wordList.iterator();
+	        while(it.hasNext()){
+	            String s = it.next();
+	            if(!ra.checkTorF(rtr.requestProcess(cr.getCheckIsNormalSubject(s)))) {
+	            	it.remove();
+	            }
+	        }
+	        wordList = gd.removeSameWord(wordList, keyword);
+
+	        for(String s : wordList) {
+	        	System.out.println(s);
+	        }
 
 		/*
 		 * 得られたデータの表示(とりあえず、CUIでやる)
 		 */
+	}
+
+	public static String input() {
+		 InputStreamReader isr = new InputStreamReader(System.in);
+		 BufferedReader br = new BufferedReader(isr);
+	     System.out.print("入力してください   ⇒  ");
+	     String str = null;;
+		try {
+			str = br.readLine();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	     return str;
 	}
 }
