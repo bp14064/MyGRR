@@ -22,6 +22,7 @@ public class BookExplorer {
 		CreateRequest cr = new CreateRequest(); // リクエスト作成
 		RequestTR rtr = new RequestTR(); // リクエスト送受信
 		ResultAnalyzer2 ra = new ResultAnalyzer2(); // 結果解析
+		BookExplorer be = new BookExplorer();
 
 		//とりあえず、最初に初期クエリを入力
 		Scanner scan = new Scanner(System.in);
@@ -36,29 +37,31 @@ public class BookExplorer {
 		 * 流れとしては
 		 * 検索　→　一つ選択？　→BookDataの作成　→スタート本の決定
 		 */
-		 ArrayList<BookData> res = null;
+		 ArrayList<ArrayList<String>> resultData = null;
 		 try {
 			String query = cr.createRequest(keyword, "keyword", "non", 10);
 			String result = rtr.requestProcess(query);
 			ra.createBookDataFile(result);
-			res = ra.createBookData();
+			resultData = ra.createBookData();
 		} catch (ArgsTypeException | IOException | DocumentException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		 for(BookData bd : res) {
-			 bd.checkBookData();
-		 }
 
-		/* ArrayList<BookData> bdList = new ArrayList<BookData>();
-		 for(ArrayList<ArrayList<String>> r : res) {
-			 bdList.add(new BookData(r));
-		 }
-		 System.out.println(bdList.size());
-		 System.out.println(bdList.get(0).getTitle());
-		 /*for(BookData bd : bdList) {
-			 bd.checkBookData();
-		 }*/
+		int chunkNum = 1;
+		ArrayList<BookData> bd = new ArrayList<BookData>();
+		for(;;) {
+			if(chunkNum == 11) {
+				break;
+			}
+			bd.add(be.getBookData(resultData, chunkNum));
+			chunkNum++;
+		}
+
+		for(BookData s : bd) {
+			s.checkBookData();
+		}
+
 		/*
 		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
 		 */
@@ -68,4 +71,63 @@ public class BookExplorer {
 		 */
 	}
 
+	private BookData getBookData(ArrayList<ArrayList<String>> target, int chunkNum) {
+		String tmp;
+		ArrayList<String> mt=null;
+		ArrayList<String> isbn=null;
+		ArrayList<String> pages=null;
+		ArrayList<String> cn=null;
+		ArrayList<String> ndc=null;
+		ArrayList<String> author=null;
+		ArrayList<String> series=null;
+		ArrayList<String> st=null;
+		ArrayList<String> pub=null;
+		ArrayList<String> sub=null;
+		for(ArrayList<String> rd : target) {
+			tmp = rd.get(0);
+			if(tmp.matches("mainTitle")) {
+				mt = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("isbn")) {
+				isbn = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("pages")) {
+				pages = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("callNum")) {
+				cn = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("ndc")) {
+				ndc = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("author")) {
+				author = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("series")) {
+				series = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("subtitle")) {
+				st = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("publisher")) {
+				pub = this.getChunkData(rd, chunkNum);
+			}else if(tmp.matches("subject")) {
+				sub = this.getChunkData(rd, chunkNum);
+			}
+		}
+		return new BookData(mt, series, author, st, pub, pages, ndc, sub, isbn, cn);
+	}
+
+	private ArrayList<String> getChunkData(ArrayList<String> target, int chunkNum){
+		ArrayList<String> result = new ArrayList<String>();
+		Integer i = new Integer(chunkNum);
+		boolean get = false;
+		for(String tmp : target) {
+			if(get) {
+				result.add(tmp);
+			}
+
+			if(tmp.contains("chunkstart:" + i.toString())) {
+				get = true;
+			}
+
+			if(tmp.contains("chunkend:" + i.toString())) {
+				get = false;
+				break;
+			}
+		}
+		return result;
+	}
 }

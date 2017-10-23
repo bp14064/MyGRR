@@ -4,35 +4,37 @@ import java.util.ArrayList;
 
 public class BookData {
 	private ArrayList<ArrayList<String>> allData;//これは今後の様子を見て要らないようなら消す
-	private String  mainTitle;
+	private ArrayList<String>  mainTitle;
 	private ArrayList<String> author;
 	private ArrayList<String> ndc;
 	private ArrayList<String> series;
 	private ArrayList<String> subject;
 	private ArrayList<String> publisher;
 	private ArrayList<String> subtitle;
-	private String page;
-	private String isbn;
-	private String callNum;
+	private ArrayList<String> page;
+	private ArrayList<String> isbn;
+	private ArrayList<String> callNum;
 
 
-	public BookData(String mainTitle, ArrayList<String> series, ArrayList<String> creator, ArrayList<String> subtitle,
-		ArrayList<String> publisher, String pages, String isbn, ArrayList<String> ndc, String callNum, ArrayList<String> subject) {
-		this.mainTitle = mainTitle;
-		this.author = creator;
+	public BookData(ArrayList<String> mt, ArrayList<String> series, ArrayList<String> author, ArrayList<String> st,
+			ArrayList<String> pub, ArrayList<String> pages, ArrayList<String> ndc, ArrayList<String> sub,
+			ArrayList<String> isbn, ArrayList<String> cn) {
+		this.mainTitle = mt;
 		this.series = series;
-		this.subject = subject;
-		this.publisher = publisher;
-		this.ndc = ndc;
+		this.author = author;
+		this.subtitle = st;
+		this.publisher = pub;
 		this.page = pages;
+		this.ndc = ndc;
+		this.subject = sub;
 		this.isbn = isbn;
-		this.callNum = callNum;
-		this.subtitle = subtitle;
+		this.callNum = cn;
 	}
 
 	public void checkBookData() {
 		System.out.println("-------------本情報------------");
-		System.out.println("メインタイトル："+this.mainTitle);
+		for(String s6 : this.mainTitle)
+			System.out.println("メインタイトル:" + s6);
 		for(String s : this.series)
 			System.out.println("シリーズ名:"+s);
 		for(String s1 : this.author)
@@ -45,9 +47,12 @@ public class BookData {
 			System.out.println("分類:"+s4);
 		for(String s5 : this.subject)
 			System.out.println("件名:"+s5);
-		System.out.println("ISBN："+this.isbn);
-		System.out.println("請求記号:"+this.callNum);
-		System.out.println("ページ数:"+this.page);
+		for(String s7 : this.isbn)
+		    System.out.println("ISBN："+s7);
+		for(String s8 : this.callNum)
+			System.out.println("請求記号:"+s8);
+		for(String s9 : this.page)
+			System.out.println("ページ数:"+s9);
 
 	}
 
@@ -74,7 +79,7 @@ public class BookData {
 		return this.allData;
 	}
 
-	public String getMainTitle() {
+	public ArrayList<String> getMainTitle() {
 		return mainTitle;
 	}
 
@@ -98,15 +103,15 @@ public class BookData {
 		return publisher;
 	}
 
-	public String getPage() {
+	public ArrayList<String> getPage() {
 		return page;
 	}
 
-	public String getIsbn() {
+	public ArrayList<String> getIsbn() {
 		return isbn;
 	}
 
-	public String getCallnum() {
+	public ArrayList<String> getCallnum() {
 		return callNum;
 	}
 	public ArrayList<String> getSubtitle() {

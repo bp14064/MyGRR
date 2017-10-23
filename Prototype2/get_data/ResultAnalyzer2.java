@@ -15,7 +15,6 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import data.BookData;
 import exception.ArgsTypeException;
 
 public class ResultAnalyzer2 {
@@ -132,8 +131,8 @@ public class ResultAnalyzer2 {
 	public void createBookDataFile(String data) throws IOException, DocumentException {
 		//String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
 		//String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
-		String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
-		String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.xml";
+		String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.txt";
+		String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.xml";
 
 		//一度結果のXMLから最低限必要なところを抜き出したいため、一度XMLファイルとして保管 //もしかしたら今後はこの段階でテキスト処理を行ってもよいかもしれない
 		File filetmp = new File(xmlFilePath);
@@ -329,40 +328,66 @@ public class ResultAnalyzer2 {
 		//file.delete();
 	}
 
-	public ArrayList<BookData> createBookData() throws IOException {
-		ArrayList<BookData> result = new ArrayList<BookData>();
+	public ArrayList<ArrayList<String>> createBookData() throws IOException {
+		ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
 		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
-		String mainTitle = null;
-		String isbn = null;
-		String pages = null;
-		String callNum = null;
+		ArrayList<String> mainTitle = new ArrayList<String>();
+		ArrayList<String> isbn = new ArrayList<String>();
+		ArrayList<String> pages = new ArrayList<String>();
+		ArrayList<String> callNum = new ArrayList<String>();
 		ArrayList<String> ndc = new ArrayList<String>();
-		ArrayList<String> creator = new ArrayList<String>();
+		ArrayList<String> author = new ArrayList<String>();
 		ArrayList<String> series = new ArrayList<String>();
 		ArrayList<String> subtitle = new ArrayList<String>();
 		ArrayList<String> publisher = new ArrayList<String>();
 		ArrayList<String> subject = new ArrayList<String>();
+		//データ識別のため、各リストの先頭にデータ名を格納
+		mainTitle.add("mainTitle");
+		isbn.add("isbn");
+		pages.add("pages");
+		callNum.add("callNum");
+		ndc.add("ndc");
+		author.add("author");
+		series.add("series");
+		subtitle.add("subtitle");
+		publisher.add("publisher");
+		subject.add("subject");
+		//チャンク識別用のフラグ及び番号変数
+		boolean chunk = false;
+		Integer chunkNum = 1;
 
 		String tmp;
 		while((tmp = br.readLine()) != null) {
-			//System.out.println(tmp);
+            if(tmp.contains("データ番号")&&tmp.contains("開始")&&!chunk) {
+            	mainTitle.add("chunkstart:"+chunkNum.toString());
+        		isbn.add("chunkstart:"+chunkNum.toString());
+        		pages.add("chunkstart:"+chunkNum.toString());
+        		callNum.add("chunkstart:"+chunkNum.toString());
+        		ndc.add("chunkstart:"+chunkNum.toString());
+        		author.add("chunkstart:"+chunkNum.toString());
+        		series.add("chunkstart:"+chunkNum.toString());
+        		subtitle.add("chunkstart:"+chunkNum.toString());
+        		publisher.add("chunkstart:"+chunkNum.toString());
+        		subject.add("chunkstart:"+chunkNum.toString());
+				chunk = true;
+			}
 			if(tmp.contains("メインタイトル:")) {
-				mainTitle = formatData4BD(tmp);
+				mainTitle.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("ISBN:")) {
-				isbn = formatData4BD(tmp);
+				isbn.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("部分タイトル:")) {
 				subtitle.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("ページ数:")) {
-				pages = formatData4BD(tmp);
+				pages.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("請求記号:")) {
-				callNum = formatData4BD(tmp);
+				callNum.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("出版社:")) {
 				publisher.add(formatData4BD(tmp));
@@ -374,27 +399,51 @@ public class ResultAnalyzer2 {
 				series.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("著作者番号")) {
-				creator.add(formatData4BD(tmp));
+				author.add(formatData4BD(tmp));
 			}
 			if(tmp.contains("NDC")) {
 				ndc.add(tmp);
 			}
-			if(tmp.contains("データ番号")&&tmp.contains("終了")) {
-				BookData tmp1 = new BookData(mainTitle,series, creator, subtitle, publisher, pages, isbn, ndc, callNum, subject);
-				result.add(tmp1);
-				mainTitle = "";
-				isbn = "";
-				pages = "";
-				callNum = "";
-				subtitle = new ArrayList<String>();
-				creator = new ArrayList<String>();
-				series = new ArrayList<String>();
-				ndc = new ArrayList<String>();
-				publisher = new ArrayList<String>();
-				subject = new ArrayList<String>();
+			if(tmp.contains("データ番号")&&tmp.contains("終了")&&chunk) {
+				chunkNum++;
+
+				mainTitle.add("chunkend:"+chunkNum.toString());
+        		isbn.add("chunkend:"+chunkNum.toString());
+        		pages.add("chunkend:"+chunkNum.toString());
+        		callNum.add("chunkend:"+chunkNum.toString());
+        		ndc.add("chunkend:"+chunkNum.toString());
+        		author.add("chunkend:"+chunkNum.toString());
+        		series.add("chunkend:"+chunkNum.toString());
+        		subtitle.add("chunkend:"+chunkNum.toString());
+        		publisher.add("chunkend:"+chunkNum.toString());
+        		subject.add("chunkend:"+chunkNum.toString());
+
+        		chunk=false;
 			}
 		}
-		System.out.println("OK>?" + result.size());
+		/*
+		 * 順番
+		 * mainTitle
+		 * series
+		 * author
+		 * subtitle
+		 * publisher
+		 * pages
+		 * ndc
+		 * subject
+		 * isbn
+		 * callNum
+		 */
+		result.add(mainTitle);
+		result.add(series);
+		result.add(author);
+		result.add(subtitle);
+		result.add(publisher);
+		result.add(pages);
+		result.add(ndc);
+		result.add(subject);
+		result.add(isbn);
+		result.add(callNum);
 		br.close();
 		fr.close();
 		//file.delete();
