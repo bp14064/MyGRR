@@ -69,6 +69,10 @@ public class BookExplorer {
 		/*
 		 * スタート本の件名、分類から、関連キーワードを取得(SubjectDataの作成)
 		 */
+		 scan.close();
+		 Scanner scan2 = new Scanner(System.in);
+		 System.out.print("選択：");
+		 String select = scan2.nextLine();
 
 		/*
 		 * 得られたデータの表示(とりあえず、CUIでやる)
