@@ -3,7 +3,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000000162679-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcterms:description>雑誌記事索引採録あり</dcterms:description>
@@ -78,7 +78,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000004086512-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1003,7 +1003,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000007343782-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1235,7 +1235,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000002760715-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1526,7 +1526,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000007036509-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1631,7 +1631,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I023454143-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1709,7 +1709,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000000411439-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -1783,7 +1783,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000011259481-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -2518,7 +2518,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I000000082197-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>
@@ -2612,7 +2612,7 @@
       info:srw/schema/1/dc-v1.1
       string
       
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dcndl="http://ndl.go.jp/dcndl/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dcterms="http://purl.org/dc/terms/">
   <dcndl:BibAdminResource rdf:about="http://iss.ndl.go.jp/books/R100000002-I027611535-00">
     <dcndl:catalogingStatus>C7</dcndl:catalogingStatus>
     <dcndl:bibRecordCategory>R100000002</dcndl:bibRecordCategory>

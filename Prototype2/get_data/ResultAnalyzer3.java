@@ -83,8 +83,8 @@ public class ResultAnalyzer3 {
 	 */
 	public ArrayList<String> AnalyzeResult(String data, boolean NDC) throws ArgsTypeException {
 		if (NDC) {
-			//String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
-			String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+			String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+			//String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
 			ArrayList<String> result = new ArrayList<String>();
 			try {
 				File filetmp = new File(tmpFilePath);
@@ -421,8 +421,8 @@ public class ResultAnalyzer3 {
 
 
 	public boolean checkTorF(String data) {
-		//String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
-		String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep3\\tmpc.txt";
+		String tmpFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype\\kep\\tmp.txt";
+		//String tmpFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\Prototype\\kep3\\tmpc.txt";
 		try {
 			File filetmp = new File(tmpFilePath);
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filetmp));
