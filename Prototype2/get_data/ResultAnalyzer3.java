@@ -127,10 +127,11 @@ public class ResultAnalyzer3 {
 	 * ここで、返り値として何個データがあるのか（chunkNum）を返したい
 	 * @param data
 	 * @return
+	 * @return 何個データがあったか
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public void createBookDataFile(String data) throws IOException, DocumentException {
+	public int createBookDataFile(String data) throws IOException, DocumentException {
 		//String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
 		//String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
 		String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.txt";
@@ -328,6 +329,7 @@ public class ResultAnalyzer3 {
 		filetmp.delete();
 		recordsFile.delete();
 		file.delete();
+		return chunknum-1;//最後の終了時に一度プラスされているため
 	}
 
 	/**

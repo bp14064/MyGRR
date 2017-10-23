@@ -40,10 +40,12 @@ public class BookExplorer {
 		 ArrayList<BookData> resultData = new ArrayList<BookData>();
 		 int getDataNum = 10;
 		 int chunkNum = getDataNum+1;
+		 int test = 0;
 		 try {
 			String query = cr.createRequest(keyword, "keyword", "non", getDataNum);
 			String result = rtr.requestProcess(query);
-			ra.createBookDataFile(result);
+			test = ra.createBookDataFile(result);
+			System.out.println("TEST:"+test);
 			for(int i=1;i<chunkNum;i++) {
 			resultData.add(ra.createBookData(i));
 			}
