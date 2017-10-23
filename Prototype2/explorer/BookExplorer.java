@@ -54,9 +54,16 @@ public class BookExplorer {
 			e.printStackTrace();
 		}
 
+		 ArrayList<BookData> normalBookData = new ArrayList<BookData>();
 		 for(BookData bd : resultData) {
-			 if(bd.isNormalBookData())
+			 if(bd.isNormalBookData()) {
 				 bd.checkBookData();
+				 normalBookData.add(bd);
+			 }
+		 }
+		 if(normalBookData.size() == 0) {
+			 System.out.println("対象書籍がない");
+			 System.exit(0);
 		 }
 
 		/*
