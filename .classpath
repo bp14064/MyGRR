@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="lib/guava-23.0.jar"/>
 	<classpathentry kind="lib" path="lib/httpclient-4.5.3.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-gosen-4.6.0-naist-chasen.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-gosen-4.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
