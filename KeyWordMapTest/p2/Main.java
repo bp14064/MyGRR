@@ -34,20 +34,22 @@ public class Main {
 			    k[i][j] = 1;
 			}
 		}
+		Keyword[] tmp = new Keyword[4];
+		/*for(int i=0;i<node;i++) {
+			tmp[i] = new Keyword(0,0);
+		}*/
 
-
-		int TRIALS = 500;
+		int TRIALS = 200;
 		double c = 3;
 		double energy = 0;
-		//double[][] tmp = new double[node][node];//結果の一時保存用
 
 		for(int t = 0; t < TRIALS; t++) {
 			//座標の表示
-			System.out.println("TRIALS:"+(t+1));
-			for(int a=0;a<4;a++) {
-				keyArray[a].showKeywordInfo();
-			}
-
+			//System.out.println("TRIALS:"+(t+1));
+			//for(int a=0;a<4;a++) {
+			//	keyArray[a].showKeywordInfo();
+			//}
+			//エネルギーの計算
 			//全体のエネルギーの算出
 			for(int i=0;i<node;i++) {
 				for(int j=0;j<node;j++) {
@@ -55,28 +57,37 @@ public class Main {
 				}
 			}
 			//このエネルギーがInfinityになったらやめてその一個前を取る
-			System.out.println("エネルギー："+energy);
-			System.out.println(energy);
-			System.out.println("=========================");
+			//System.out.println("エネルギー："+energy);
+			//System.out.println("=========================");
+			if(energy == Double.POSITIVE_INFINITY) {
+				break;
+			}else {
+				for(int v = 0;v<node;v++) {
+				 tmp[v] = new Keyword(keyArray[v].getX(),keyArray[v].getY());
+				}
+			}
 			energy=0;
 
-			double newX = 0;
-			double newY = 0;
+
+
 			//新しい座標の計算
 			for(int p = 0; p < node; p++) {
 				for(int q = 0; q < node; q++) {
-
 					if(p!=q) {
 						if(p!=0) {
-						keyArray[p].setX( keyArray[p].getX() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
-						keyArray[p].setY( keyArray[p].getY() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
+					    keyArray[p].setX( keyArray[p].getX() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
+					    keyArray[p].setY( keyArray[p].getY() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
 						}
 					}
 
 				}
 			}
-			//ここ
 
+		}
+
+		System.out.println("最終結果");
+		for(int y=0;y<node;y++) {
+			tmp[y].showKeywordInfo();
 		}
 
 	}
