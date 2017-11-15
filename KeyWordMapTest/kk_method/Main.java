@@ -128,13 +128,15 @@ public class Main {
 			 //δx、δyの計算
 			 for(int l1=0;l1<node;l1++) {
 				 if(l1!=M) {
-					 moveX = computeDx(keyArray[M].getX(), keyArray[l1].getX(), keyArray[M].getY(), keyArray[l1].getY(), l[M][l1], k[M][l1]);
-					 moveY = computeDy(keyArray[M].getX(), keyArray[l1].getX(), keyArray[M].getY(), keyArray[l1].getY(), l[M][l1], k[M][l1]);
+					 moveX += computeDx(keyArray[M].getX(), keyArray[l1].getX(), keyArray[M].getY(), keyArray[l1].getY(), l[M][l1], k[M][l1]);
+					 moveY += computeDy(keyArray[M].getX(), keyArray[l1].getX(), keyArray[M].getY(), keyArray[l1].getY(), l[M][l1], k[M][l1]);
 				 }
 			 }
 			 //移動
 			 keyArray[M].setX( keyArray[M].getX() + moveX);
 			 keyArray[M].setY( keyArray[M].getY() + moveY);
+			 moveX=0;
+			 moveY=0;
 			 //終了条件のためにΔを計算
 			 for(int l2=0;l2<node;l2++) {
 				 if(l2!=M) {
