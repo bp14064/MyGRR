@@ -2,7 +2,7 @@ package kk_method;
 
 public class Main {
 	//static final double m = 2;
-	static final int K = 10;
+	static final int K = -10;
 
 	public static void main(String[] args) {
 		int node = 4;
