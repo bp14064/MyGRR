@@ -2,7 +2,7 @@ package p2;
 
 public class Main {
 	static final double m = 2;
-	static final int K = 10;
+	static final int K = 3;
 
 	public static void main(String[] args) {
 		int node = 4;
@@ -23,9 +23,9 @@ public class Main {
 		//キーワード
 		Keyword[] keyArray = new Keyword[4];
 		keyArray[0] = new Keyword(1.0, 1.0);
-		keyArray[1] = new Keyword(2.0, 1.5);
-		keyArray[2] = new Keyword(3.0, 4.0);
-		keyArray[3] = new Keyword(6.0, 5.0);
+		keyArray[1] = new Keyword(2.0, -1.5);
+		keyArray[2] = new Keyword(-3.0, 4.0);
+		keyArray[3] = new Keyword(-6.0, -5.0);
 		for(int i = 0; i < node; i++) {
 			for(int j = 0; j < node; j++) {
 			  if(i!=j)
@@ -58,6 +58,7 @@ public class Main {
 			}
 			//このエネルギーがInfinityになったらやめてその一個前を取る
 			//System.out.println("エネルギー："+energy);
+			System.out.println(energy);
 			//System.out.println("=========================");
 			if(energy == Double.POSITIVE_INFINITY) {
 				break;
@@ -75,8 +76,8 @@ public class Main {
 				for(int q = 0; q < node; q++) {
 					if(p!=q) {
 						if(p!=0) {
-					    keyArray[p].setX( keyArray[p].getX() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
-					    keyArray[p].setY( keyArray[p].getY() + (c * computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
+					    keyArray[p].setX( keyArray[p].getX() + ( computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
+					    keyArray[p].setY( keyArray[p].getY() + ( computeDx(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), l[p][q], k[p][q])) );
 						}
 					}
 
@@ -93,18 +94,18 @@ public class Main {
 	}
 
 	static double computeL(double R) {
-		return m * (1 - R);
+		return m * (1 / R);
 	}
 
 	static double computeDx(double x1, double x2, double y1, double y2, double l, double k) {
 		double res = 0;
-		res = k * ( (x1-x2) - ( l / ( Math.sqrt( (Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2) ) ) ) ));
+		res = k * ( (x1-x2) - ( (l * (x1 -x2)) / ( Math.sqrt( (Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2) ) ) ) ));
 		return res;
 	}
 
 	static double computeDy(double x1, double x2, double y1, double y2, double l, double k) {
 		double res = 0;
-		res = k * ( (y1-y2) - ( l / ( Math.sqrt( (Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2) ) ) ) ));
+		res = k * ( (y1-y2) - ( (l * (y1 -y2)) / ( Math.sqrt( (Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2) ) ) ) ));
 		return res;
 	}
 
