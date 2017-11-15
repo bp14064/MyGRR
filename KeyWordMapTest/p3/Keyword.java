@@ -1,4 +1,4 @@
-package p2;
+package p3;
 
 public class Keyword {
 	private double x;
@@ -26,8 +26,7 @@ public class Keyword {
 	}
 
 	public void showKeywordInfo() {
-		System.out.println(this.x+","+this.y);
-		//System.out.println("Test:"+Double.toString(x));
+		System.out.println("X:"+this.x+" Y:"+this.y);
 	}
 
 }
