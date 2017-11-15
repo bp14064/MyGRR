@@ -1,0 +1,38 @@
+package p6;
+
+public class Keyword {
+	private double x;
+	private double y;
+
+	public Keyword(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public void setXY(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public void showKeywordInfo() {
+		System.out.println(this.x+","+this.y);
+		//System.out.println("Test:"+Double.toString(x));
+	}
+
+}
