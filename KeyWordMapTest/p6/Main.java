@@ -12,9 +12,9 @@ public class Main {
 		double[][] l = new double[4][4];
 		double[][] d = new double[4][4];
 		double[][] R = {{0.3, 0.3, 0.3, 0.3},
-		         {0.3, 0.5, -1, -1},
-		         {0.3, -1, 0.5, -1},
-		         {0.3, -1, -1, 0.5}};
+		                {0.3, 0.5, -1, -1},
+		                {0.3, -1, 0.5, -1},
+		                {0.3, -1, -1, 0.5}};
 		//ノードの設定
 		Keyword[] keyArray = new Keyword[4];
 		keyArray[0] = new Keyword(1.0, 1.0);
