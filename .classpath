@@ -7,6 +7,7 @@
 	<classpathentry kind="src" path="openBDTest"/>
 	<classpathentry kind="src" path="KeyWordMapTest"/>
 	<classpathentry kind="src" path="MorphologicalAnalysisTest"/>
+	<classpathentry kind="src" path="GUITest"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/dom4j-2.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jaxen-1.1.4.jar"/>
