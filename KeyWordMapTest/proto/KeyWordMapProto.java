@@ -71,9 +71,13 @@ public class KeyWordMapProto extends Application{
 		//キーワードの設定
 		Keyword[] keyArray = new Keyword[4];
 		keyArray[0] = new Keyword(1.0, 1.0);
-		keyArray[1] = new Keyword(2.0, -1.5);
-		keyArray[2] = new Keyword(-3.0, 4.0);
-		keyArray[3] = new Keyword(-6.0, -5.0);
+		keyArray[1] = new Keyword(3.0, -1.5);
+		keyArray[2] = new Keyword(-5.0, 4.0);
+		keyArray[3] = new Keyword(-11.0, -10.0);
+		keyArray[0].setXY(0, 100);
+		 keyArray[1].setXY(100, 0);
+		 keyArray[2].setXY(0, -100);
+		 keyArray[3].setXY(-100, 0);
 		return keyArray;
 	}
 

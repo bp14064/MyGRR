@@ -1,8 +1,8 @@
 package proto;
 
 public class ComputeMap {
-	private final double M = 60; //これを変えると各頂点間の距離が変わる
-	private final int TRIALS = 1500; //ここは経験的にやるしかない（いまのところ）
+	private final double M = 30; //これを変えると各頂点間の距離が変わる
+	private final int TRIALS = 2000; //ここは経験的にやるしかない（いまのところ）
 	private final double cK = -10;
 	private final double C = 0.5;
 
@@ -10,10 +10,11 @@ public class ComputeMap {
 	private double[][] K;
 	private double[][] L;
 	private double[][] D;
-	private double[][] R = {{0.3, 0.6, 0.3, 0.3},
-            				  {0.6, 0.5, -1, -1},
-            				  {0.3, -1, 0.5, -1},
-            				  {0.3, -1, -1, 0.5}};
+	//関連がある 0 > R >= -1 関連がないR = 1
+	private double[][] R = {{0.5, -0.6, 0.6, 0.6},
+            				  {-0.6, 0.5, 1, 1},
+            				  {0.6, 1, 0.5, 1},
+            				  {0.6, 1, 1, 0.5}};
 
 	public ComputeMap(int node) {
 		this.node = node;
@@ -27,6 +28,7 @@ public class ComputeMap {
 		double energy = 0;
 		double deltaX = 0;
 		double deltaY = 0;
+
 
 		for(int t = 0; t < this.TRIALS; t++) {
 			//エネルギーの計算
@@ -53,10 +55,10 @@ public class ComputeMap {
 					     deltaY += computeDy(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), this.L[p][q], this.K[p][q]);
 					}
 				}
-				if(p!=0) {//あるものを動かしたくないときはここで設定しないことで行う
+				//if(p!=0) {//あるものを動かしたくないときはここで設定しないことで行う
 				keyArray[p].setX( keyArray[p].getX() + this.C * deltaX );
 				keyArray[p].setY( keyArray[p].getY() + this.C * deltaY );
-				}
+				//}
 				deltaX=0;
 				deltaY=0;
 			}
@@ -110,7 +112,7 @@ public class ComputeMap {
 	private void setLValue(Keyword[] keyArray) {
 		for(int i = 0; i < node; i++) {
 			for(int j = 0; j < node; j++) {
-				this.L[i][j] = this.M * (1 - this.R[i][j]);
+				this.L[i][j] = this.M * (1 / this.R[i][j]);
 			}
 		}
 	}
