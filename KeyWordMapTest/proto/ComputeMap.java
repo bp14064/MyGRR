@@ -1,8 +1,8 @@
 package proto;
 
 public class ComputeMap {
-	private final double M = 50; //これを変えると各頂点間の距離が変わる
-	private final int TRIALS = 1000;
+	private final double M = 60; //これを変えると各頂点間の距離が変わる
+	private final int TRIALS = 1500; //ここは経験的にやるしかない（いまのところ）
 	private final double cK = -10;
 	private final double C = 0.5;
 
@@ -10,10 +10,11 @@ public class ComputeMap {
 	private double[][] K;
 	private double[][] L;
 	private double[][] D;
-	private double[][] R = {{0.3, 0.3, 0.3, 0.3},
-            {0.3, 0.5, -1, -1},
-            {0.3, -1, 0.5, -1},
-            {0.3, -1, -1, 0.5}};
+	private double[][] R = {{0.3, 0.6, 0.3, 0.3},
+            				  {0.6, 0.5, -1, -1},
+            				  {0.3, -1, 0.5, -1},
+            				  {0.3, -1, -1, 0.5}};
+
 	public ComputeMap(int node) {
 		this.node = node;
 		this.D = new double[node][node];
@@ -52,8 +53,10 @@ public class ComputeMap {
 					     deltaY += computeDy(keyArray[p].getX(), keyArray[q].getX(), keyArray[p].getY(), keyArray[q].getY(), this.L[p][q], this.K[p][q]);
 					}
 				}
+				if(p!=0) {//あるものを動かしたくないときはここで設定しないことで行う
 				keyArray[p].setX( keyArray[p].getX() + this.C * deltaX );
 				keyArray[p].setY( keyArray[p].getY() + this.C * deltaY );
+				}
 				deltaX=0;
 				deltaY=0;
 			}

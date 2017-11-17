@@ -31,6 +31,8 @@ public class KeyWordMapProto extends Application{
 		}*/
 		key = compute(key);
 		//更新後の描画
+		//gc.strokeOval(101,101,15,15);
+
 		for(int i=0;i<4;i++) {
 			this.setCircle(gc,key[i].getX()+100,key[i].getY()+100);
 	    }
