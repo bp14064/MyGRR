@@ -1,8 +1,8 @@
 package p1;
 
-public class NDLAAPIHandler extends APIHandler {
+public abstract class APIHandler {
 
-	public NDLAAPIHandler() {
+	public APIHandler() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
