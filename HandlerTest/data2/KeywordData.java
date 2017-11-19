@@ -2,7 +2,9 @@ package data2;
 
 import java.util.ArrayList;
 
-public class KeywordData {
+public class KeywordData extends Data{
+	private final int ID;
+	private final String type;
 	private String subject;
 	//この件名の代表分類
 	private ArrayList<String> ndc;
@@ -16,20 +18,22 @@ public class KeywordData {
 	private ArrayList<String> related;
 	//この件名が持つ代表分類に属する件名
 	private ArrayList<String> sameCategorySubject;
-	//件名が取得できないときのキーワード
+	//件名が取得できないときのキーワード 　※　ただし、これが本当に必要かは分からない
 	private String keyword;
 
+	//まだ、キーワード（件名の変わり）の場合のコンストラクタは作っていない
 
-	public KeywordData() {
-		// TODO 自動生成されたコンストラクター・スタブ
-	}
-	public KeywordData(String subject, ArrayList<String> ndc) {
+	public KeywordData(int ID, String type, String subject, ArrayList<String> ndc) {
+		this.ID = ID;
+		this.type = type;
 		this.subject = subject;
 		this.ndc = ndc;
 		this.inputNDC(ndc);
 	}
 
-	public KeywordData(String subject, ArrayList<String> ndc, ArrayList<String> broader, ArrayList<String> narrower, ArrayList<String> related, ArrayList<String> sameCategorySubject) {
+	public KeywordData(int ID, String type, String subject, ArrayList<String> ndc, ArrayList<String> broader, ArrayList<String> narrower, ArrayList<String> related, ArrayList<String> sameCategorySubject) {
+		this.ID = ID;
+		this.type = type;
 		this.subject = subject;
 		this.ndc = ndc;
 		this.inputNDC(ndc);
@@ -54,6 +58,7 @@ public class KeywordData {
 
 			}
 		}
+
 	}
 
 	public String getSubject() {
@@ -86,6 +91,18 @@ public class KeywordData {
 
 	public ArrayList<String> getSameCategorySubject() {
 		return sameCategorySubject;
+	}
+
+	@Override
+	public int getID() {
+		// TODO 自動生成されたメソッド・スタブ
+		return this.ID;
+	}
+
+	@Override
+	public String getType() {
+		// TODO 自動生成されたメソッド・スタブ
+		return this.type;
 	}
 
 }
