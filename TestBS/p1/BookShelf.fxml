@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p1.BookShelfController">
+   <children>
+      <VBox alignment="CENTER" layoutX="58.0" layoutY="46.0" prefHeight="600.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <Rectangle fx:id="book1" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="28.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book2" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="169.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book3" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="336.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <Rectangle fx:id="book4" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="28.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book5" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="169.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book6" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="336.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <Rectangle fx:id="book7" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="28.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book8" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="169.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <Rectangle fx:id="book9" arcHeight="20.0" arcWidth="20.0" fill="#e1e4e8" height="150.0" layoutX="336.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="150.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button fx:id="leftButton" layoutX="14.0" layoutY="285.0" mnemonicParsing="false"  prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="610.0" AnchorPane.topAnchor="260.0" />
+      <Button fx:id="rightButton" layoutX="606.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#rightButtonCliked" prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="260.0" />
+   </children>
+</AnchorPane>
