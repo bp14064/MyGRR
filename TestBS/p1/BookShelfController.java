@@ -38,9 +38,10 @@ public class BookShelfController implements Initializable {
 	@FXML
 	private Button leftButton;
 
-	//private Rectangle[] rect = {book1,book2,book3,book4,book5,book6,book7,book8,book9};
+	private Rectangle[] rect;
 
 	private Control cnt = new Control(0,3);
+	private Timeline timer = null;
 
 	public BookShelfController() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -52,25 +53,12 @@ public class BookShelfController implements Initializable {
 		// TODO 自動生成されたメソッド・スタブ
 		Rectangle[] rect = {book1,book2,book3,book4,book5,book6,book7,book8,book9}; //ここは固定
 
-		Timeline timer = new Timeline(
+		timer = new Timeline(
 				new KeyFrame(Duration.millis(3000),
 				new EventHandler<ActionEvent>(){
 					@Override
 					public void handle(ActionEvent event) { //上で宣言したタイマー内のイベント処理　→　だからここでノードに更新もやらないといけない?
 
-						leftButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-							 public void handle(MouseEvent e)
-				                {
-
-								 System.out.println("clicked");
-
-									int index = cnt.getIndex() -1;
-									if(index>=0)
-									cnt.setIndex(index);
-									else
-									cnt.setIndex(cnt.getMax());
-				                }
-						});
 
 
 						 if(cnt.getIndex() != cnt.getMax()) {
@@ -85,19 +73,6 @@ public class BookShelfController implements Initializable {
 							  cnt.setIndex(0);
 						}
 
-						 leftButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-							 public void handle(MouseEvent e)
-				                {
-								 
-								 System.out.println("clicked");
-
-									int index = cnt.getIndex() -1;
-									if(index>=0)
-									cnt.setIndex(index);
-									else
-									cnt.setIndex(cnt.getMax());
-				                }
-						});
 
 					}
 				}));
@@ -106,10 +81,14 @@ public class BookShelfController implements Initializable {
 		timer.setCycleCount(Timeline.INDEFINITE);
 	    timer.play();
 	}
+	public void test() {
+
+	}
 
 	//左ボタンが押された
-	/*@FXML
+	@FXML
 	private void leftButtonCliked(MouseEvent event) {
+		timer.pause();
 		System.out.println("clicked");
 
 		int index = cnt.getIndex() -1;
@@ -117,7 +96,8 @@ public class BookShelfController implements Initializable {
 		cnt.setIndex(index);
 		else
 		cnt.setIndex(cnt.getMax());
-	}*/
+		timer.play();
+	}
 	//右ボタンが押された
 	@FXML
 	private void rightButtonCliked(MouseEvent event) {
