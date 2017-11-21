@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="apane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p5.BookShelfController3">
+   <children>
+      <VBox alignment="CENTER" layoutX="58.0" layoutY="46.0" prefHeight="600.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <ImageView fx:id="book1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book3" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <ImageView fx:id="book4" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book5" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book6" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: black;">
+               <children>
+                  <ImageView fx:id="book7" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="337.5" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book8" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="25.0" />
+                  <ImageView fx:id="book9" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="337.5" AnchorPane.rightAnchor="12.5" AnchorPane.topAnchor="25.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button fx:id="leftButton" layoutX="14.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#leftButtonCliked" prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="610.0" AnchorPane.topAnchor="260.0" />
+      <Button fx:id="rightButton" layoutX="606.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#rightButtonCliked" prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="260.0" />
+   </children>
+</AnchorPane>
