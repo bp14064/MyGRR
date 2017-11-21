@@ -1,12 +1,12 @@
-package p2;
+package p4;
 
 import javafx.scene.paint.Color;
 
-public class Control {
+public class Control3 {
 	private int index;
 	private final int max;
 	Color[] color = new Color[4];
-	public Control(int index, int max) {
+	public Control3(int index, int max) {
 		this.index = index;
 		this.max = max;
 		this.color[0] = Color.BLUEVIOLET;
