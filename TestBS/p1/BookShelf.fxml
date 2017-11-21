@@ -32,7 +32,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Button fx:id="leftButton" layoutX="14.0" layoutY="285.0" mnemonicParsing="false"  prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="610.0" AnchorPane.topAnchor="260.0" />
+      <Button fx:id="leftButton" layoutX="14.0" layoutY="285.0" mnemonicParsing="false"  onMouseClicked="#leftButtonCliked" prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="610.0" AnchorPane.topAnchor="260.0" />
       <Button fx:id="rightButton" layoutX="606.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#rightButtonCliked" prefHeight="80.0" prefWidth="80.0" text="Button" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="260.0" />
    </children>
 </AnchorPane>
