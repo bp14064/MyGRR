@@ -1,6 +1,6 @@
 package p1;
 
-import get_data2.CreateBCDRequest;
+
 
 public class TestAPI {
 
@@ -10,9 +10,9 @@ public class TestAPI {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
-		CreateBCDRequest api = new CreateBCDRequest();
+		BCDAPIHandler api = new BCDAPIHandler();
 		String isbn = "9784331518427";
-		api.getBCD(isbn);
+		api.getBCData(isbn);
 	}
 
 }
