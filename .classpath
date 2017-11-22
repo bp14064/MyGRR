@@ -11,6 +11,7 @@
 	<classpathentry kind="src" path="HandlerTest"/>
 	<classpathentry kind="src" path="SampleBS"/>
 	<classpathentry kind="src" path="TestBS"/>
+	<classpathentry kind="src" path="KeyWordMapTest2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/dom4j-2.1.0.jar"/>
 	<classpathentry kind="lib" path="lib/jaxen-1.1.4.jar"/>
