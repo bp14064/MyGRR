@@ -37,10 +37,11 @@ public class Node {
 	}
 
 	/**
-	 * 単純なオイラー法によるノードの位置計算（ http://matarillo.com/layout/part1.php ）
-	 * ノードの質量はすべて１として計算
-	 * @param dt：定数。この値が小さいとオイラー法の誤差が小さくなる
-	 * @param f：このノードにかかる力
+	 * 単純なオイラー法によるノードの位置計算<br>
+	 * ノードの質量はすべて１として計算<br>
+	 * @see <a href="http://matarillo.com/layout/part1.php">計算法の参考サイト</a>
+	 * @param dt 定数。この値が小さいとオイラー法の誤差が小さくなる
+	 * @param f このノードにかかる力
 	 */
 	public void moveEular(double dt, Vector f) {
 		this.coordinates = new Vector((this.coordinates.getX() + dt * this.velocity.getX()), (this.coordinates.getY() + dt * this.velocity.getY()));
@@ -48,9 +49,9 @@ public class Node {
 	}
 
 	/**
-	 * ばねの弾性力（あるノードがばねから受ける力）を計算
-	 *  F(x) = -k*(d-l)*cosθ
-	 *  F(y) = -k*(d-l)*sinθ
+	 * ばねの弾性力（あるノードがばねから受ける力）を計算<br>
+	 *  F(x) = -k*(d-l)*cosθ<br>
+	 *  F(y) = -k*(d-l)*sinθ<br>
 	 * @param n 相手のノード
 	 * @return ばねから受ける力 F
 	 */
@@ -88,10 +89,10 @@ public class Node {
 	}
 
 	/**
-	 * ノード同士の反発力の計算（これはばねで繋がっているかどうかに関係なく、すべてノード間で働く）
-	 * 反発力は逆2乗の法則に従う（力Fの大きさが距離dの2乗に反比例）ことにしている
-	 * RF(x)=g/d~2 * cosθ
-	 * RF(y)=g/d~2 * sinθ
+	 * ノード同士の反発力の計算（これはばねで繋がっているかどうかに関係なく、すべてノード間で働く）<br>
+	 * 反発力は逆2乗の法則に従う（力Fの大きさが距離dの2乗に反比例）ことにしている<br>
+	 * RF(x)=g/d~2 * cosθ<br>
+	 * RF(y)=g/d~2 * sinθ<br>
 	 * @param n 相手ノード
 	 * @return 反発力 RF
 	 */
@@ -120,9 +121,9 @@ public class Node {
 	}
 
 	/**
-	 * 空気抵抗を参考にした摩擦力を計算
-	 * FF(x) = -μ*V(x)
-	 * FF(y) = -μ*V(y)
+	 * 空気抵抗を参考にした摩擦力を計算<br>
+	 * FF(x) = -μ*V(x)<br>
+	 * FF(y) = -μ*V(y)<br>
 	 * @return 摩擦力 FF
 	 */
 	public Vector getFrictionalForce() {
