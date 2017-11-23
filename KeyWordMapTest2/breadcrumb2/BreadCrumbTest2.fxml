@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+
+<ScrollPane hbarPolicy="ALWAYS" maxHeight="220.0" maxWidth="600.0" minHeight="220.0" minWidth="600.0" prefHeight="220.0" prefWidth="600.0" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="breadcrumb2.BCController2">
+   <content>
+      <HBox fx:id="hbox" maxHeight="220.0" maxWidth="600.0" minHeight="220.0" minWidth="600.0" prefHeight="220.0" prefWidth="600.0" />
+   </content>
+</ScrollPane>
