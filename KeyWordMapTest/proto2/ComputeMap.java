@@ -3,7 +3,7 @@ package proto2;
 public class ComputeMap {
 	private final double M = 25; //これを変えると各頂点間の距離が変わる
 	private final int TRIALS = 5500000; //ここは経験的にやるしかない（いまのところ） 追加（11/21）　画面の大きさが大きくなるとその分回数を増やさないといけない
-	private final double cK = 15;
+	private final double cK = -15;
 	private final double C = 0.05;//これ以上さげると、さらに回数を回さないといけなくなる　これ半分→TRIALS二倍
 
 	private int node;
