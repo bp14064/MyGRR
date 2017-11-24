@@ -3,6 +3,7 @@ package p1;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -31,6 +32,8 @@ public class BCDAPIHandler extends APIHandler {
 	public String getBCData(String isbn) {
 		this.targetISBN = isbn;
 		String resultFilePath = this.filePathHead + this.targetISBN + this.filePathTail;
+		int readByte=0;
+		boolean cantGet = false;
 
 		/*
 		 * 版元ドットコムのAPI 普通に取得 例： http://www.hanmoto.com/bd/img/978-4-7808-0172-9.jpg →
@@ -68,10 +71,16 @@ public class BCDAPIHandler extends APIHandler {
 
 			// データの読み込み
 			byte[] b = new byte[4096];
-			int readByte = 0;
+			readByte = 0;
+			int sum=0;
 			while (-1 != (readByte = dataInStream.read(b))) {
+				sum+=readByte;
 				// ローカルへの保存
 				dataOutStream.write(b, 0, readByte);
+			}
+			//System.out.println(sum);
+			if(sum==3185) {
+				cantGet = true;
 			}
 
 			// ストリームのクローズ
@@ -88,8 +97,14 @@ public class BCDAPIHandler extends APIHandler {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-
 		//this.id++; // 取得が出来たらid番号を更新
+		if(cantGet) {
+			File file = new File(resultFilePath);
+			if(file.exists()) {
+				file.delete();
+			}
+			resultFilePath = "non";
+		}
 
 		return resultFilePath;
 	}

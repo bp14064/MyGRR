@@ -11,8 +11,9 @@ public class TestAPI {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		BCDAPIHandler api = new BCDAPIHandler();
-		String isbn = "9784331518427";
-		api.getBCData(isbn);
+		String isbn = "9784309226712";
+		String s = api.getBCData(isbn);
+		System.out.println(s);
 	}
 
 }
