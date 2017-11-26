@@ -25,11 +25,10 @@ public class DBHandler {
 
 	        // テーブル作成
 	        this.st = connection.createStatement();
-	        this.st.executeUpdate("CREATE TABLE KEYWORDDATA (ID INTEGER, TYPE VARCHAR(100), KEYWORD VARCHAR(255), NDC VARCHAR(255), BROADER VARCHAR(255), NARROWER VARCHAR(255), RELATED VARCHAR(255), SAMECATEGORY VARCHAR(255));");
+	        //this.st.executeUpdate("CREATE TABLE KEYWORDDATA (ID INTEGER, TYPE VARCHAR(100), KEYWORD VARCHAR(255), NDC VARCHAR(255), BROADER VARCHAR(255), NARROWER VARCHAR(255), RELATED VARCHAR(255), SAMECATEGORY VARCHAR(255));");
 
 	        // データ挿入
-	        //this.st.executeUpdate("INSERT INTO BOOKDATA VALUES (1, 'SELECTED', '魔法の世紀', '○○シリーズ　１', '落合陽一', '○○○○', '○○○○出版社', '2016年', '007.6', '情報科学,コンピューター', '200p', '28919297947927', 'K-487429', 'C:\\ajfiajri\\fajlkjd\\jfaka\\aj')");
-
+	        this.st.executeUpdate("INSERT INTO BOOKDATA VALUES (1, 'SELECTED', '魔法の世紀', '○○シリーズ　１', '落合陽一', '○○○○', '○○○○出版社', '2016年', '007.6', '情報科学,コンピューター,情報科学,コンピューター,情報科学,コンピューター,情報科学,コンピューター', '200p', '28919297947927', 'K-487429', 'C:\\ajfiajri\\fajlkjd\\jfaka\\aj')");
 	        // データ取得
 	        //this.rs = st.executeQuery("SELECT * FROM TEST_TABLE");
 
