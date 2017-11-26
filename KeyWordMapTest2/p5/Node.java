@@ -26,11 +26,11 @@ public class Node {
 	/**
 	 * 反発力の強さ（任意定数）
 	 */
-	private final double g=500;
+	private double g=500;
 	/**
 	 * 比例定数μ
 	 */
-	private final double mu=0.4;
+	private double mu=0.4;
 
 	public Node(String name, String nodeType) {
 		this.nodeName = name;
@@ -117,22 +117,10 @@ public class Node {
 		double d = Math.sqrt(d2);
 		double cos = dx / d;
 		double sin = dy / d;
-		if(this.nodeType.matches("selected")&&n.nodeType.matches("subject")) {
+		//this.setReplusiveForceCoefficient(n.nodeType);
 		RFx = g / d2 * cos;
 		RFy = g / d2 * sin;
-		}else if(this.nodeType.matches("subject")&&n.nodeType.matches("subject")){
-			RFx = (g * 100) / d2 * cos;
-			RFy = (g * 100) / d2 * sin;
-		}else if((this.nodeType.matches("subject")&&n.nodeType.matches("related"))||(this.nodeType.matches("related")&&n.nodeType.matches("subject"))) {
-			RFx = 10 / d2 * cos;
-			RFy = 10 / d2 * sin;
-		}else if(this.nodeType.matches("related")&&n.nodeType.matches("related")) {
-			RFx = 10 / d2 * cos;
-			RFy = 10 / d2 * sin;
-		}else {
-			RFx = g / d2 * cos;
-			RFy = g / d2 * sin;
-		}
+
 		return new Vector(RFx,RFy);
 	}
 
@@ -152,8 +140,22 @@ public class Node {
 	/**
 	 * ノード同士の組み合わせによって反発力を変えるためのメソッド
 	 */
-	private void setParam() {
-
+	private void setReplusiveForceCoefficient(String targetNodeType) {
+		if(this.nodeType.matches("subject") && targetNodeType.matches("subject")) {
+			this.g = 1000;
+		}
+		if((this.nodeType.matches("subject") && targetNodeType.matches("selected"))&&(this.nodeType.matches("selected") && targetNodeType.matches("subject"))){
+			//変わらない
+		}
+		if(this.nodeType.matches("related") && targetNodeType.matches("related")) {
+			this.g = 10;
+		}
+		if((this.nodeType.matches("subject") && targetNodeType.matches("related"))&&(this.nodeType.matches("related") && targetNodeType.matches("subject"))) {
+			this.g = 100;
+		}
+		if((this.nodeType.matches("subjectParent") && targetNodeType.matches("related"))&&(this.nodeType.matches("related") && targetNodeType.matches("subjectParent"))) {
+			this.g = 1;
+		}
 	}
 
 	public String getNodeName() {

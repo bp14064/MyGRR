@@ -26,7 +26,7 @@ public class SpringModelController implements Initializable {
 	/**
 	 * ノードタイプ格納用のリスト
 	 */
-	private String[] nodeType = {"selected", "subject", "subject", "subject", "subject", "subject", "related", "related"};
+	private String[] nodeType = {"selected", "subjectParent", "subject", "subject", "subject", "subject", "related", "related"};
 	/**
 	 * ノード間のリンクを表す
 	 */
@@ -34,7 +34,7 @@ public class SpringModelController implements Initializable {
 
 	private ComputeMap cm;
 
-	private final int TRIALS = 6000;
+	private final int TRIALS = 5000;
 
 	private Rectangle[] rectArray;
 
