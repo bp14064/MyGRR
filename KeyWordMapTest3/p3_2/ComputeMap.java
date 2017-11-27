@@ -70,6 +70,7 @@ public class ComputeMap {
 			//座標の初期化　指定した円の円周上に配置
 			newX = (int)(r * Math.cos(theta));
 			newY = (int)(r * Math.sin(theta));
+			System.out.println(newX+"  "+newY);
 			n.setCoordinates(new Vector(newX, newY));
 			//速度の初期化
 			newX = 0.0;
@@ -122,7 +123,7 @@ public class ComputeMap {
 	public Rectangle[] makeRectangle(int nodeNum, double w, double h, double mapW, double mapH) {
 		Rectangle[] result = new Rectangle[nodeNum];
 		for(int i=0;i<result.length;i++) {
-			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX() + (mapW/2),this.node.get(i).getCoordinates().getY() + (mapH/2),w,h);
+			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX(),this.node.get(i).getCoordinates().getY() + 225,w,h);
 		}
 		return result;
 	}

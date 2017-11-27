@@ -1,13 +1,15 @@
-package p3_2;
+package p3_3;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Node {
 	private String nodeID;
+	/**
+	 * 隣接ノード
+	 */
 	private ArrayList<Node> neighbor;
-	//private Data nodeData; 実際にはこうする　→　いれるのは本データまたはキーワードデータ
-	//private String nodeType;
+
 	/**
 	 * ノードの座標
 	 */
@@ -36,7 +38,6 @@ public class Node {
 	public Node(String name) {
 		this.nodeID = name;
 		this.neighbor = new ArrayList<Node>();
-		//this.nodeType = nodeType;
 	}
 
 	/**
@@ -118,7 +119,6 @@ public class Node {
 		double d = Math.sqrt(d2);
 		double cos = dx / d;
 		double sin = dy / d;
-		//this.setReplusiveForceCoefficient(n.nodeType);
 		RFx = g / d2 * cos;
 		RFy = g / d2 * sin;
 
@@ -163,8 +163,8 @@ public class Node {
 		this.coordinates = coordinates;
 	}
 
-	public void setVelocity(Vector velocity) {
-		this.velocity = velocity;
+	public void setVelocity(p3_3.Vector vector) {
+		this.velocity = vector;
 	}
 
 
@@ -181,5 +181,7 @@ public class Node {
 		System.out.println("ノードID:"+this.nodeID);
 		System.out.println("X座標:"+this.coordinates.getX()+" Y座標:"+this.coordinates.getY());
 	}
+
+
 
 }

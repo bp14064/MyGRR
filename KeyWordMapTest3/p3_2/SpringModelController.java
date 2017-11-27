@@ -6,23 +6,20 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class SpringModelController implements Initializable {
-
 	@FXML
-	private HBox hbox;
-	@FXML
-	private Group group;
+	private Pane pane;
 
-	private int nodeNum = 6;
-	private Color[] colorArray = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.PURPLE, Color.BROWN, Color.BLACK, Color.BLACK};
+	private int nodeNum = 3;
+	private Color[] colorArray = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.PURPLE, Color.BROWN, Color.BLACK, Color.BLACK, Color.ALICEBLUE, Color.BLANCHEDALMOND, Color.DEEPSKYBLUE, Color.YELLOW};
 	/**
 	 * マップに設置するノード
 	 */
-	private String[] nodeName = {"1", "2", "3", "4", "5", "6"};
+	private String[] nodeName = {"1", "2", "3"/*, "4", "5", "6", "7", "8", "9", "10", "11", "12"*/};
 	/**
 	 * ノードタイプ格納用のリスト
 	 */
@@ -30,7 +27,7 @@ public class SpringModelController implements Initializable {
 	/**
 	 * ノード間のリンクを表す
 	 */
-	private String[] link = {"1,2", "1,3", "1,4", "1,5", "1,6"};
+	private String[] link = {"1,2", "1,3"/*, "1,4", "1,5", "1,6", "1,7", "1,8", "1,9", "1,10", "1,11", "1,12"*/};
 
 
 	private String[] nodeName2 = {"2", "7", "8"};
@@ -39,14 +36,15 @@ public class SpringModelController implements Initializable {
 	private ComputeMap cm;
 	private ComputeMap cm2;
 
-	private final int TRIALS = 10000;
+	private final int TRIALS = 70000;
 
 	private Rectangle[] rectArray;
 	private Rectangle[] rectArray2;
 
-	private double rectWidth = 20;
-	private double rectHeight = 20;
+	private double rectWidth = 100;
+	private double rectHeight = 130;
 
+	private Group group;
 
 	public SpringModelController() {
 		//探索マップのためのメンバの作成
@@ -61,7 +59,7 @@ public class SpringModelController implements Initializable {
 
 		this.drawMap();
 		this.cm.showMapInfo();
-		this.drawMap2();
+		//this.drawMap2();
 	}
 
 	private void drawMap() {
@@ -69,8 +67,17 @@ public class SpringModelController implements Initializable {
 			this.cm.MoveAll();
 
 		this.makeRectArray();
+		//this.pane.getChildren().addAll(this.rectArray);
+		this.group = new Group();
+		this.group.setLayoutX(0);
+		this.group.setLayoutY(0);
+		System.out.println(this.group.getLayoutX() + "  " + this.group.getLayoutY());
+		this.group.setScaleX(0.5);
+		this.group.setScaleY(0.5);
 		this.group.getChildren().addAll(this.rectArray);
 		this.group.autosize();
+		this.pane.getChildren().add(this.group);
+
 	}
 
 	private void drawMap2() {
@@ -78,8 +85,7 @@ public class SpringModelController implements Initializable {
 			this.cm2.MoveAll();
 
 		this.makeRectArray2();
-		this.group.getChildren().addAll(this.rectArray2);
-		this.group.autosize();
+		this.pane.getChildren().addAll(this.rectArray2);
 	}
 
 	private void makeRectArray() {
