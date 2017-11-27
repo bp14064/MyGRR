@@ -1,4 +1,4 @@
-package p4;
+package p6;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,6 @@ public class ComputeMap {
 	/**
 	 * ノード間のリンクを表す
 	 */
-	//private String[] link = {"1,2", "1,3", "1,4", "2,3", "2,4", "3,4"};
 	private String[] link;
 	/**
 	 * ノードの格納用リスト
@@ -116,10 +115,12 @@ public class ComputeMap {
 	public Rectangle[] makeRectangle(int nodeNum, double w, double h, double mapW, double mapH) {
 		Rectangle[] result = new Rectangle[nodeNum];
 		for(int i=0;i<result.length;i++) {
-			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX() + 200,this.node.get(i).getCoordinates().getY() + 225,w,h);
+			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX() + (mapW/2),this.node.get(i).getCoordinates().getY() + (mapH/2),w,h);
 		}
 		return result;
 	}
+
+
 
 
 }

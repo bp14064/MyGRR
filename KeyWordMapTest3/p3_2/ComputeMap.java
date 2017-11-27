@@ -1,4 +1,4 @@
-package p4;
+package p3_2;
 
 import java.util.ArrayList;
 
@@ -9,10 +9,6 @@ public class ComputeMap {
 	 * マップに設置するノード
 	 */
 	private String[] nodeName;
-	/**
-	 * ノードタイプ格納用のリスト
-	 */
-	private String[] nodeType;
 	/**
 	 * ノード間のリンクを表す
 	 */
@@ -27,11 +23,13 @@ public class ComputeMap {
 	 */
 	private Node lockNode;
 
-	public ComputeMap(String[] nodeName, String[] nodeType, String[] link) {
+	private boolean second=false;
+
+	public ComputeMap(String[] nodeName, String[] link, boolean second) {
 		this.node = new ArrayList<Node>();
 		this.nodeName = nodeName;
-		this.nodeType = nodeType;
 		this.link = link;
+		this.second = second;
 		this.setNode();
 	}
 
@@ -40,15 +38,23 @@ public class ComputeMap {
 	 */
 	private void setNode() {
 		for(int i=0; i<this.nodeName.length; i++) {
-			this.node.add(new Node(this.nodeName[i], this.nodeType[i]));
+			this.node.add(new Node(this.nodeName[i]));
 		}
 		for(String l : link) {
 			String[] subLink = l.split(",");
 			this.node.get(Integer.parseInt(subLink[0])-1).getNeighbor().add(this.node.get(Integer.parseInt(subLink[1])-1));
 			this.node.get(Integer.parseInt(subLink[1])-1).getNeighbor().add(this.node.get(Integer.parseInt(subLink[0])-1));
 		}
-		circularize(100.0);
+		circularize(300.0);
 		this.lockNode = this.node.get(0);
+		if(this.second) {
+			for(Node n : this.node) {
+				n.setL(50);
+				n.setG(50);
+			}
+		  this.lockNode = this.node.get(0);
+
+		}
 	}
 
 	/**
@@ -116,7 +122,7 @@ public class ComputeMap {
 	public Rectangle[] makeRectangle(int nodeNum, double w, double h, double mapW, double mapH) {
 		Rectangle[] result = new Rectangle[nodeNum];
 		for(int i=0;i<result.length;i++) {
-			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX() + 200,this.node.get(i).getCoordinates().getY() + 225,w,h);
+			result[i] = new Rectangle(this.node.get(i).getCoordinates().getX() + (mapW/2),this.node.get(i).getCoordinates().getY() + (mapH/2),w,h);
 		}
 		return result;
 	}
