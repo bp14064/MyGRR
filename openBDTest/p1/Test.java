@@ -9,7 +9,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		   try {
-	            URL url = new URL("http://cover.openbd.jp/9784152087195.jpg");
+	            URL url = new URL("http://www.hanmoto.com/bd/img/image.php/978-4-7808-0172-9.jpg?width=200&image=/bd/img/7808/978-4-7808-0172-9.jpg");
 	            //コネクション開いて接続
 	            URLConnection urlcon = url.openConnection();
 
