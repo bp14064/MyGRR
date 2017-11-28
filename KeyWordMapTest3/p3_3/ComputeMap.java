@@ -2,6 +2,7 @@ package p3_3;
 
 import java.util.ArrayList;
 
+
 public class ComputeMap {
 	private ArrayList<String> list;
 	private ArrayList<String> link;
@@ -88,6 +89,14 @@ public class ComputeMap {
 
 	public ArrayList<Node> getNode() {
 		return node;
+	}
+
+	public void showMapInfo() {
+		if(this.node.size()!=0) {
+			for(Node n : this.node) {
+				n.showNodeInfo();
+			}
+		}
 	}
 
 }
