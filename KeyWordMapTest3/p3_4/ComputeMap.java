@@ -63,6 +63,7 @@ public class ComputeMap {
 
 	public void MoveAll() {
 		final double dt = 0.1;
+		//double E =0;
 		for(Node n : this.node) {
 		  if(n!=this.lockNode) {
 			Vector f = new Vector(0, 0);
@@ -77,7 +78,9 @@ public class ComputeMap {
 			f = Vector.operator(f, n.getFrictionalForce());
 			n.moveEular(dt, f);
 		  }
+		  //E = E + Math.sqrt(Math.pow(n.getVelocity().getX(), 2) + Math.pow(n.getVelocity().getY(), 2));
 		}
+		//System.out.println("E="+E);
 	}
 
 	public void compute(int TRIALS) {
