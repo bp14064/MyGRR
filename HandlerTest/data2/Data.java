@@ -5,6 +5,5 @@ public abstract class Data {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
-	public abstract int getID();
-	public abstract String getType();
+	public abstract String getID();
 }

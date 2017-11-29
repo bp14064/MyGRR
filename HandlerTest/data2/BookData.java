@@ -3,8 +3,8 @@ package data2;
 import java.util.ArrayList;
 
 public class BookData extends Data{
-	private final int ID;
-	private final String type;
+	private String ID;
+	private boolean isSelected;
 	private ArrayList<ArrayList<String>> allData;//これは今後の様子を見て要らないようなら消す
 	private ArrayList<String>  mainTitle;
 	private ArrayList<String> author;
@@ -16,24 +16,24 @@ public class BookData extends Data{
 	private ArrayList<String> page;
 	private ArrayList<String> isbn;
 	private ArrayList<String> callNum;
-	private ArrayList<String> materialIdentifer;
+	private ArrayList<String> materialIdentifer; //対象利用者、資料種別のためのメンバ　一般、図書　以外は結果として表示しない
 	private ArrayList<String> publishYear;
-	private ArrayList<String> imagePath;
+	private ArrayList<String> imagePath; //画像の保存先のパス
 
-	public BookData(int ID, String type) {
+	public BookData(String ID, boolean isSelected) {
 		// TODO 自動生成されたコンストラクター・スタブ
 		this.ID = ID;
-		this.type = type;
+		this.isSelected = isSelected;
 	}
 
 	/*
 	 * 不完全
 	 */
-	public BookData(int ID, String type,ArrayList<String> mt, ArrayList<String> series, ArrayList<String> author, ArrayList<String> st,
+	public BookData(String ID, boolean isSelected, ArrayList<String> mt, ArrayList<String> series, ArrayList<String> author, ArrayList<String> st,
 			ArrayList<String> pub, ArrayList<String> pages, ArrayList<String> ndc, ArrayList<String> sub,
 			ArrayList<String> isbn, ArrayList<String> cn, ArrayList<String> mi, ArrayList<String> py, ArrayList<String> ip) {
 		this.ID = ID;
-		this.type = type;
+		this.isSelected = isSelected;
 		this.mainTitle = mt;
 		this.series = series;
 		this.author = author;
@@ -74,6 +74,12 @@ public class BookData extends Data{
 			System.out.println("請求記号:"+s8);
 		for(String s9 : this.page)
 			System.out.println("ページ数:"+s9);
+		for(String s10 : this.publishYear)
+			System.out.println("出版年:"+s10);
+		for(String s11 : this.imagePath)
+			System.out.println("画像の保存先:"+s11);
+		for(String s12 : this.materialIdentifer)
+			System.out.println("資料種別情報"+s12);
 
 	}
 
@@ -177,15 +183,17 @@ public class BookData extends Data{
 	}
 
 	@Override
-	public int getID() {
+	public String getID() {
 		// TODO 自動生成されたメソッド・スタブ
 		return this.ID;
 	}
 
-	@Override
-	public String getType() {
-		// TODO 自動生成されたメソッド・スタブ
-		return this.type;
+	public boolean isSelected() {
+		return isSelected;
+	}
+
+	public void setSelected(boolean isSelected) {
+		this.isSelected = isSelected;
 	}
 	/*------------------getter----------------*/
 
