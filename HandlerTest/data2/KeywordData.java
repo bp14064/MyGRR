@@ -3,8 +3,8 @@ package data2;
 import java.util.ArrayList;
 
 public class KeywordData extends Data{
-	private final int ID;
-	private final String type;
+	private String ID;
+	private  String type;
 	private String subject;
 	//この件名の代表分類
 	private ArrayList<String> ndc;
@@ -23,7 +23,7 @@ public class KeywordData extends Data{
 
 	//まだ、キーワード（件名の変わり）の場合のコンストラクタは作っていない
 
-	public KeywordData(int ID, String type, String subject, ArrayList<String> ndc) {
+	public KeywordData(String ID, String type, String subject, ArrayList<String> ndc) {
 		this.ID = ID;
 		this.type = type;
 		this.subject = subject;
@@ -31,7 +31,7 @@ public class KeywordData extends Data{
 		this.inputNDC(ndc);
 	}
 
-	public KeywordData(int ID, String type, String subject, ArrayList<String> ndc, ArrayList<String> broader, ArrayList<String> narrower, ArrayList<String> related, ArrayList<String> sameCategorySubject) {
+	public KeywordData(String ID, String type, String subject, ArrayList<String> ndc, ArrayList<String> broader, ArrayList<String> narrower, ArrayList<String> related, ArrayList<String> sameCategorySubject) {
 		this.ID = ID;
 		this.type = type;
 		this.subject = subject;
@@ -94,12 +94,11 @@ public class KeywordData extends Data{
 	}
 
 	@Override
-	public int getID() {
+	public String getID() {
 		// TODO 自動生成されたメソッド・スタブ
 		return this.ID;
 	}
 
-	@Override
 	public String getType() {
 		// TODO 自動生成されたメソッド・スタブ
 		return this.type;

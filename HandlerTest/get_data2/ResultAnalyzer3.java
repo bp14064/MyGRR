@@ -15,10 +15,19 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import data.BookData;
+import data2.BookData;
 import exception.ArgsTypeException;
 
 public class ResultAnalyzer3 {
+	/*
+	 * ここでファイルパスを管理する
+	 */
+	private String tmpFilePath;
+	private String txtFilePath;
+	private String xmlFilePath;
+	private String bookdataFilePath;
+
+
 
 	public ResultAnalyzer3() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -132,10 +141,10 @@ public class ResultAnalyzer3 {
 	 * @throws DocumentException
 	 */
 	public int createBookDataFile(String data) throws IOException, DocumentException {
-		//String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
-		//String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
-		String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.txt";
-		String xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.xml";
+		String txtFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.txt";
+		String xmlFilePath = "C:\\Users\\AILab08\\git\\MyGRR\\NDL_LOD\\dcndl_test\\tmp.xml";
+		//String txtFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.txt";
+		//SString xmlFilePath = "C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\tmp.xml";
 
 		//一度結果のXMLから最低限必要なところを抜き出したいため、一度XMLファイルとして保管 //もしかしたら今後はこの段階でテキスト処理を行ってもよいかもしれない
 		File filetmp = new File(xmlFilePath);
@@ -182,7 +191,7 @@ public class ResultAnalyzer3 {
 			boolean subjectch = false;
 			boolean series = false;
 			boolean subtitle = false;
-			File bookDataFile = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
+			File bookDataFile = new File("C:\\Users\\AILab08\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
 			FileWriter fw2 = new FileWriter(bookDataFile);
 			BufferedWriter bw2 = new BufferedWriter(fw2);
 			int subtitlenum = 1;
@@ -329,6 +338,12 @@ public class ResultAnalyzer3 {
 				//これは別メソッドが必要
 				bw2.write("資料種別:"+"図書"+"\n");
 			}
+			//<dcterms:date>2006.3</dcterms:date>
+			if(cmp.contains("dcterms:date")) {
+				bw2.write("出版年：" + formatData(cmp));
+			}
+
+
 		}//end of while
 	    br.close();
 		fr.close();
@@ -347,7 +362,7 @@ public class ResultAnalyzer3 {
 	 * @throws IOException
 	 */
 	public BookData createBookData(int chunkNum) throws IOException {
-		File file = new File("C:\\Users\\Shingo\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
+		File file = new File("C:\\Users\\AILab08\\git\\MyGRR\\Prototype2\\get_data\\bookdata.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		ArrayList<String> mainTitle = new ArrayList<String>();
@@ -361,7 +376,9 @@ public class ResultAnalyzer3 {
 		ArrayList<String> publisher = new ArrayList<String>();
 		ArrayList<String> subject = new ArrayList<String>();
 		ArrayList<String> materialIdentifer = new ArrayList<String>();
-		ArrayList<String> tmpL = new ArrayList<String>();
+		ArrayList<String> publishYear = new ArrayList<String>();
+		//ArrayList<String> imagePath = new ArrayList<String>();
+		//ArrayList<String> tmpL = new ArrayList<String>();
 
 		String tmp;
 		boolean get = false;
@@ -407,6 +424,10 @@ public class ResultAnalyzer3 {
 			if(tmp.startsWith("資料種別")&&get) {
 				materialIdentifer.add(tmp);
 			}
+			if(tmp.startsWith("出版年")&&get) {
+				publishYear.add(tmp);
+			}
+
 			if(tmp.startsWith("データ番号")&&tmp.contains("終了")&&get) {
 				if(tmp.contains(Integer.toString(chunkNum))) {
 					get=false;
@@ -416,7 +437,7 @@ public class ResultAnalyzer3 {
 		}
 		br.close();
 		fr.close();
-		return new BookData(mainTitle, series, author, subtitle, publisher, pages, ndc, subject, isbn, callNum, materialIdentifer);
+		return new BookData(null,false,mainTitle, series, author, subtitle, publisher, pages, ndc, subject, isbn, callNum, materialIdentifer, publishYear, null);
 	}
 
 

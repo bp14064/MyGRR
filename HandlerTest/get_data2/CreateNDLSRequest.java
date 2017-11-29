@@ -7,6 +7,8 @@ import exception.ArgsTypeException;
 
 public class CreateNDLSRequest {
 
+	private final int getDataNum=50;
+
 	public CreateNDLSRequest() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
@@ -33,6 +35,16 @@ public class CreateNDLSRequest {
 			//request += "&maximumRecords=10&recordSchema=dcndl_simple&onlyBib=\"true\"";
 			return request;
 	}
+
+	public String createRequest(String querySeed, String queryType) throws ArgsTypeException {
+		String query = this.createQuery4Book(querySeed, queryType);
+		query = this.URIEncode(query);
+		String request = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=";
+		request += query;
+		request += "&maximumRecords=" + this.getDataNum + "&numberOfRecords&recordSchema=dcndl&onlyBib=\"true\"";
+		//request += "&maximumRecords=10&recordSchema=dcndl_simple&onlyBib=\"true\"";
+		return request;
+}
 
 	/**
 	 * 入力されたもの（何かはqueryTypeで判定）に対して、CQLクエリを作成する。
