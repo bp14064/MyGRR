@@ -51,13 +51,22 @@ public class BookShelfCustumController extends AnchorPane{
 	private boolean buttonCliked = false;
 	private Timeline  timer = null;
 
-	public BookShelfCustumController() {
+	public BookShelfCustumController(int num,ArrayList<String> path) {
 		// TODO 自動生成されたコンストラクター・スタブ
+		System.out.println(num);
 		this.imageList = new ArrayList<Image>();
-		imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\1.png" ).toURI().toString()));
+		/*imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\1.png" ).toURI().toString()));
 		imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\2.png" ).toURI().toString()));
 		imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\3.png" ).toURI().toString()));
-		imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\4.png").toURI().toString()));
+		imageList.add(new  Image(new File( "C:\\Users\\Shingo\\Pictures\\pycon2017\\pycon2017_baseball\\4.png").toURI().toString()));*/
+		/*imageList.add(new  Image(new File( "C:\\Users\\AILab08\\Desktop\\a.jpg" ).toURI().toString()));
+		imageList.add(new  Image(new File( "C:\\Users\\AILab08\\Desktop\\b.jpg" ).toURI().toString()));
+		imageList.add(new  Image(new File( "C:\\Users\\AILab08\\Desktop\\d.jpg" ).toURI().toString()));
+		imageList.add(new  Image(new File( "C:\\Users\\AILab08\\Desktop\\c.jpg" ).toURI().toString()));*/
+
+		for(String p : path) {
+			imageList.add(new  Image(new File(p).toURI().toString()));
+		}
 
 		this.loadFXML();
 	}
