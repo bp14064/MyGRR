@@ -1,1 +1,1 @@
-# MyGRR
+# GitLabに移行
