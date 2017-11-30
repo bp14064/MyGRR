@@ -29,7 +29,8 @@ public class NDLSAPIHandler extends APIHandler {
 	}
 
 	/**
-	 * 本の検索を行うためのメソッド
+	 * 本の検索を行うためのメソッド →　このメソッド
+	 *
 	 * @throws ArgsTypeException
 	 * @throws DocumentException
 	 * @throws IOException
@@ -39,17 +40,104 @@ public class NDLSAPIHandler extends APIHandler {
 		 * リクエスト（何を探したいのか）により変わる
 		 * また、結果は本データのリストとしてメンバに保存される
 		 */
+
+		/*if(searchType.matches("keyword")) {
+		//	this.keywordSearch();
+		}else if(searchType.matches("subject")) {
+			this.subjectSearch();
+		}else if(searchType.matches("category")) {
+			this.categorySearch();
+		}*/
+
+
+	}
+
+	/**
+	 * キーワード検索を行うためのメソッド
+	 *
+	 * @param keyword（配列）
+	 * @throws ArgsTypeException
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
+	public void keywordSearch(String[] keyword) throws ArgsTypeException, IOException, DocumentException {
 		CreateNDLSRequest req = new CreateNDLSRequest();
 		RequestTR rtr = new RequestTR();
 		ResultAnalyzer3 ra = new ResultAnalyzer3();
-		if(searchType.matches("keyword")) {
-			String query = req.createRequest(seed, "keyword", 50);
-			String result = rtr.requestProcess(query);
-			this.getDataNum = ra.createBookDataFile(result);
-			for(int i=1;i<this.getDataNum+1;i++) {
-				this.bdList.add(ra.createBookData(i));
-			}
+
+		String query = req.createRequest(keyword, "keyword", 50);
+		String result = rtr.requestProcess(query);
+		this.getDataNum = ra.createBookDataFile(result);
+		for(int i=1;i<this.getDataNum+1;i++) {
+			this.bdList.add(ra.createBookData(i));
 		}
+
+	}
+
+	/**
+	 * AND検索（キーワード検索で）を行うためのメソッド
+	 * @throws ArgsTypeException
+	 * @throws DocumentException
+	 * @throws IOException
+	 *
+	 */
+	public void ANDSearch(String[] keywords) throws ArgsTypeException, IOException, DocumentException {
+		CreateNDLSRequest req = new CreateNDLSRequest();
+		RequestTR rtr = new RequestTR();
+		ResultAnalyzer3 ra = new ResultAnalyzer3();
+
+		String query = req.createRequest(keywords, "AND", 50);
+		String result = rtr.requestProcess(query);
+		this.getDataNum = ra.createBookDataFile(result);
+		for(int i=1;i<this.getDataNum+1;i++) {
+			this.bdList.add(ra.createBookData(i));
+		}
+
+	}
+
+	/**
+	 * 件名検索を行うためのメソッド
+	 * @throws ArgsTypeException
+	 * @throws DocumentException
+	 * @throws IOException
+	 */
+	public void subjectSearch(String[] keywords) throws ArgsTypeException, IOException, DocumentException {
+		CreateNDLSRequest req = new CreateNDLSRequest();
+		RequestTR rtr = new RequestTR();
+		ResultAnalyzer3 ra = new ResultAnalyzer3();
+
+		String query = req.createRequest(keywords, "AND", 50);
+		String result = rtr.requestProcess(query);
+		this.getDataNum = ra.createBookDataFile(result);
+		for(int i=1;i<this.getDataNum+1;i++) {
+			this.bdList.add(ra.createBookData(i));
+		}
+
+	}
+
+	/**
+	 * 分類検索を行うためのメソッド<br>
+	 * ・分類検索のタイプ
+	 * 　・同分類
+	 * 　・
+	 * 　・
+	 *
+	 * @param keyword これはタイトル
+	 * @param ndc
+	 */
+	public void categorySearch(String keyword, String ndc) {
+		CreateNDLSRequest req = new CreateNDLSRequest();
+		RequestTR rtr = new RequestTR();
+		ResultAnalyzer3 ra = new ResultAnalyzer3();
+
+
+
+		/*String query = req.createRequest(keywords, "AND", 50);
+		String result = rtr.requestProcess(query);
+		this.getDataNum = ra.createBookDataFile(result);
+		for(int i=1;i<this.getDataNum+1;i++) {
+			this.bdList.add(ra.createBookData(i));
+		}*/
 
 	}
 
@@ -57,19 +145,20 @@ public class NDLSAPIHandler extends APIHandler {
 	/**
 	 * DBへデータを格納するためのメソッド
 	 */
-	public void store4DB() {
+	private void storeBookData4DB() {
 
 	}
 
 	/**
 	 * 追加検索を行うためのメソッド
 	 */
-	public void additionalSearch() {
+	private void additionalSearch() {
 
 	}
 
 	/**
-	 *
+	 * 本データのIDを作るためのメソッド
+	 * だが、管理はどうやる？
 	 */
 	public void makeID() {
 
